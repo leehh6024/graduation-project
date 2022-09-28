@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import "./Location.css";
-import Modal from "./Modal.js";
 import ModalBasic from "./ModalBasic";
 
 const { kakao } = window;
@@ -21,10 +20,21 @@ export default function Location() {
     const [locations, setLocations] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [modalData, setModalData] = useState("");
+    const outside = useRef();
 
-    const closeModal = () => {
-        setModalOpen(false);
-    };
+    useEffect(() => {
+        const clickOutside = e => {
+            if (modalOpen && outside.current && !outside.current.contains(e.target)) {
+                setModalOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", clickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", clickOutside);
+        };
+    }, [modalOpen])
     
     // 서버와의 통신
     const getIssuePoints = useCallback(async () =>{
@@ -50,6 +60,10 @@ export default function Location() {
             setModalOpen(true);
         }
     }
+
+    const closeModal = () => {
+        setModalOpen(false);
+    }
     // 맵 만들기
     useEffect( () => {
         container = document.getElementById("map");
@@ -65,7 +79,6 @@ export default function Location() {
     }, [getIssuePoints]);
 
     useEffect(() => {
-
         for (var i = 0; i < locations.length; i++) {
             var marker = new kakao.maps.Marker({
                 map: map,
@@ -73,26 +86,18 @@ export default function Location() {
                 title: locations[i].title,
             });
 
-            // var iwContent = '<div style="padding:5px;">Hello World!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-            //     // iwPosition = new kakao.maps.LatLng(33.450701, 126.570667), // 인포윈도우 표시 위치입니다
-            //     iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
-            // var infowindow = new kakao.maps.InfoWindow({
-            //     title: locations[i].title,
-            //     body: locations[i].body,
-            //     removable: iwRemoveable,
-            //     content: iwContent,
-            // });
-
             kakao.maps.event.addListener(marker, 'click', makeModalShow(locations[i].title) );
         }
-
     }, [locations]);
 
     return (
         <div>
             <div id="map" style={{ width: "432px", height: "940px", margin: "auto" }}></div>
             {modalOpen && <ModalBasic title={modalData} />}
+            <button onClick={closeModal}>XXX</button>
+            <div ref={outside}>
+                <div onClick={() => setModalOpen((pre) => !pre)}>닫기</div>
+            </div>
         </div>
     );
 }
