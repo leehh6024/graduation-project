@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import "./Location.css";
-import Modal from "./Modal.js";
 import ModalBasic from "./ModalBasic";
 
 const { kakao } = window;
@@ -21,6 +20,21 @@ export default function Location() {
     const [locations, setLocations] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [modalData, setModalData] = useState("");
+    const outside = useRef();
+
+    useEffect(() => {
+        const clickOutside = e => {
+            if (modalOpen && outside.current && !outside.current.contains(e.target)) {
+                setModalOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", clickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", clickOutside);
+        };
+    }, [modalOpen])
     
     // 서버와의 통신
     const getIssuePoints = useCallback(async () =>{
@@ -81,12 +95,15 @@ export default function Location() {
             <div id="map" style={{ width: "432px", height: "940px", margin: "auto" }}></div>
             {modalOpen && <ModalBasic title={modalData} />}
             <button onClick={closeModal}>XXX</button>
+            <div ref={outside}>
+                <div onClick={() => setModalOpen((pre) => !pre)}>닫기</div>
+            </div>
         </div>
     );
 }
 
 // 0.000001 => 10cm
-/*
+/*-
 1. 현재 위치 받아서 변수에 저장 (서버에 보내는척 하는거임) -> (x, y)
     func(x, y) -> 반환하는 값 : 임시좌표 여러 개
 2. 임시 좌표 만들어서 지도에 마크로 표시

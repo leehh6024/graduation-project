@@ -65,7 +65,7 @@ export default function Location() {
         setModalOpen(false);
     }
     // 맵 만들기
-    useEffect( () => {
+    useEffect(() => {
         container = document.getElementById("map");
         options = {
             center: new kakao.maps.LatLng(nowLoc.lat, nowLoc.longitude),
@@ -103,7 +103,7 @@ export default function Location() {
 }
 
 // 0.000001 => 10cm
-/*
+/*-
 1. 현재 위치 받아서 변수에 저장 (서버에 보내는척 하는거임) -> (x, y)
     func(x, y) -> 반환하는 값 : 임시좌표 여러 개
 2. 임시 좌표 만들어서 지도에 마크로 표시
