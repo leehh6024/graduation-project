@@ -1,18 +1,6 @@
 import { useRef, useEffect } from "react";
-import { MIN_Y, MAX_Y, BOTTOM_SHEET_HEIGHT } from "./constants";
-// interface BottomSheetMetrics {
-// 	touchStart: {
-// 		sheetY: number, // touchstart에서 BottomSheet의 최상단 모서리의 Y값
-// 		touchY: number, // touchstart에서 터치 포인트의 Y값
-// 	};
-// 	touchMove: {
-// 		prevTouchY?: number, // 다음 touchmove 이벤트 핸들러에서 필요한 터치 포인트 Y값을 저장
-// 		movingDirection: "none" | "down" | "up", // 유저가 터치를 움직이고 있는 방향
-// 	};
-// }
 
 export function useBottomSheet() {
-	//const sheet = useRef < HTMLDivElement > null;
 	const sheetRef = useRef(null);
 
 	const metrics = useRef({
@@ -74,9 +62,8 @@ export function useBottomSheet() {
 			const { touchMove } = metrics.current;
 
 			// Snap Animation
-			const currentSheetY = sheetRef.current.getBoudingClientRect().y;
+			const currentSheetY = sheetRef.current.getBoundingClientRect().y;
 
-			//if (currentSheetY !== MIN_TOP) {
 			if (currentSheetY !== MIN_Y) {
 				if (touchMove.movingDirection === "down") {
 					sheetRef.current.style.setProperty("transform", "translateY(0)");
@@ -116,3 +103,7 @@ export function useBottomSheet() {
 
 	return { sheet: sheetRef };
 }
+
+const MIN_Y = 60; // 바텀시트가 최대로 높이 올라갔을 때의 y 값
+const MAX_Y = window.innerHeight - 80; // 바텀시트가 최소로 내려갔을 때의 y 값
+const BOTTOM_SHEET_HEIGHT = window.innerHeight - MIN_Y; // 바텀시트의 세로 길이

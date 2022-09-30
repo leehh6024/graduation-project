@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
+import GlobalContext from "../../../common/context/store";
 import "./Map.css";
 import { API } from "../../../service.js";
 
@@ -7,6 +8,8 @@ const nowLoc = { lat: 37.454334, longitude: 127.130338 };
 var container, options, map;
 
 export default function Location() {
+	const { setState } = useContext(GlobalContext);
+
 	const [locations, setLocations] = useState([]);
 
 	// 서버와의 통신
@@ -26,6 +29,10 @@ export default function Location() {
 			setLocations(processedLocation);
 		}
 	}, []);
+
+	const setSheetOpen = useCallback(() => {
+		setState((prev) => ({ ...prev, sheet: true }));
+	});
 
 	// 맵 생성 및 기준점 초기화
 	useEffect(() => {
@@ -59,7 +66,7 @@ export default function Location() {
 				title: locations[i].title,
 			});
 
-			kakao.maps.event.addListener(marker, "click");
+			kakao.maps.event.addListener(marker, "click", setSheetOpen);
 		}
 	}, [locations]);
 
