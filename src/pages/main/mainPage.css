@@ -30,11 +30,14 @@ html {
 [data-rsbs-is-blocking="false"] [data-rsbs-overlay] {
 	box-shadow: 0 -5px 60px 0 rgba(38, 89, 115, 0.11), 0 -1px 0 rgba(38, 89, 115, 0.05);
 }
+
+/* bottom-sheet main */
 [data-rsbs-overlay],
 [data-rsbs-root]:after {
-	max-width: var(--rsbs-max-w);
-	margin-left: var(--rsbs-ml);
-	margin-right: var(--rsbs-mr);
+	max-width: 432px;
+	margin: auto;
+	/* margin-left: var(--rsbs-ml);
+	margin-right: var(--rsbs-mr); */
 }
 [data-rsbs-overlay],
 [data-rsbs-backdrop],
