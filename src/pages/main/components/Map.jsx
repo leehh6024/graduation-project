@@ -5,6 +5,7 @@ import { API } from "../../../service.js";
 
 const { kakao } = window;
 const nowLoc = { lat: 37.454334, longitude: 127.130338 };
+
 var container, options, map;
 
 export default function Location() {
@@ -34,6 +35,19 @@ export default function Location() {
 		setState((prev) => ({ ...prev, sheet: true }));
 	});
 
+
+	// 해당 좌표를 읽어오는 함수필요 => 클릭시 서버에서 받아온 데이터의 좌표를 담을 변수필요 =>
+	// 해당 좌표를 중심좌표로 초기화시켜주기 (카카오맵API참고)
+	const getCenterLocation = useCallback(() => {
+		getIssuePoints(() => {
+			container = document.getElementById("map");
+			options = {
+				center: new kakao.maps.LatLng(nowLoc.lat, nowLoc.longitude),
+				level: 2,
+		};
+		})
+	})
+
 	// 맵 생성 및 기준점 초기화
 	useEffect(() => {
 		container = document.getElementById("map");
@@ -50,7 +64,7 @@ export default function Location() {
 	 * 따라서 새로고침이나 접속 시에만 useEffect 가 실행됨
 	 */
 	useEffect(() => {
-		getIssuePoints();
+		getIssuePoints();	
 	}, [getIssuePoints]);
 
 	/**
@@ -65,7 +79,6 @@ export default function Location() {
 				position: locations[i].latlng, // 마커를 표시할 위치
 				title: locations[i].title,
 			});
-
 			kakao.maps.event.addListener(marker, "click", setSheetOpen);
 		}
 	}, [locations]);
