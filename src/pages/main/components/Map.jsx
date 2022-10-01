@@ -33,6 +33,16 @@ export default function Location() {
 
 	const setSheetOpen = useCallback(() => {
 		setState((prev) => ({ ...prev, sheet: true }));
+
+		const markerDetail = (id) => {
+			setmarkerId(id)
+			// 게시물 작성 버튼이 보입니다.
+			setWrite(true)
+			// 게시물 component를 보여줍니다.
+			props.showPost()
+			// 해당 마커에 저장된 게시물 정보를 가져옵니다.
+			dispatch(postActions.getPostAX(id))
+		}
 	});
 
 
