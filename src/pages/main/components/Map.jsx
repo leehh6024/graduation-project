@@ -4,13 +4,11 @@ import "./Map.css";
 import { API } from "../../../service.js";
 
 const { kakao } = window;
-const nowLoc = { lat: 37.454334, longitude: 127.130338 };
-
 var container, options, map;
 
 export default function Location() {
 	const { setState } = useContext(GlobalContext);
-
+	const [nowLoc, setNowLoc] = useState({ lat: 37.454334, lng: 127.130338 });
 	const [locations, setLocations] = useState([]);
 
 	// 서버와의 통신
@@ -26,46 +24,24 @@ export default function Location() {
 				};
 			});
 			console.log(processedLocation);
-
+			// console.log(getIssuePoints);
 			setLocations(processedLocation);
 		}
 	}, []);
-
-	const setSheetOpen = useCallback(() => {
-		setState((prev) => ({ ...prev, sheet: true }));
-
-		const markerDetail = (id) => {
-			setmarkerId(id)
-			// 게시물 작성 버튼이 보입니다.
-			setWrite(true)
-			// 게시물 component를 보여줍니다.
-			props.showPost()
-			// 해당 마커에 저장된 게시물 정보를 가져옵니다.
-			dispatch(postActions.getPostAX(id))
-		}
-	});
-
-
-	// 해당 좌표를 읽어오는 함수필요 => 클릭시 서버에서 받아온 데이터의 좌표를 담을 변수필요 =>
-	// 해당 좌표를 중심좌표로 초기화시켜주기 (카카오맵API참고)
-	const getCenterLocation = useCallback(() => {
-		getIssuePoints(() => {
-			container = document.getElementById("map");
-			options = {
-				center: new kakao.maps.LatLng(nowLoc.lat, nowLoc.longitude),
-				level: 2,
-		};
-		})
-	})
 
 	// 맵 생성 및 기준점 초기화
 	useEffect(() => {
 		container = document.getElementById("map");
 		options = {
-			center: new kakao.maps.LatLng(nowLoc.lat, nowLoc.longitude),
+			center: new kakao.maps.LatLng(nowLoc.lat, nowLoc.lng),
 			level: 2,
 		};
 		map = new kakao.maps.Map(container, options);
+
+		kakao.maps.event.addListener(map, "center_changed", function () {
+				var latlng = map.getCenter();
+				console.log(latlng);
+			});
 	}, []);
 
 	/**
@@ -74,9 +50,8 @@ export default function Location() {
 	 * 따라서 새로고침이나 접속 시에만 useEffect 가 실행됨
 	 */
 	useEffect(() => {
-		getIssuePoints();	
+		getIssuePoints();
 	}, [getIssuePoints]);
-
 	/**
 	 * locations 는 state 변수이므로, 값이 변경될 때(서버에서 데이터를 받아올 때)
 	 * 마다 리액트가 화면을 렌더링함. useEffect 가 locations 를 참조하고 있으므로
@@ -90,8 +65,16 @@ export default function Location() {
 				title: locations[i].title,
 			});
 			kakao.maps.event.addListener(marker, "click", setSheetOpen);
+			kakao.maps.event.addListener(marker, "click", function (e) {
+				alert("marker clicked");
+			})
 		}
 	}, [locations]);
+
+	const setSheetOpen = useCallback(() => {
+		setState((prev) => ({ ...prev, sheet: true }));
+	});
+
 
 	return (
 		<div>
