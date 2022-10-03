@@ -26,9 +26,11 @@ export default function Location() {
 						Number(issuePoint.location.lat),
 						Number(issuePoint.location.lng)
 					),
+					body: issuePoint.body,
+					img: issuePoint.img,
 				};
 			});
-			// console.log(processedLocation);
+			console.log(processedLocation);
 			setLocations(processedLocation);
 		}
 	}, []);
@@ -62,7 +64,11 @@ export default function Location() {
 				position: locations[i].latlng, // 마커를 표시할 위치
 				title: locations[i].title,
 			});
-			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(locations[i]));
+			kakao.maps.event.addListener(
+				marker,
+				"click",
+				bottomSheetOpen(locations[i])
+			);
 		}
 	}, [locations]);
 
@@ -76,7 +82,10 @@ export default function Location() {
 	return (
 		<>
 			<div>
-				<div id="map" style={{ width: "432px", height: "940px", margin: "auto" }}></div>
+				<div
+					id="map"
+					style={{ width: "432px", height: "940px", margin: "auto" }}
+				></div>
 			</div>
 		</>
 	);
