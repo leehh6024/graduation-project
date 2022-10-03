@@ -1,5 +1,6 @@
 import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useState } from "react";
+import styled from "styled-components";
 
 export default function Temp(props) {
 	const { state, setState } = useContext(GlobalContext);
@@ -9,6 +10,7 @@ export default function Temp(props) {
 		<>
 			<h1>{state.selected[0].title}</h1>
 			<h1>{state.selected[0].class}</h1>
+			<h1>{state.selected[0].body}</h1>
 			<Image src={state.selected[0].img}></Image>
 		</>
 	);

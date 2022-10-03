@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
 	height: 48px;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
 	position: relative;
 	padding-top: 16px;
 	padding-bottom: 4px;
