@@ -37,7 +37,7 @@ export default function Location() {
 			level: 2,
 		};
 		map = new kakao.maps.Map(container, options);
-	}, [locations]);
+	}, []);
 	/**
 	 * getIssuePoints 는 useCallback() 을 통해 생성된 함수이므로
 	 * state 가 변경되어도 재선언되지 않음
