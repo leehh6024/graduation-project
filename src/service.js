@@ -11,7 +11,7 @@ export const TownCleanerAPI = axios.create({
 });
 
 export async function getFixedPointIssue() {
-	return await TownCleanerAPI.get("/");
+	return await TownCleanerAPI.get("/issue");
 }
 
 export async function getUserPointIssues(userPoint) {

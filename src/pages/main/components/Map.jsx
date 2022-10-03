@@ -16,15 +16,15 @@ export default function Location() {
 		const { data } = await API.getFixedPointIssue();
 		// console.log(data);
 		if (data) {
-			const processedLocation = data.data.map((issuePoint) => {
+			const { fixedIssuePointList } = data.data;
+			const processedLocation = fixedIssuePointList.map((issuePoint) => {
 				return {
 					title: issuePoint.title,
 					class: issuePoint.class,
-					latlng: new kakao.maps.LatLng(issuePoint.latitude, issuePoint.longitude),
+					latlng: new kakao.maps.LatLng(issuePoint.lat, issuePoint.lng),
 				};
 			});
 			console.log(processedLocation);
-			// console.log(getIssuePoints);
 			setLocations(processedLocation);
 		}
 	}, []);
@@ -37,13 +37,7 @@ export default function Location() {
 			level: 2,
 		};
 		map = new kakao.maps.Map(container, options);
-
-		kakao.maps.event.addListener(map, "center_changed", function () {
-				var latlng = map.getCenter();
-				console.log(latlng);
-			});
-	}, []);
-
+	}, [locations]);
 	/**
 	 * getIssuePoints 는 useCallback() 을 통해 생성된 함수이므로
 	 * state 가 변경되어도 재선언되지 않음
@@ -65,9 +59,10 @@ export default function Location() {
 				title: locations[i].title,
 			});
 			kakao.maps.event.addListener(marker, "click", setSheetOpen);
-			kakao.maps.event.addListener(marker, "click", function (e) {
-				alert("marker clicked");
-			})
+			// kakao.maps.event.addListener(marker, "click", function () {
+			// 	setLocations(locations[i]);
+			// });
+			// console.log(locations[i]);
 		}
 	}, [locations]);
 
@@ -75,10 +70,20 @@ export default function Location() {
 		setState((prev) => ({ ...prev, sheet: true }));
 	});
 
+	// useEffect(() => {
+	// 	if (locations !== null) {
+	// 		setSheetOpen(locations);
+	// 	}
+	// }, [locations]);
 
 	return (
-		<div>
-			<div id="map" style={{ width: "432px", height: "940px", margin: "auto" }}></div>
-		</div>
+		<>
+			<div>
+				<div
+					id="map"
+					style={{ width: "432px", height: "940px", margin: "auto" }}
+				></div>
+			</div>
+		</>
 	);
 }
