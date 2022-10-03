@@ -7,7 +7,7 @@ const { kakao } = window;
 var container, options, map;
 
 export default function Location() {
-	const { setState } = useContext(GlobalContext);
+	const { state, setState } = useContext(GlobalContext);
 	const [nowLoc, setNowLoc] = useState({ lat: 37.454334, lng: 127.130338 });
 	const [locations, setLocations] = useState([]);
 
@@ -17,14 +17,18 @@ export default function Location() {
 		// console.log(data);
 		if (data) {
 			const { fixedIssuePointList } = data.data;
+			// console.log(fixedIssuePointList);
 			const processedLocation = fixedIssuePointList.map((issuePoint) => {
 				return {
 					title: issuePoint.title,
 					class: issuePoint.class,
-					latlng: new kakao.maps.LatLng(issuePoint.lat, issuePoint.lng),
+					latlng: new kakao.maps.LatLng(
+						Number(issuePoint.location.lat),
+						Number(issuePoint.location.lng)
+					),
 				};
 			});
-			console.log(processedLocation);
+			// console.log(processedLocation);
 			setLocations(processedLocation);
 		}
 	}, []);
@@ -58,31 +62,21 @@ export default function Location() {
 				position: locations[i].latlng, // 마커를 표시할 위치
 				title: locations[i].title,
 			});
-			kakao.maps.event.addListener(marker, "click", setSheetOpen);
-			// kakao.maps.event.addListener(marker, "click", function () {
-			// 	setLocations(locations[i]);
-			// });
-			// console.log(locations[i]);
+			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(locations[i]));
 		}
 	}, [locations]);
 
-	const setSheetOpen = useCallback(() => {
-		setState((prev) => ({ ...prev, sheet: true }));
-	});
-
-	// useEffect(() => {
-	// 	if (locations !== null) {
-	// 		setSheetOpen(locations);
-	// 	}
-	// }, [locations]);
+	function bottomSheetOpen(location) {
+		return function () {
+			setState((prev) => ({ ...prev, sheet: true }));
+			setState((prev) => ({ ...prev, selected: [location] }));
+		};
+	}
 
 	return (
 		<>
 			<div>
-				<div
-					id="map"
-					style={{ width: "432px", height: "940px", margin: "auto" }}
-				></div>
+				<div id="map" style={{ width: "432px", height: "940px", margin: "auto" }}></div>
 			</div>
 		</>
 	);

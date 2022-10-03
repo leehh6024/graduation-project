@@ -3,6 +3,7 @@ import { BottomSheet } from "react-spring-bottom-sheet";
 import GlobalContext from "../../common/context/store";
 import { useContext, useEffect } from "react";
 import "./mainPage.css";
+import Temp from "../../pages/temp/Temp.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -29,7 +30,7 @@ export default function Main() {
 				}}
 				blocking={false}
 			>
-				<input autoComplete="off" className="commentInput" type="text" />
+				<Temp></Temp>
 			</BottomSheet>
 		</>
 	);
