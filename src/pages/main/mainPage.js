@@ -17,14 +17,11 @@ export default function Main() {
 	}
 	return (
 		<>
-			{/* <button onClick={() => setState((prev) => ({ ...prev, sheet: !state.sheet }))}>
-				{state.sheet ? "close" : "open"}
-			</button> */}
 			<Map />
 			<BottomSheet
 				open={state.sheet}
 				onDismiss={onDismiss}
-				snapPoints={({ maxHeight }) => [0.45 * maxHeight, 0.83 * maxHeight]}
+				snapPoints={({ maxHeight }) => [0.2 * maxHeight, 0.7 * maxHeight]}
 				defaultSnap={({ lastSnap, snapPoints }) => {
 					lastSnap ?? Math.max(...snapPoints);
 				}}
