@@ -44,7 +44,7 @@ export default function Location() {
 		}
 	}, []);
 
-	const getBoundingInfo = useCallback(() => {
+	const getBoundingInfo = () => {
 		let bounds = map.getBounds();
 		let swLatLng = bounds.getSouthWest();
 		let neLatLng = bounds.getNorthEast();
@@ -62,16 +62,16 @@ export default function Location() {
 			},
 		};
 		return user;
-	}, []);
+	};
 
-	const getIssuePoints = useCallback(async () => {
+	const getIssuePoints = async () => {
 		const { data } = await API.getFixedPointIssue();
 
 		if (!data) throw new Error("No data");
 		const processedIssuePoint = formatIssueData(data);
 
 		setLocations(processedIssuePoint);
-	}, []);
+	};
 
 	const setUserCenter = () => {
 		const userLocation = new kakao.maps.LatLng(userLoc.lat, userLoc.lng);
