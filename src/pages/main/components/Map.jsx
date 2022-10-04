@@ -2,15 +2,14 @@ import React, { useState, useEffect, useCallback, useContext } from "react";
 import GlobalContext from "../../../common/context/store";
 import "./Map.css";
 import { API } from "../../../service.js";
-import axios from "axios";
 
 const { kakao } = window;
 var container, options, map;
 
 const formatIssueData = (data) => {
-	const { fixedIssuePointList } = data.data;
+	const issuePointList = data.data;
 	// console.log(fixedIssuePointList);
-	const processedLocation = fixedIssuePointList.map((issuePoint) => {
+	const processedLocation = issuePointList.map((issuePoint) => {
 		return {
 			title: issuePoint.title,
 			class: issuePoint.class,
@@ -33,10 +32,13 @@ export default function Location() {
 	const getUserLocation = useCallback(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				setUserLoc({
-					lat: position.coords.latitude,
-					lng: position.coords.longitude,
-				});
+				setUserLoc(
+					{
+						lat: position.coords.latitude,
+						lng: position.coords.longitude,
+					}
+					// () => setUserCenter()
+				);
 			});
 			//console.log(userLoc);
 		} else {
@@ -64,8 +66,9 @@ export default function Location() {
 		return user;
 	};
 
-	const getIssuePoints = async () => {
-		const { data } = await API.getFixedPointIssue();
+	const getIssuePoints = async (user) => {
+		const { data } = await API.getFixedPointIssue({ user });
+		// console.log(data);
 
 		if (!data) throw new Error("No data");
 		const processedIssuePoint = formatIssueData(data);
@@ -76,6 +79,12 @@ export default function Location() {
 	const setUserCenter = () => {
 		const userLocation = new kakao.maps.LatLng(userLoc.lat, userLoc.lng);
 		map.setCenter(userLocation);
+
+		const user = getBoundingInfo();
+		// console.log(user);
+		// 4. 서버에 요청
+		getIssuePoints(user);
+		console.log("getIssuePoints() executed");
 	};
 
 	useEffect(() => {
@@ -85,27 +94,9 @@ export default function Location() {
 			level: 2,
 		};
 		map = new kakao.maps.Map(container, options);
-		// let userPositionObj = new kakao.maps.LatLng(userLoc.lat, userLoc.lng);
-
-		// let marker = new kakao.maps.Marker({
-		// 	map: map,
-		// 	position: userPositionObj,
-		// });
-
-		// let iwRemoveable = true;
-
-		// let infoWindow = new kakao.maps.InfoWindow({
-		// 	removable: iwRemoveable,
-		// });
-
-		// infoWindow.open(map, marker);
-
-		// map.setCenter(userPositionObj);
 	}, []);
 
-	// 맵 생성 및 기준점 초기화
 	useEffect(() => {
-		// 1. 유저 위치 획득 및 state 설정
 		getUserLocation();
 		console.log("getUserLocation() executed");
 	}, [getUserLocation]);
@@ -116,29 +107,17 @@ export default function Location() {
 	}, [userLoc]);
 
 	useEffect(() => {
-		// 3. 유저 위치를 중심좌표로 설정 및 SW, NE 데이터 획득
-		const user = getBoundingInfo();
-		console.log(user);
-		// 4. 서버에 요청
-		getIssuePoints();
-		console.log("getIssuePoints() executed");
-		// const { data } = API.getUserPointIssues({ user });
-	}, [userLoc]);
-
-	/**
-	 * getIssuePoints 는 useCallback() 을 통해 생성된 함수이므로
-	 * state 가 변경되어도 재선언되지 않음
-	 * 따라서 새로고침이나 접속 시에만 useEffect 가 실행됨
-	 */
-
-	useEffect(() => {
 		for (var i = 0; i < locations.length; i++) {
 			var marker = new kakao.maps.Marker({
 				map: map,
 				position: locations[i].latlng, // 마커를 표시할 위치
 				title: locations[i].title,
 			});
-			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(locations[i]));
+			kakao.maps.event.addListener(
+				marker,
+				"click",
+				bottomSheetOpen(locations[i])
+			);
 		}
 	}, [locations]);
 
@@ -152,7 +131,10 @@ export default function Location() {
 	return (
 		<>
 			<div>
-				<div id="map" style={{ width: "432px", height: "940px", margin: "auto" }}></div>
+				<div
+					id="map"
+					style={{ width: "432px", height: "940px", margin: "auto" }}
+				></div>
 			</div>
 		</>
 	);

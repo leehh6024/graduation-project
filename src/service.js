@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const TownCleanerAPI = axios.create({
 	baseURL: "http://43.200.121.200:3000",
+	// baseURL: "http://172.30.1.100:3000",
 	headers: {
 		accept: "application/json",
 		"Content-Type": "application/json",
