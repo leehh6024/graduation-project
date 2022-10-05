@@ -55,7 +55,10 @@ export function useBottomSheet() {
 			}
 
 			// sheet 위치 갱신.
-			sheetRef.current.style.setProperty("transform", `translateY(${nextSheetY - MAX_Y}px)`);
+			sheetRef.current.style.setProperty(
+				"transform",
+				`translateY(${nextSheetY - MAX_Y}px)`
+			);
 		};
 
 		const handleTouchEnd = (e) => {
@@ -64,7 +67,7 @@ export function useBottomSheet() {
 			// Snap Animation
 			const currentSheetY = sheetRef.current.getBoundingClientRect().y;
 
-			if (currentSheetY !== MIN_Y) {
+			if (currentSheetY !== MIN_Y || currentSheetY == MIN_Y) {
 				if (touchMove.movingDirection === "down") {
 					sheetRef.current.style.setProperty("transform", "translateY(0)");
 				}
