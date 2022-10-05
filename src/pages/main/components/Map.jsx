@@ -47,13 +47,13 @@ export default function Location() {
 	}, []);
 
 	const getBoundingInfo = () => {
-		let bounds = map.getBounds();
-		let swLatLng = bounds.getSouthWest();
-		let neLatLng = bounds.getNorthEast();
+		const bounds = map.getBounds();
+		const swLatLng = bounds.getSouthWest();
+		const neLatLng = bounds.getNorthEast();
 		// console.log(swLatLng);
 		// console.log(neLatLng);
 
-		let user = {
+		const user = {
 			southWest: {
 				lat: swLatLng.La,
 				lng: swLatLng.Ma,
@@ -74,6 +74,7 @@ export default function Location() {
 		const processedIssuePoint = formatIssueData(data);
 
 		setLocations(processedIssuePoint);
+		console.log(processedIssuePoint);
 	};
 
 	const setUserCenter = () => {
@@ -107,11 +108,18 @@ export default function Location() {
 	}, [userLoc]);
 
 	useEffect(() => {
-		for (var i = 0; i < locations.length; i++) {
-			var marker = new kakao.maps.Marker({
+		const imageSize = new kakao.maps.Size(24, 32);
+
+		for (let i = 0; i < locations.length; i++) {
+			const imageSrc = `/marker/locate${locations[i].class}.png`;
+
+			const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+
+			const marker = new kakao.maps.Marker({
 				map: map,
 				position: locations[i].latlng, // 마커를 표시할 위치
 				title: locations[i].title,
+				image: markerImage,
 			});
 			kakao.maps.event.addListener(
 				marker,
