@@ -24,7 +24,7 @@ function Controller() {
 		setState,
 	} = useContext(GlobalContext);
 
-	const setPage = (page) => setState({ page });
+	const setPage = (page) => setState((prev) => ({ ...prev, page: page }));
 
 	return (
 		<Container>

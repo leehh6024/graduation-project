@@ -8,29 +8,20 @@ import LargeSheet from "../../pages/temp/LargeSheet.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
-	const { contentType, setContentType } = useState(false);
-	const sheetRef = useRef();
+
+	useEffect(() => setState((prev) => ({ ...prev, sheet: false })), []);
 
 	function onDismiss() {
 		setState((prev) => ({ ...prev, sheet: false }));
-	}
-
-	function getSheetHeight(current, points) {
-		if (current === points[0]) console.log(current);
-		if (current === points[1]) console.log(current);
 	}
 
 	return (
 		<>
 			<Map />
 			<BottomSheet
-				ref={sheetRef}
 				open={state.sheet}
 				onDismiss={onDismiss}
-				snapPoints={({ maxHeight }) => [0.2 * maxHeight, 0.7 * maxHeight]}
-				defaultSnap={({ lastSnap, snapPoints }) =>
-					getSheetHeight(lastSnap, snapPoints)
-				}
+				snapPoints={({ maxHeight }) => [0.2 * maxHeight]}
 				blocking={false}
 			>
 				<Temp />

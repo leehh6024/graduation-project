@@ -8,7 +8,6 @@ var container, options, map;
 
 const formatIssueData = (data) => {
 	const issuePointList = data.data;
-	// console.log(fixedIssuePointList);
 	const processedLocation = issuePointList.map((issuePoint) => {
 		return {
 			title: issuePoint.title,
@@ -32,15 +31,11 @@ export default function Location() {
 	const getUserLocation = useCallback(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				setUserLoc(
-					{
-						lat: position.coords.latitude,
-						lng: position.coords.longitude,
-					}
-					// () => setUserCenter()
-				);
+				setUserLoc({
+					lat: position.coords.latitude,
+					lng: position.coords.longitude,
+				});
 			});
-			//console.log(userLoc);
 		} else {
 			alert("GPS 켜주세요");
 		}
@@ -50,8 +45,6 @@ export default function Location() {
 		const bounds = map.getBounds();
 		const swLatLng = bounds.getSouthWest();
 		const neLatLng = bounds.getNorthEast();
-		// console.log(swLatLng);
-		// console.log(neLatLng);
 
 		const user = {
 			southWest: {
@@ -68,7 +61,6 @@ export default function Location() {
 
 	const getIssuePoints = async (user) => {
 		const { data } = await API.getFixedPointIssue({ user });
-		// console.log(data);
 
 		if (!data) throw new Error("No data");
 		const processedIssuePoint = formatIssueData(data);
@@ -121,11 +113,7 @@ export default function Location() {
 				title: locations[i].title,
 				image: markerImage,
 			});
-			kakao.maps.event.addListener(
-				marker,
-				"click",
-				bottomSheetOpen(locations[i])
-			);
+			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(locations[i]));
 		}
 	}, [locations]);
 
@@ -139,10 +127,7 @@ export default function Location() {
 	return (
 		<>
 			<div>
-				<div
-					id="map"
-					style={{ width: "432px", height: "940px", margin: "auto" }}
-				></div>
+				<div id="map" style={{ width: "432px", height: "940px", margin: "auto" }}></div>
 			</div>
 		</>
 	);
