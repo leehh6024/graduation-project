@@ -1,7 +1,6 @@
 html {
 	font-family: sans-serif;
 	text-align: center;
-	background: #171717;
 }
 
 :root {
@@ -141,10 +140,10 @@ html {
 
 [data-rsbs-is-dismissable="true"],
 [data-rsbs-is-dismissable="false"]:matches([data-rsbs-state="opening"], [data-rsbs-state="closing"]) {
-	& :matches([data-rsbs-header], [data-rsbs-scroll], [data-rsbs-footer]) > * {
+	&:matches([data-rsbs-header], [data-rsbs-scroll], [data-rsbs-footer]) > * {
 		opacity: var(--rsbs-content-opacity);
 	}
-	& [data-rsbs-backdrop] {
+	&[data-rsbs-backdrop] {
 		opacity: var(--rsbs-backdrop-opacity);
 	}
 }

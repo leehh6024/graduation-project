@@ -11,6 +11,10 @@ export const TownCleanerAPI = axios.create({
 	},
 });
 
+async function createIssue(data) {
+	return await TownCleanerAPI.post("/issue/create", data);
+}
+
 export async function getFixedPointIssue() {
 	return await TownCleanerAPI.get("/issue");
 }
@@ -41,4 +45,5 @@ export async function getUserPointIssues(userPoint) {
 export const API = {
 	getFixedPointIssue,
 	getUserPointIssues,
+	createIssue,
 };

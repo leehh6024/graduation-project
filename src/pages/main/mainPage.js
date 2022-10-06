@@ -11,15 +11,15 @@ export default function Main({ props, isSpecial }) {
 	const [small, setSmall] = useState(true);
 	const [large, setLarge] = useState(false);
 
-	function SheetChange() {
-		if (currentSheetY === MAX_Y || currentSheetY > MIN_Y) {
-			setSmall(false);
-			setLarge(true);
-		} else if (currentSheetY <= MIN_Y) {
-			setSmall(true);
-			setLarge(false);
-		}
-	}
+	// function SheetChange() {
+	// 	if (currentSheetY === MAX_Y || currentSheetY > MIN_Y) {
+	// 		setSmall(false);
+	// 		setLarge(true);
+	// 	} else if (currentSheetY <= MIN_Y) {
+	// 		setSmall(true);
+	// 		setLarge(false);
+	// 	}
+	// }
 
 	useEffect(() => {
 		setState((prev) => ({ ...prev, sheet: false }));
