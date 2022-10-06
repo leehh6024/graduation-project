@@ -2,20 +2,28 @@ import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
-export default function Temp(props) {
+export default function Temp({ props, isSpecial }) {
 	const { state, setState } = useContext(GlobalContext);
 	const eachdata = state.selected;
 
 	return (
 		<>
 			<BottomSheetContainer>
-				<ImageSheetContainer>
-					<img src={state.selected[0].img} width="133px" height="100px"></img>
-					{/* <Image src={state.selected[0].img}></Image> */}
-				</ImageSheetContainer>
-				<SheetTitle>{state.selected[0].title}</SheetTitle>
-				<SheetBody>{state.selected[0].body}</SheetBody>
-				<SheetClass>{state.selected[0].class}</SheetClass>
+				{isSpecial && (
+					<>
+						<ImageSheetContainer>
+							<img
+								src={state.selected[0].img}
+								width="133px"
+								height="100px"
+							></img>
+							{/* <Image src={state.selected[0].img}></Image> */}
+						</ImageSheetContainer>
+						<SheetTitle>{state.selected[0].title}</SheetTitle>
+						<SheetBody>{state.selected[0].body}</SheetBody>
+						<SheetClass>{state.selected[0].class}</SheetClass>
+					</>
+				)}
 			</BottomSheetContainer>
 		</>
 	);
