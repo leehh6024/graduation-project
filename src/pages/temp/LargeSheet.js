@@ -9,22 +9,16 @@ export default function LargeSheet({ props, isSpecial }) {
 	return (
 		<>
 			<LargeBottomSheetContainer>
-				{isSpecial && (
-					<>
-						<LargeImageSheetContainer>
-							<img
-								src={state.selected[0].img}
-								width="430px"
-								height="211px"
-							></img>
-							{/* <Image src={state.selected[0].img}></Image> */}
-						</LargeImageSheetContainer>
-						<LargeUserProfileContainer></LargeUserProfileContainer>
-						<LargeSheetTitle>{state.selected[0].title}</LargeSheetTitle>
-						<LargeSheetBody>{state.selected[0].body}</LargeSheetBody>
-						<LargeSheetClass>{state.selected[0].class}</LargeSheetClass>
-					</>
-				)}
+				<>
+					<LargeImageSheetContainer>
+						<img src={state.selected[0].img} width="430px" height="211px"></img>
+						{/* <Image src={state.selected[0].img}></Image> */}
+					</LargeImageSheetContainer>
+					<LargeUserProfileContainer></LargeUserProfileContainer>
+					<LargeSheetTitle>{state.selected[0].title}</LargeSheetTitle>
+					<LargeSheetBody>{state.selected[0].body}</LargeSheetBody>
+					<LargeSheetClass>{state.selected[0].class}</LargeSheetClass>
+				</>
 			</LargeBottomSheetContainer>
 		</>
 	);

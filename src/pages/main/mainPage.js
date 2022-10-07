@@ -5,6 +5,7 @@ import { useContext, useEffect, useState, useRef } from "react";
 import "./mainPage.css";
 import Temp from "../../pages/temp/Temp.js";
 import LargeSheet from "../../pages/temp/LargeSheet.js";
+import Footer from "./components/Footer.jsx";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -18,13 +19,19 @@ export default function Main() {
 	return (
 		<>
 			<Map />
+			<Footer />
 			<BottomSheet
 				open={state.sheet}
 				onDismiss={onDismiss}
-				snapPoints={({ maxHeight }) => [0.2 * maxHeight]}
+				snapPoints={({ minHeight, maxHeight }) => [
+					0.4 * minHeight,
+					0.8 * maxHeight,
+				]}
 				blocking={false}
+				expandOnContentDrag={true}
 			>
-				<Temp />
+				{/* <Temp /> */}
+				<LargeSheet />
 			</BottomSheet>
 		</>
 	);
