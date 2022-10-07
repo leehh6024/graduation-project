@@ -112,6 +112,7 @@ export default function Location() {
 				title: locations[i].title,
 				image: markerImage,
 			});
+
 			kakao.maps.event.addListener(
 				marker,
 				"click",
@@ -132,8 +133,7 @@ export default function Location() {
 			<div>
 				<div
 					id="map"
-					style={{ width: "432px", height: "804px", margin: "auto" }}
-					z-index="3"
+					style={{ width: "432px", height: "824px", margin: "auto" }}
 				></div>
 			</div>
 		</>

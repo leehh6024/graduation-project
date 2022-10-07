@@ -23,10 +23,7 @@ export default function Main() {
 			<BottomSheet
 				open={state.sheet}
 				onDismiss={onDismiss}
-				snapPoints={({ minHeight, maxHeight }) => [
-					0.4 * minHeight,
-					0.8 * maxHeight,
-				]}
+				snapPoints={({ maxHeight }) => [0.4 * maxHeight, 0.8 * maxHeight]}
 				blocking={false}
 				expandOnContentDrag={true}
 			>

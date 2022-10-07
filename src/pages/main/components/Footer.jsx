@@ -10,8 +10,11 @@ export default function Footer() {
 }
 
 const Navbar = styled.div`
-	position: "fixed";
+	position: fixed;
 	z-index: 5;
-	width: 430px;
-	height: 110px;
+	width: 432px;
+	height: 90px;
+	background: #f9b100;
+	margin: auto;
+	border: 1px solid #f9b100;
 `;
