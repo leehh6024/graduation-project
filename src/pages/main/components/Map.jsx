@@ -25,16 +25,15 @@ const formatIssueData = (data) => {
 
 export default function Location() {
 	const { state, setState } = useContext(GlobalContext);
-	const [userLoc, setUserLoc] = useState({ lat: null, lng: null });
 	const [locations, setLocations] = useState([]);
 
 	const getUserLocation = useCallback(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				setUserLoc({
-					lat: position.coords.latitude,
-					lng: position.coords.longitude,
-				});
+				setState((prev) => ({
+					...prev,
+					userLocation: { lat: position.coords.latitude, lng: position.coords.longitude },
+				}));
 			});
 		} else {
 			alert("GPS 켜주세요");
@@ -70,7 +69,7 @@ export default function Location() {
 	};
 
 	const setUserCenter = () => {
-		const userLocation = new kakao.maps.LatLng(userLoc.lat, userLoc.lng);
+		const userLocation = new kakao.maps.LatLng(state.userLocation.lat, state.userLocation.lng);
 		map.setCenter(userLocation);
 
 		const user = getBoundingInfo();
@@ -97,7 +96,7 @@ export default function Location() {
 	useEffect(() => {
 		setUserCenter();
 		console.log("setUserCenter() executed");
-	}, [userLoc]);
+	}, [state.userLocation]);
 
 	useEffect(() => {
 		const imageSize = new kakao.maps.Size(24, 32);

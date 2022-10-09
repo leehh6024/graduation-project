@@ -27,10 +27,11 @@ const Issue = styled.div`
 `;
 
 export default function IssuePage() {
+	const { state, setState } = useContext(GlobalContext);
 	const [image, setImage] = useState("");
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
-	const [category, setCategory] = useState("");
+	const [category, setCategory] = useState(0);
 	const [imgaePreview, setImagePreview] = useState(null);
 
 	const onImageUpload = (e) => {
@@ -49,9 +50,18 @@ export default function IssuePage() {
 
 	const createIssue = async () => {
 		const formData = new FormData();
-		formData.append("title", title);
-		formData.append("body", body);
-		formData.append("category", category);
+
+		const issue = {
+			title,
+			class: category,
+			body,
+			location: {
+				lat: Number(state.userLocation.lat),
+				lng: Number(state.userLocation.lng),
+			},
+		};
+		formData.append("issue", issue);
+		formData.append("image", image);
 
 		const { data } = await API.createIssue(formData);
 		console.log(data);
@@ -64,17 +74,17 @@ export default function IssuePage() {
 	return (
 		<Issue>
 			{image && <Preview src={imgaePreview} />}
-			<form style={{ backgroundColor: "white" }} onSubmit={createIssue}>
-				<ImageUploadButton onUpload={onImageUpload} />
-				{image && <CategorySelector onCategoryChange={onCategoryChange} />}
-				{image && (
-					<ContentInputField
-						onTitledChange={onTitledChange}
-						onBodyChange={onBodyChange}
-					/>
-				)}
-				{image && <input type="submit" value="이슈 생성하기"></input>}
-			</form>
+
+			<ImageUploadButton onUpload={onImageUpload} />
+			{image && <CategorySelector onCategoryChange={onCategoryChange} />}
+			{image && (
+				<ContentInputField onTitledChange={onTitledChange} onBodyChange={onBodyChange} />
+			)}
+			{image && (
+				<button type="button" onClick={createIssue}>
+					이슈 생성하기
+				</button>
+			)}
 		</Issue>
 	);
 }
