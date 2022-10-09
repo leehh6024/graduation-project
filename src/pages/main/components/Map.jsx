@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useContext } from "react";
 import GlobalContext from "../../../common/context/store";
 import { API } from "../../../service.js";
 
-const { kakao } = window;
+export const kakao = window.kakao;
 var container, options, map;
 
 const formatIssueData = (data) => {

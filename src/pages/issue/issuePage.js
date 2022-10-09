@@ -8,7 +8,7 @@ import CategorySelector from "./component/classSelectList";
 import { API } from "../../service.js";
 
 const Issue = styled.div`
-	position: relative;
+	position: absolute;
 	text-align: center;
 	align: center;
 	width: 100%;
@@ -22,7 +22,6 @@ const Issue = styled.div`
 	height: 100%;
 	max-width: 430px;
 	min-width: 320px;
-	margin: auto;
 	vertical-align: middle;
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
 		rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -77,7 +76,7 @@ export default function IssuePage() {
 		<Issue>
 			{image && <Preview src={imagePreview} />}
 
-			<ImageUploadButton onUpload={onImageUpload} />
+			{!image && <ImageUploadButton onUpload={onImageUpload} />}
 
 			{image && <CategorySelector onCategoryChange={onCategoryChange} />}
 			{image && (
@@ -101,6 +100,7 @@ export default function IssuePage() {
 						fontWeight: "700",
 						color: "white",
 						backgroundColor: "#0EE163",
+						borderRadius: "5px",
 					}}
 					type="button"
 					onClick={createIssue}

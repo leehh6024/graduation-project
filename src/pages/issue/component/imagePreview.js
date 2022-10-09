@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Preview = styled.div`
 	align: center;
 	background-color: inherit;
+	margin: auto;
 `;
 
 export default function ImagePreview(props) {

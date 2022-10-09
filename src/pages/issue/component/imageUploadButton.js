@@ -43,7 +43,12 @@ function ImageUploadButton({ onUpload }) {
 			<img
 				src="/photo.png"
 				alt="ss"
-				style={{ width: "237px", height: "153px" }}
+				style={{
+					width: "237px",
+					height: "153px",
+					margin: "auto",
+					verticalAlign: "middle",
+				}}
 			/>
 			<label htmlFor="button-upload"></label>
 			<input
