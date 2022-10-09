@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import GlobalContext from "../../../common/context/store";
-import "./Map.css";
 import { API } from "../../../service.js";
 
 const { kakao } = window;
@@ -112,7 +111,12 @@ export default function Location() {
 				title: locations[i].title,
 				image: markerImage,
 			});
-			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(locations[i]));
+
+			kakao.maps.event.addListener(
+				marker,
+				"click",
+				bottomSheetOpen(locations[i])
+			);
 		}
 	}, [locations]);
 
@@ -126,7 +130,10 @@ export default function Location() {
 	return (
 		<>
 			<div>
-				<div id="map" style={{ width: "432px", height: "940px", margin: "auto" }}></div>
+				<div
+					id="map"
+					style={{ width: "432px", height: "824px", margin: "auto" }}
+				></div>
 			</div>
 		</>
 	);

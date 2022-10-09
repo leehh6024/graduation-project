@@ -28,7 +28,7 @@
 /* bottom-sheet main */
 [data-rsbs-overlay],
 [data-rsbs-root]:after {
-	max-width: 432px;
+	max-width: 430px;
 	margin: auto;
 	/* margin-left: var(--rsbs-ml);
 	margin-right: var(--rsbs-mr); */
