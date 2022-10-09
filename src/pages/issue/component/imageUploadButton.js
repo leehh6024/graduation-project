@@ -1,20 +1,19 @@
 import styled from "styled-components";
-import IconPlus from "../../images/plus.png";
 
 const Box = styled.div`
 	display: flex;
-	position: relative;
 	justify-content: center;
-	align-items: center;
-	width: 80px;
-	height: 80px;
-
+	align-content: center;
+	position: relative;
+	width: 237px;
+	height: 153px;
 	border: 1px solid #d9d9d9;
 	border-radius: 15px;
+	margin: auto;
 
 	& > img {
-		width: 22px;
-		height: 22px;
+		width: 237px;
+		height: 153px;
 	}
 
 	& > label {
@@ -30,6 +29,7 @@ const Box = styled.div`
 	.button-upload {
 		width: 100%;
 		object-fit: contain;
+		margin: auto;
 	}
 
 	label {
@@ -40,11 +40,12 @@ const Box = styled.div`
 function ImageUploadButton({ onUpload }) {
 	return (
 		<Box>
-			<label htmlFor="button-upload">
-				이미지
-				<br />
-				업로드
-			</label>
+			<img
+				src="/photo.png"
+				alt="ss"
+				style={{ width: "237px", height: "153px" }}
+			/>
+			<label htmlFor="button-upload"></label>
 			<input
 				id="button-upload"
 				type="file"

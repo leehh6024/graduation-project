@@ -9,12 +9,43 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 	return (
 		<Content>
 			<div>
-				제목
-				<input type="text" onChange={onTitledChange}></input>
+				<input
+					style={{
+						position: "absolute",
+						left: "24px",
+						top: "466px",
+						width: "178px",
+						height: "24px",
+						fontSize: "20px",
+						border: "none",
+						fontFamily: "Pretendard",
+						fontWeight: "700",
+						fontStyle: "bold",
+					}}
+					type="text"
+					onChange={onTitledChange}
+					placeholder="제목을 입력해주세요"
+				></input>
 			</div>
 			<div>
-				내용
-				<input type="text" onChange={onBodyChange}></input>
+				<textarea
+					style={{
+						position: "absolute",
+						left: "24px",
+						top: "631px",
+						width: "382px",
+						height: "152px",
+						fontSize: "13px",
+						border: "none",
+						fontFamily: "Pretendard",
+						fontWeight: "700",
+						fontStyle: "bold",
+						backgroundColor: "#F5F5F5",
+					}}
+					type="text"
+					onChange={onBodyChange}
+					placeholder="내용을 작성해주세요."
+				></textarea>
 			</div>
 		</Content>
 	);

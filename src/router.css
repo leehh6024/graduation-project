@@ -1,0 +1,26 @@
+/* .btn-map {
+
+}
+*/
+
+.btn-issue-container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 30px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50px;
+    border: none;
+}
+
+.btn-issue {
+    position: fixed;
+    left: 0px;
+    top: 30px;
+    width: 96px;
+    height: 96px;
+    border-radius: 50px;
+}

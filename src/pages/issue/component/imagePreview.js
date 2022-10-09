@@ -8,7 +8,7 @@ const Preview = styled.div`
 export default function ImagePreview(props) {
 	return (
 		<Preview>
-			<img style={{ width: 430, height: 250 }} src={props.src} />
+			<img style={{ width: 430, height: 430 }} src={props.src} />
 		</Preview>
 	);
 }

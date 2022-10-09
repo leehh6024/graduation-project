@@ -5,7 +5,23 @@ const CategoryList = styled.div``;
 function CategorySelector({ onCategoryChange }) {
 	return (
 		<CategoryList>
-			<select type="text" onChange={onCategoryChange}>
+			<select
+				style={{
+					position: "absolute",
+					left: "24px",
+					top: "596px",
+					width: "91px",
+					height: "22px",
+					fontSize: "13px",
+					border: "none",
+					fontFamily: "Pretendard",
+					fontWeight: "700",
+					fontStyle: "regular",
+					backgroundColor: "#F5F5F5",
+				}}
+				type="text"
+				onChange={onCategoryChange}
+			>
 				<option key={0} value={0}>
 					클래스 0
 				</option>
