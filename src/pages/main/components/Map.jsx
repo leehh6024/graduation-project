@@ -138,7 +138,7 @@ export default function Location() {
 			<div>
 				<div
 					id="map"
-					style={{ width: "432px", height: "830px", margin: "auto" }}
+					style={{ width: "432px", height: "940px", margin: "auto" }}
 				></div>
 			</div>
 		</>

@@ -5,7 +5,6 @@ import { useContext, useEffect, useState, useRef } from "react";
 import "./mainPage.css";
 import Temp from "../../pages/temp/Temp.js";
 import LargeSheet from "../../pages/temp/LargeSheet.js";
-import Footer from "./components/Footer.jsx";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -19,7 +18,6 @@ export default function Main() {
 	return (
 		<>
 			<Map />
-			<Footer />
 			<BottomSheet
 				open={state.sheet}
 				onDismiss={onDismiss}
@@ -33,6 +31,3 @@ export default function Main() {
 		</>
 	);
 }
-
-// const MIN_Y = 60; // 바텀시트가 최대로 높이 올라갔을 때의 y 값
-// const MAX_Y = window.innerHeight - 80; // 바텀시트가 최소로 내려갔을 때의 y 값

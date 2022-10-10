@@ -94,15 +94,16 @@ export default function IssuePage() {
 						width: "382px",
 						height: "45px",
 						fontSize: "16px",
-						border: "none",
 						fontFamily: "Pretendard",
 						fontStyle: "bold",
 						fontWeight: "700",
 						color: "white",
 						backgroundColor: "#0EE163",
+						borderColor: "#0EE163",
+						border: "1px solid #0EE163",
 						borderRadius: "5px",
 					}}
-					type="button"
+					type="submit"
 					onClick={createIssue}
 				>
 					이슈 등록하기
