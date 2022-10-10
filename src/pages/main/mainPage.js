@@ -4,7 +4,8 @@ import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useState, useRef } from "react";
 import "./mainPage.css";
 import Temp from "../../pages/temp/Temp.js";
-import LargeSheet from "../../pages/temp/LargeSheet.js";
+import IssueInfo from "../issue/IssueInfo.js";
+import Search from "./components/Search.jsx";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -18,16 +19,17 @@ export default function Main() {
 	return (
 		<>
 			<Map />
+			<Search />
 			<BottomSheet
 				open={state.sheet}
 				onDismiss={onDismiss}
-				snapPoints={({ maxHeight }) => [0.4 * maxHeight, 0.8 * maxHeight]}
+				snapPoints={({ maxHeight }) => [0.18 * maxHeight]}
 				blocking={false}
 				expandOnContentDrag={true}
 			>
-				{/* <Temp /> */}
-				<LargeSheet />
+				<Temp />
 			</BottomSheet>
+			{/* <IssueInfo /> */}
 		</>
 	);
 }

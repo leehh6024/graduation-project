@@ -104,7 +104,7 @@ export default function Location() {
 	}, [state.userLocation]);
 
 	useEffect(() => {
-		const imageSize = new kakao.maps.Size(24, 32);
+		const imageSize = new kakao.maps.Size(36, 36);
 
 		for (let i = 0; i < locations.length; i++) {
 			const imageSrc = `/marker/locate${locations[i].class}.png`;

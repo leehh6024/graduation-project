@@ -48,7 +48,7 @@ function Controller() {
 				src="/issue-button.png"
 				alt="issue"
 				onClick={() => setPage(1)}
-			/>
+			></img>
 			{pages[page]}
 		</Container>
 	);

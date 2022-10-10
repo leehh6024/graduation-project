@@ -4,7 +4,9 @@ const Box = styled.div`
 	display: flex;
 	justify-content: center;
 	align-content: center;
-	position: relative;
+	position: absolute;
+	left: 96px;
+	top: 381px;
 	width: 237px;
 	height: 153px;
 	border: 1px solid #d9d9d9;
