@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Category from "./Navigation/Category.jsx";
 import styled from "styled-components";
 
 const UserTabContainer = styled.div`
@@ -9,6 +10,7 @@ const UserTabContainer = styled.div`
 	left: 0px;
 	top: 0px;
 	background: white;
+	border: 1px solid black;
 `;
 
 const UserProfileImage = styled.div`
@@ -42,12 +44,11 @@ const UserNickname = styled.div`
 const UserToolbar = styled.div`
 	position: absolute;
 	z-index: 7;
-	width: 270px;
+	width: 260px;
 	height: 43px;
 	left: 0px;
 	top: 162px;
 	background: white;
-	border: 1px solid black;
 `;
 
 export default function UserTab() {
@@ -83,13 +84,19 @@ export default function UserTab() {
 						border: "none",
 						width: "34px",
 						height: "43px",
-						position: "relative",
+						position: "absolute",
 						left: "30px",
 					}}
 				>
 					<img
 						src={toolbars[0].src}
-						style={{ width: "20px", height: "20px", marginBottom: "8px" }}
+						style={{
+							width: "20px",
+							height: "20px",
+							position: "absolute",
+							left: "7px",
+							top: "0",
+						}}
 					/>
 					<div
 						style={{
@@ -99,6 +106,9 @@ export default function UserTab() {
 							fontStyle: "normal",
 							fontWeight: "400",
 							fontSize: "12px",
+							position: "absolute",
+							left: "0",
+							top: "28px",
 						}}
 					>
 						내제보
@@ -108,28 +118,34 @@ export default function UserTab() {
 					style={{
 						background: "white",
 						border: "none",
-						width: "45px",
+						width: "26px",
 						height: "43px",
 						position: "absolute",
-						left: "87px",
+						left: "84px",
 					}}
 				>
 					<img
 						src={toolbars[1].src}
-						style={{ width: "20px", height: "20px" }}
+						style={{
+							width: "20px",
+							height: "20px",
+							position: "absolute",
+							left: "3px",
+							top: "0px",
+						}}
 					/>
 					<div
 						style={{
-							width: "45px",
+							width: "26px",
 							height: "15px",
 							fontFamily: "Inter",
 							fontStyle: "normal",
 							fontWeight: "400",
 							fontSize: "12px",
 							lineHeight: "15px",
-							textAlign: "center",
 							position: "absolute",
-							top: "8",
+							left: "0px",
+							top: "28px",
 						}}
 					>
 						내 글
@@ -142,12 +158,18 @@ export default function UserTab() {
 						width: "45px",
 						height: "43px",
 						position: "absolute",
-						left: "143.33px",
+						left: "130px",
 					}}
 				>
 					<img
 						src={toolbars[2].src}
-						style={{ width: "20px", height: "20px" }}
+						style={{
+							width: "20px",
+							height: "20px",
+							position: "absolute",
+							top: "0px",
+							left: "12.5px",
+						}}
 					/>
 					<div
 						style={{
@@ -158,9 +180,9 @@ export default function UserTab() {
 							fontWeight: "400",
 							fontSize: "12px",
 							lineHeight: "15px",
-							textAlign: "center",
 							position: "absolute",
-							top: "8",
+							top: "28px",
+							left: "0px",
 						}}
 					>
 						즐겨찾기
@@ -173,12 +195,18 @@ export default function UserTab() {
 						width: "45px",
 						height: "43px",
 						position: "absolute",
-						left: "207.59px",
+						left: "195px",
 					}}
 				>
 					<img
 						src={toolbars[3].src}
-						style={{ width: "20px", height: "20px" }}
+						style={{
+							width: "20px",
+							height: "20px",
+							position: "absolute",
+							left: "12.5px",
+							top: "0px",
+						}}
 					/>
 					<div
 						style={{
@@ -189,9 +217,9 @@ export default function UserTab() {
 							fontWeight: "400",
 							fontSize: "12px",
 							lineHeight: "15px",
-							textAlign: "center",
 							position: "absolute",
-							top: "8",
+							left: "0px",
+							top: "28px",
 						}}
 					>
 						환경설정
@@ -206,6 +234,7 @@ export default function UserTab() {
 					border: "1px solid #f5f5f5",
 				}}
 			/>
+			<Category />
 		</UserTabContainer>
 	);
 }
