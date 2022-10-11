@@ -18,9 +18,7 @@ function SideNav() {
 						주변 이슈 >
 					</Nav.Link>
 				</Nav.Item>
-
 				<Nav.Separator />
-
 				<Nav.Item>
 					<Nav.Link to="/back/python" active={isActive("/back")}>
 						퀘스트 >

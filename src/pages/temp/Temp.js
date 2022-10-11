@@ -1,6 +1,7 @@
 import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import IssueInfo from "./IssueInfo.js";
 
 export default function Temp() {
 	const { state, setState } = useContext(GlobalContext);
@@ -16,6 +17,7 @@ export default function Temp() {
 				<SheetBody>{state.selected[0].body}</SheetBody>
 				<SheetClass>{state.selected[0].class}</SheetClass>
 			</BottomSheetContainer>
+			<IssueInfo />
 		</>
 	);
 }

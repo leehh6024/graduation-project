@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import UserTab from "./UserTab.jsx";
+import GlobalContext from "../../../common/context/store";
+import { useContext } from "react";
 
 const SearchContainer = styled.div`
 	position: absolute;
@@ -16,15 +19,12 @@ const SearchContainer = styled.div`
 `;
 
 export default function Search() {
-	// const [usertab, setUsertab] = useState(false);
+	const { state, setState } = useContext(GlobalContext);
 
-	// const openUserTab = () => {
-	// 	setUsertab(true);
-	// };
-
-	// const closeUserTab = () => {
-	// 	setUsertab(false);
-	// };
+	function openUserTab() {
+		setState((prev) => ({ ...prev, usertab: true }));
+		console.log(state.usertab);
+	}
 
 	return (
 		<div>
@@ -37,7 +37,7 @@ export default function Search() {
 						left: "16px",
 						top: "17px",
 					}}
-					// onClick={openUserTab}
+					onClick={openUserTab}
 				></img>
 				<input
 					type="text"
@@ -52,6 +52,7 @@ export default function Search() {
 					}}
 				></input>
 			</SearchContainer>
+			{state.usertab && <UserTab />}
 		</div>
 	);
 }

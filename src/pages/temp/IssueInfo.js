@@ -7,7 +7,7 @@ export default function IssueInfo(props) {
 	const eachdata = state.selected;
 
 	return (
-		<>
+		<IssueInfoContainer>
 			<IssueInfoImage>
 				<img src={state.selected[0].img} width="430px" height="430px"></img>
 				{/* <Image src={state.selected[0].img}></Image> */}
@@ -22,7 +22,7 @@ export default function IssueInfo(props) {
 			<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
 			<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
 			<IssueContents>{state.selected[0].body}</IssueContents>
-		</>
+		</IssueInfoContainer>
 	);
 }
 
@@ -33,6 +33,11 @@ function Image(props) {
 	}, [props.src]);
 	return <img src={img}></img>;
 }
+
+const IssueInfoContainer = styled.div`
+	width: 430px;
+	height: 912px;
+`;
 
 const IssueInfoImage = styled.div`
 	width: 430px;

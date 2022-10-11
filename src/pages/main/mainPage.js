@@ -4,9 +4,8 @@ import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useState, useRef } from "react";
 import "./mainPage.css";
 import Temp from "../../pages/temp/Temp.js";
-// import IssueInfo from "../issue/IssueInfo.js";
 import Search from "./components/Search.jsx";
-import UserTab from "./components/UserTab.jsx";
+import IssueInfo from "../temp/IssueInfo.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -21,7 +20,6 @@ export default function Main() {
 		<>
 			<Map />
 			<Search />
-			<UserTab />
 			<BottomSheet
 				open={state.sheet}
 				onDismiss={onDismiss}
