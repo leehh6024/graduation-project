@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const SearchContainer = styled.div`
@@ -16,8 +16,15 @@ const SearchContainer = styled.div`
 `;
 
 export default function Search() {
+	// const [usertab, setUsertab] = useState(false);
 
-    const 
+	// const openUserTab = () => {
+	// 	setUsertab(true);
+	// };
+
+	// const closeUserTab = () => {
+	// 	setUsertab(false);
+	// };
 
 	return (
 		<div>
@@ -30,7 +37,7 @@ export default function Search() {
 						left: "16px",
 						top: "17px",
 					}}
-					// onClick메서드 달아서 좌측에 네비바? 나오게하자.
+					// onClick={openUserTab}
 				></img>
 				<input
 					type="text"
