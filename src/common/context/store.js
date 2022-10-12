@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const initialState = {
 	page: 0,
 	sheet: false,
-	sheetLevel: 0,
 	selected: [],
 	userLocation: {
 		lat: null,

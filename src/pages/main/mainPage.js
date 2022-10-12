@@ -5,7 +5,7 @@ import { useContext, useEffect, useState, useRef } from "react";
 import "./mainPage.css";
 import Temp from "../../pages/temp/Temp.js";
 import Search from "./components/Search.jsx";
-import IssueInfo from "../temp/IssueInfo.js";
+import IssueInfo from "../../pages/temp/IssueInfo.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -27,9 +27,10 @@ export default function Main() {
 				blocking={false}
 				expandOnContentDrag={true}
 			>
-				<Temp />
+				<Temp>
+					<IssueInfo />
+				</Temp>
 			</BottomSheet>
-			{/* <IssueInfo /> */}
 		</>
 	);
 }

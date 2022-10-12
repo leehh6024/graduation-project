@@ -1,5 +1,5 @@
 import GlobalContext from "../../common/context/store";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 
 export default function IssueInfo(props) {
@@ -7,43 +7,45 @@ export default function IssueInfo(props) {
 	const eachdata = state.selected;
 
 	return (
-		<IssueInfoContainer>
-			<IssueInfoImage>
-				<img src={state.selected[0].img} width="430px" height="430px"></img>
-				{/* <Image src={state.selected[0].img}></Image> */}
-			</IssueInfoImage>
-			<UserProfileContainer>
-				<UserProfilePhoto>
-					<img src="locate2.png" />
-				</UserProfilePhoto>
-				<UserNickname>복정동</UserNickname>
-				<IssueAddress>유저가 제보한 이슈의 위치가 떠야합니다.</IssueAddress>
-			</UserProfileContainer>
-			<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
-			<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
-			<IssueContents>{state.selected[0].body}</IssueContents>
-		</IssueInfoContainer>
+		<>
+			<IssueInfoContainer>
+				<IssueInfoImage>
+					<img src={state.selected[0].img} width="430px" height="430px"></img>
+					{/* <Image src={state.selected[0].img}></Image> */}
+				</IssueInfoImage>
+				<UserProfileContainer>
+					<UserProfilePhoto></UserProfilePhoto>
+					<UserNickname>복정동</UserNickname>
+					<IssueAddress>유저가 제보한 이슈의 위치가 떠야합니다.</IssueAddress>
+				</UserProfileContainer>
+				<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
+				<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
+				<IssueContents>{state.selected[0].body}</IssueContents>
+			</IssueInfoContainer>
+		</>
 	);
 }
 
-function Image(props) {
-	const [img, setImage] = useState(null);
-	useEffect(() => {
-		setImage(props.img);
-	}, [props.src]);
-	return <img src={img}></img>;
-}
+// function Image(props) {
+// 	const [img, setImage] = useState(null);
+// 	useEffect(() => {
+// 		setImage(props.img);
+// 	}, [props.src]);
+// 	return <img src={img}></img>;
+// }
 
 const IssueInfoContainer = styled.div`
 	width: 430px;
 	height: 912px;
+	position: absolute;
+	z-index: 5;
 `;
 
 const IssueInfoImage = styled.div`
 	width: 430px;
 	height: 430px;
 	border: 1px solid black;
-	position: relative;
+	position: absolute;
 	left: 0px;
 	top: 0px;
 	bottom: 23px;
@@ -52,7 +54,7 @@ const IssueInfoImage = styled.div`
 const UserProfileContainer = styled.div`
 	width: 430px;
 	height: 100px;
-	position: relative;
+	position: absolute;
 `;
 
 // user프로필 사진창, 유저닉네임, 제보주소? 도 들어가야함
@@ -99,7 +101,7 @@ const IssueAddress = styled.div`
 const IssueInfoTitle = styled.div`
 	width: 312px;
 	height: 24px;
-	position: relative;
+	position: absolute;
 	left: 16px;
 	top: 26px;
 	right: 46px;
@@ -114,7 +116,7 @@ const IssueInfoTitle = styled.div`
 const IssueInfoClass = styled.div`
 	width: 136px;
 	height: 16px;
-	position: relative;
+	position: absolute;
 	left: 16px;
 	top: 12px;
 	right: 46px;
@@ -129,7 +131,7 @@ const IssueInfoClass = styled.div`
 const IssueContents = styled.div`
 	width: 219px;
 	height: 17px;
-	position: relative;
+	position: absolute;
 	left: 16px;
 	top: 43px;
 	right: 46px;
