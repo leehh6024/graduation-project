@@ -5,6 +5,8 @@ import axios from "axios";
 // baseURL: "http://localhost:3001",
 export const TownCleanerAPI = axios.create({
 	baseURL: "http://43.200.121.200:3000",
+	// baseURL: "http://172.30.1.100:3000",
+	// baseURL: "http://localhost:3001",
 	headers: {
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",

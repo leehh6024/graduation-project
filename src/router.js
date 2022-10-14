@@ -3,6 +3,7 @@ import Main from "./pages/main/mainPage";
 import React, { useContext } from "react";
 import GlobalContext from "./common/context/store";
 import styled from "styled-components";
+import IssueInfo from "./pages/temp/IssueInfo.js";
 import "./router.css";
 
 const Container = styled.div`
@@ -43,6 +44,7 @@ function Controller() {
 			>
 				Map
 			</button>
+			<IssueInfo />
 			<img
 				className="btn-issue"
 				src="/issue-button.png"
