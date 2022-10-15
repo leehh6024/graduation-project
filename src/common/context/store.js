@@ -6,8 +6,8 @@ const initialState = {
 	sheetLevel: 0,
 	selected: [],
 	userLocation: {
-		lat: null,
-		lng: null,
+		lat: 0,
+		lng: 0,
 	},
 };
 

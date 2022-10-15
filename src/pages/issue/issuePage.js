@@ -60,7 +60,11 @@ export default function IssuePage() {
 				lng: Number(state.userLocation.lng),
 			},
 		};
-		formData.append("issue", issue);
+		formData.append("title", issue.title);
+		formData.append("class", issue.class);
+		formData.append("body", issue.body);
+		formData.append("lat", issue.location.lat);
+		formData.append("lng", issue.location.lng);
 		formData.append("image", image);
 
 		const { data } = await API.createIssue(formData);

@@ -12,6 +12,7 @@ export const TownCleanerAPI = axios.create({
 });
 
 const createIssue = async (data) => {
+	console.log(data);
 	return await TownCleanerAPI.post("/issue/create", data, {
 		headers: {
 			"Content-Type": "multipart/form-data",
