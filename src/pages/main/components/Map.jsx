@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback, useContext } from "react";
 import GlobalContext from "../../../common/context/store";
 import { API } from "../../../service.js";
 
-const { kakao } = window;
+export const kakao = window.kakao;
 var container, options, map;
 
 const formatIssueData = (data) => {
@@ -31,7 +31,10 @@ export default function Location() {
 			navigator.geolocation.getCurrentPosition(function (position) {
 				setState((prev) => ({
 					...prev,
-					userLocation: { lat: position.coords.latitude, lng: position.coords.longitude },
+					userLocation: {
+						lat: position.coords.latitude,
+						lng: position.coords.longitude,
+					},
 				}));
 			});
 		} else {
@@ -68,7 +71,10 @@ export default function Location() {
 	};
 
 	const setUserCenter = () => {
-		const userLocation = new kakao.maps.LatLng(state.userLocation.lat, state.userLocation.lng);
+		const userLocation = new kakao.maps.LatLng(
+			state.userLocation.lat,
+			state.userLocation.lng
+		);
 		map.setCenter(userLocation);
 
 		const user = getBoundingInfo();
@@ -98,7 +104,7 @@ export default function Location() {
 	}, [state.userLocation]);
 
 	useEffect(() => {
-		const imageSize = new kakao.maps.Size(24, 32);
+		const imageSize = new kakao.maps.Size(36, 36);
 
 		for (let i = 0; i < locations.length; i++) {
 			const imageSrc = `/marker/locate${locations[i].class}.png`;
@@ -132,7 +138,7 @@ export default function Location() {
 			<div>
 				<div
 					id="map"
-					style={{ width: "432px", height: "824px", margin: "auto" }}
+					style={{ width: "432px", height: "912px", margin: "auto" }}
 				></div>
 			</div>
 		</>

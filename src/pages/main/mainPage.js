@@ -4,8 +4,8 @@ import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useState, useRef } from "react";
 import "./mainPage.css";
 import Temp from "../../pages/temp/Temp.js";
-import LargeSheet from "../../pages/temp/LargeSheet.js";
-import Footer from "./components/Footer.jsx";
+import Search from "./components/Search.jsx";
+import IssueInfo from "../../pages/temp/IssueInfo.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -19,20 +19,18 @@ export default function Main() {
 	return (
 		<>
 			<Map />
-			<Footer />
+			<Search />
 			<BottomSheet
 				open={state.sheet}
 				onDismiss={onDismiss}
-				snapPoints={({ maxHeight }) => [0.4 * maxHeight, 0.8 * maxHeight]}
+				snapPoints={({ maxHeight }) => [0.18 * maxHeight]}
 				blocking={false}
 				expandOnContentDrag={true}
 			>
-				{/* <Temp /> */}
-				<LargeSheet />
+				<Temp>
+					<IssueInfo />
+				</Temp>
 			</BottomSheet>
 		</>
 	);
 }
-
-// const MIN_Y = 60; // 바텀시트가 최대로 높이 올라갔을 때의 y 값
-// const MAX_Y = window.innerHeight - 80; // 바텀시트가 최소로 내려갔을 때의 y 값
