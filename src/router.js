@@ -15,12 +15,11 @@ const Container = styled.div`
 	min-width: 320px;
 	margin: auto;
 	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 function Controller() {
-	const pages = [<Main />, <IssuePage />];
+	const pages = [<Main />, <IssuePage />, <IssueInfo />];
 
 	const {
 		state: { page },
@@ -44,13 +43,8 @@ function Controller() {
 			>
 				Map
 			</button>
-			<IssueInfo />
-			<img
-				className="btn-issue"
-				src="/issue-button.png"
-				alt="issue"
-				onClick={() => setPage(1)}
-			></img>
+			{/* <IssueInfo /> */}
+
 			{pages[page]}
 		</Container>
 	);

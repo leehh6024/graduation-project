@@ -24,7 +24,7 @@ const formatIssueData = (data) => {
 
 export default function Location() {
 	const { state, setState } = useContext(GlobalContext);
-	const [locations, setLocations] = useState([]);
+	const [issueList, setIssueList] = useState([]);
 
 	const getUserLocation = useCallback(() => {
 		if (navigator.geolocation) {
@@ -42,7 +42,7 @@ export default function Location() {
 		}
 	}, []);
 
-	const getBoundingInfo = () => {
+	const getBoundingInfo = useCallback(() => {
 		const bounds = map.getBounds();
 		const swLatLng = bounds.getSouthWest();
 		const neLatLng = bounds.getNorthEast();
@@ -58,23 +58,20 @@ export default function Location() {
 			},
 		};
 		return user;
-	};
+	}, []);
 
-	const getIssuePoints = async (user) => {
+	const getIssuePoints = useCallback(async (user) => {
 		const { data } = await API.getFixedPointIssue({ user });
 
 		if (!data) throw new Error("No data");
 		const processedIssuePoint = formatIssueData(data);
 
-		setLocations(processedIssuePoint);
+		setIssueList(processedIssuePoint);
 		console.log(processedIssuePoint);
-	};
+	}, []);
 
-	const setUserCenter = () => {
-		const userLocation = new kakao.maps.LatLng(
-			state.userLocation.lat,
-			state.userLocation.lng
-		);
+	const setUserCenter = useCallback(() => {
+		const userLocation = new kakao.maps.LatLng(state.userLocation.lat, state.userLocation.lng);
 		map.setCenter(userLocation);
 
 		const user = getBoundingInfo();
@@ -82,7 +79,7 @@ export default function Location() {
 		// 4. 서버에 요청
 		getIssuePoints(user);
 		console.log("getIssuePoints() executed");
-	};
+	});
 
 	useEffect(() => {
 		container = document.getElementById("map");
@@ -106,25 +103,21 @@ export default function Location() {
 	useEffect(() => {
 		const imageSize = new kakao.maps.Size(36, 36);
 
-		for (let i = 0; i < locations.length; i++) {
-			const imageSrc = `/marker/locate${locations[i].class}.png`;
+		for (let i = 0; i < issueList.length; i++) {
+			const imageSrc = `/marker/locate${issueList[i].class}.png`;
 
 			const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
 			const marker = new kakao.maps.Marker({
 				map: map,
-				position: locations[i].latlng, // 마커를 표시할 위치
-				title: locations[i].title,
+				position: issueList[i].latlng, // 마커를 표시할 위치
+				title: issueList[i].title,
 				image: markerImage,
 			});
 
-			kakao.maps.event.addListener(
-				marker,
-				"click",
-				bottomSheetOpen(locations[i])
-			);
+			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(issueList[i]));
 		}
-	}, [locations]);
+	}, [issueList]);
 
 	function bottomSheetOpen(location) {
 		return function () {
@@ -136,10 +129,7 @@ export default function Location() {
 	return (
 		<>
 			<div>
-				<div
-					id="map"
-					style={{ width: "432px", height: "912px", margin: "auto" }}
-				></div>
+				<div id="map" style={{ width: "432px", height: "912px", margin: "auto" }}></div>
 			</div>
 		</>
 	);

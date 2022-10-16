@@ -23,8 +23,7 @@ const Issue = styled.div`
 	max-width: 430px;
 	min-width: 320px;
 	vertical-align: middle;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 export default function IssuePage() {
@@ -84,10 +83,7 @@ export default function IssuePage() {
 
 			{image && <CategorySelector onCategoryChange={onCategoryChange} />}
 			{image && (
-				<ContentInputField
-					onTitledChange={onTitledChange}
-					onBodyChange={onBodyChange}
-				/>
+				<ContentInputField onTitledChange={onTitledChange} onBodyChange={onBodyChange} />
 			)}
 			{image && (
 				<button

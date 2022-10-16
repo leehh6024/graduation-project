@@ -16,11 +16,7 @@ const GlobalContext = React.createContext(null);
 export function GlobalContextProvider({ children }) {
 	const [state, setState] = useState(initialState);
 
-	return (
-		<GlobalContext.Provider value={{ state, setState }}>
-			{children}
-		</GlobalContext.Provider>
-	);
+	return <GlobalContext.Provider value={{ state, setState }}>{children}</GlobalContext.Provider>;
 }
 
 export default GlobalContext;
