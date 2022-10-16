@@ -12,8 +12,8 @@ const formatIssueData = (data) => {
 			title: issuePoint.title,
 			class: issuePoint.class,
 			latlng: new kakao.maps.LatLng(
-				Number(issuePoint.location.lat),
-				Number(issuePoint.location.lng)
+				Number(issuePoint.issueLoc.lat),
+				Number(issuePoint.issueLoc.lng)
 			),
 			body: issuePoint.body,
 			img: issuePoint.img,
