@@ -6,12 +6,12 @@ import { useContext } from "react";
 
 const UserTabContainer = styled.div`
 	position: absolute;
-	z-index: 5;
+	z-index: 7;
 	width: 270px;
-	height: 914px;
 	left: 0px;
 	top: 0px;
 	background: white;
+	height: calc(var(--vh, 1vh) * 100);
 `;
 
 const CloseUserTab = styled.div`

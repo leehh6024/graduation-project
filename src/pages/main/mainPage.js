@@ -11,7 +11,9 @@ export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
 
 	useEffect(() => setState((prev) => ({ ...prev, sheet: false })), []);
-	const setPage = useCallback((page) => setState((prev) => ({ ...prev, page: page })));
+	const setPage = useCallback((page) =>
+		setState((prev) => ({ ...prev, page: page }))
+	);
 
 	function onDismiss() {
 		setState((prev) => ({ ...prev, sheet: false }));
@@ -19,25 +21,25 @@ export default function Main() {
 
 	return (
 		<>
-			<Search />
-			<Map />
-			<img
-				className="btn-issue"
-				src="/issue-button.png"
-				alt="issue"
-				onClick={() => setPage(1)}
-			></img>
-			<BottomSheet
-				open={state.sheet}
-				onDismiss={onDismiss}
-				snapPoints={({ maxHeight }) => [0.18 * maxHeight]}
-				blocking={false}
-				expandOnContentDrag={true}
-			>
-				<Temp>
-					<IssueInfo />
-				</Temp>
-			</BottomSheet>
+			<div className="mainpage">
+				<Search />
+				<Map />
+				<img
+					className="btn-issue"
+					src="/issue-button.png"
+					alt="issue"
+					onClick={() => setPage(1)}
+				></img>
+				<BottomSheet
+					open={state.sheet}
+					onDismiss={onDismiss}
+					snapPoints={({ maxHeight }) => [0.18 * maxHeight]}
+					blocking={false}
+					expandOnContentDrag={true}
+				>
+					<Temp />
+				</BottomSheet>
+			</div>
 		</>
 	);
 }

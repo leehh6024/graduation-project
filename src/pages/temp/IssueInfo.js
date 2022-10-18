@@ -2,7 +2,7 @@ import GlobalContext from "../../common/context/store";
 import { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 
-export default function IssueInfo(props) {
+export default function IssueInfo() {
 	const { state, setState } = useContext(GlobalContext);
 	const eachdata = state.selected;
 

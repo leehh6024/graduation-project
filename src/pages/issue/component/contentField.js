@@ -59,7 +59,7 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 			<hr
 				style={{
 					position: "absolute",
-					width: "398px",
+					width: "100%",
 					height: "0px",
 					left: "16px",
 					top: "506px",

@@ -1,18 +1,7 @@
 import styled from "styled-components";
+import "./imageUploadButton.css";
 
 const Box = styled.div`
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	position: absolute;
-	left: 96px;
-	top: 381px;
-	width: 237px;
-	height: 153px;
-	border: 1px solid #d9d9d9;
-	border-radius: 15px;
-	margin: auto;
-
 	& > img {
 		width: 237px;
 		height: 153px;
@@ -41,7 +30,7 @@ const Box = styled.div`
 
 function ImageUploadButton({ onUpload }) {
 	return (
-		<Box>
+		<Box className="Box">
 			<img
 				src="/photo.png"
 				alt="ss"

@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback, useContext } from "react";
 import GlobalContext from "../../../common/context/store";
 import { API } from "../../../service.js";
+import "./Map.css";
+import { useMediaQuery } from "react-responsive";
 
 export const kakao = window.kakao;
 var container, options, map;
@@ -25,6 +27,8 @@ const formatIssueData = (data) => {
 export default function Location() {
 	const { state, setState } = useContext(GlobalContext);
 	const [issueList, setIssueList] = useState([]);
+
+	const Mobile = useMediaQuery({ minDeviceWidth: 1224 }, { deviceWidth: 432 });
 
 	const getUserLocation = useCallback(() => {
 		if (navigator.geolocation) {
@@ -71,7 +75,10 @@ export default function Location() {
 	}, []);
 
 	const setUserCenter = useCallback(() => {
-		const userLocation = new kakao.maps.LatLng(state.userLocation.lat, state.userLocation.lng);
+		const userLocation = new kakao.maps.LatLng(
+			state.userLocation.lat,
+			state.userLocation.lng
+		);
 		map.setCenter(userLocation);
 
 		const user = getBoundingInfo();
@@ -115,7 +122,11 @@ export default function Location() {
 				image: markerImage,
 			});
 
-			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(issueList[i]));
+			kakao.maps.event.addListener(
+				marker,
+				"click",
+				bottomSheetOpen(issueList[i])
+			);
 		}
 	}, [issueList]);
 
@@ -129,7 +140,7 @@ export default function Location() {
 	return (
 		<>
 			<div>
-				<div id="map" style={{ width: "432px", height: "912px", margin: "auto" }}></div>
+				<div id="map"></div>
 			</div>
 		</>
 	);

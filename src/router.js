@@ -4,7 +4,6 @@ import React, { useContext } from "react";
 import GlobalContext from "./common/context/store";
 import styled from "styled-components";
 import IssueInfo from "./pages/temp/IssueInfo.js";
-import "./router.css";
 
 const Container = styled.div`
 	position: relative;
@@ -15,7 +14,8 @@ const Container = styled.div`
 	min-width: 320px;
 	margin: auto;
 	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 function Controller() {

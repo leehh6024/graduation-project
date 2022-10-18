@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { GlobalContextProvider } from "./common/context/store.js";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 import Router from "./router.js";
 import GlobalContext from "./common/context/store";
+import { BrowserView, MobileView } from "react-device-detect";
 
 const GlobalStyle = createGlobalStyle`
   //height: calc(constant(safe-area-inset-top) - constant(safe-area-inset-bottom));
@@ -71,11 +72,27 @@ const GlobalStyle = createGlobalStyle`
 
 export default function App() {
 	return (
-		<GlobalContextProvider>
-			<BrowserRouter>
-				<GlobalStyle />
-				<Router />
-			</BrowserRouter>
-		</GlobalContextProvider>
+		<>
+			<BrowserView>
+				데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!
+				<GlobalContextProvider>
+					<BrowserRouter>
+						<GlobalStyle />
+						{/* <Router /> */}
+					</BrowserRouter>
+				</GlobalContextProvider>
+			</BrowserView>
+
+			<MobileView>
+				{/* 모바일 브라우져!모바일 브라우져!모바일 브라우져!모바일 브라우져!모바일
+				브라우져!모바일 브라우져! */}
+				<GlobalContextProvider>
+					<BrowserRouter>
+						<GlobalStyle />
+						<Router />
+					</BrowserRouter>
+				</GlobalContextProvider>
+			</MobileView>
+		</>
 	);
 }

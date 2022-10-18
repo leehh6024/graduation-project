@@ -12,18 +12,14 @@ const Issue = styled.div`
 	text-align: center;
 	align: center;
 	width: 100%;
-	height: 100%;
 	justify-content: center;
 	align-items: center;
 	background-color: white;
 	margin: auto;
-	width: 100%;
 	min-height: 100vh;
-	height: 100%;
-	max-width: 430px;
-	min-width: 320px;
 	vertical-align: middle;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 export default function IssuePage() {
@@ -83,7 +79,10 @@ export default function IssuePage() {
 
 			{image && <CategorySelector onCategoryChange={onCategoryChange} />}
 			{image && (
-				<ContentInputField onTitledChange={onTitledChange} onBodyChange={onBodyChange} />
+				<ContentInputField
+					onTitledChange={onTitledChange}
+					onBodyChange={onBodyChange}
+				/>
 			)}
 			{image && (
 				<button
