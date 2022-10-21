@@ -74,7 +74,6 @@ export default function App() {
 	return (
 		<>
 			<BrowserView>
-				데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!
 				<GlobalContextProvider>
 					<BrowserRouter>
 						<GlobalStyle />
