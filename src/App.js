@@ -78,7 +78,7 @@ export default function App() {
 				<GlobalContextProvider>
 					<BrowserRouter>
 						<GlobalStyle />
-						{/* <Router /> */}
+						<Router />
 					</BrowserRouter>
 				</GlobalContextProvider>
 			</BrowserView>

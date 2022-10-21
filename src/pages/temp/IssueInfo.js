@@ -10,29 +10,23 @@ export default function IssueInfo() {
 		<>
 			<IssueInfoContainer>
 				<IssueInfoImage>
-					{/* <img src={state.selected[0].img} width="430px" height="430px"></img> */}
+					<img src={state.selected[0].img} width="98%" height="42vh"></img>
 					{/* <Image src={state.selected[0].img}></Image> */}
 				</IssueInfoImage>
 				<UserProfileContainer>
-					<UserProfilePhoto></UserProfilePhoto>
+					<UserProfilePhoto>프로필사진</UserProfilePhoto>
 					<UserNickname>복정동</UserNickname>
 					<IssueAddress>유저가 제보한 이슈의 위치가 떠야합니다.</IssueAddress>
 				</UserProfileContainer>
-				<IssueInfoTitle>진짜여기는너무더러워</IssueInfoTitle>
-				<IssueInfoClass>일반쓰레기</IssueInfoClass>
-				<IssueContents>
-					사람들이 쓰레기를 무단으로 벌비니다. 쓰레기봉투도 아니고 점점쌓입니다.
-				</IssueContents>
+				<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
+				<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
+				<IssueContents>{state.selected[0].body}</IssueContents>
 				<IssueInfoFooter>
 					<Liked></Liked>
 					<Resolve>해결 / 1,330 빗자루</Resolve>
 					<Comment>댓글</Comment>
 					<Report>신고</Report>
 				</IssueInfoFooter>
-				{/* state 안불러와지는거 고치자 ;;; */}
-				{/* <IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
-				<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
-				<IssueContents>{state.selected[0].body}</IssueContents> */}
 			</IssueInfoContainer>
 		</>
 	);
@@ -47,20 +41,27 @@ function Image(props) {
 }
 
 const IssueInfoContainer = styled.div`
-	width: 430px;
-	height: 912px;
 	position: absolute;
-	z-index: 5;
-	background-color: #ffffff;
+	text-align: center;
+	align: center;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	margin: auto;
+	min-height: 100vh;
+	vertical-align: middle;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 const IssueInfoImage = styled.div`
-	width: 430px;
-	height: 430px;
+	width: 98%;
+	height: 42vh;
 	border: 1px solid black;
 	position: absolute;
-	left: 0px;
-	top: 0px;
+	left: 3px;
+	top: 3px;
 `;
 
 const UserProfileContainer = styled.div`

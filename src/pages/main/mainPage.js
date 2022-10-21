@@ -5,7 +5,6 @@ import { useContext, useEffect, useCallback } from "react";
 import "./mainPage.css";
 import Temp from "../../pages/temp/Temp.js";
 import Search from "./components/Search.jsx";
-import IssueInfo from "../../pages/temp/IssueInfo.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -33,8 +32,9 @@ export default function Main() {
 				<BottomSheet
 					open={state.sheet}
 					onDismiss={onDismiss}
-					snapPoints={({ maxHeight }) => [0.18 * maxHeight]}
+					snapPoints={({ maxHeight }) => [0.24 * maxHeight]}
 					blocking={false}
+					onClick={() => setPage(2)}
 					expandOnContentDrag={true}
 				>
 					<Temp />
