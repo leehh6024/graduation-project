@@ -3,8 +3,8 @@
 	z-index: 4;
 	width: 96px;
 	height: 96px;
-	left: 167px;
-	top: 776px;
+	left: 40%;
+	top: 70%;
 	border-radius: 50px;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -15,24 +15,24 @@
 			z-index: 4;
 			width: 96px;
 			height: 96px;
-			left: 147px;
-			top: 576px;	
+			left: 40%;
+			top: 70%;	
 			border-radius: 50px;
 			box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 	}
 }
-/* @media (max-height: 790px) {
+@media (max-height: 750px) {
 	.btn-issue {
 		position: absolute;
 		z-index: 4;
 		width: 96px;
 		height: 96px;
-		left: 147px;
-		top: 576px;
+		left: 40%;
+		top: 70%;
 		border-radius: 50px;
 		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 	}
-} */
+}
 
 :root {
 	--rsbs-backdrop-bg: rgba(0, 0, 0, 0.6);
