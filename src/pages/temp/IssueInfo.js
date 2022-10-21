@@ -174,10 +174,9 @@ const Resolve = styled.div`
 	border-radius: 12px;
 	color: white;
 	text-align: center;
-	vertical-text: middle;
 	display: flex;
 	justify-content: center;
-	align-content: center;
+	align-items: center;
 `;
 
 const Comment = styled.div`
@@ -190,6 +189,9 @@ const Comment = styled.div`
 	border-radius: 12px;
 	color: white;
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 
 const Report = styled.div`
@@ -202,4 +204,7 @@ const Report = styled.div`
 	border-radius: 12px;
 	color: white;
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
