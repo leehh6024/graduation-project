@@ -3,15 +3,22 @@
 	z-index: 4;
 	width: 96px;
 	height: 96px;
+<<<<<<< HEAD
 	left: 40%;
 	top: 70%;
+=======
+	left: 50%;
+	bottom: 0%;
+	transform: translate(-52%, -100%);
+>>>>>>> 1021_1
 	border-radius: 50px;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-@media (max-width: 404px) {
+/* @media (max-width: 404px) {
 	.btn-issue {
 		position: absolute;
+<<<<<<< HEAD
 			z-index: 4;
 			width: 96px;
 			height: 96px;
@@ -22,6 +29,18 @@
 	}
 }
 @media (max-height: 750px) {
+=======
+		z-index: 4;
+		width: 96px;
+		height: 96px;
+		left: 147px;
+		top: 576px;	
+		border-radius: 50px;
+		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	}
+} */
+/* @media (max-height: 790px) {
+>>>>>>> 1021_1
 	.btn-issue {
 		position: absolute;
 		z-index: 4;

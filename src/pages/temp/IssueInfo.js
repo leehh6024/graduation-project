@@ -10,14 +10,12 @@ export default function IssueInfo() {
 		<>
 			<IssueInfoContainer>
 				<IssueInfoImage>
-					<img src={state.selected[0].img} width="98%" height="42vh"></img>
+					<img src={state.selected[0].img} width="100%" height="100%"></img>
 					{/* <Image src={state.selected[0].img}></Image> */}
 				</IssueInfoImage>
-				<UserProfileContainer>
-					<UserProfilePhoto>프로필사진</UserProfilePhoto>
-					<UserNickname>복정동</UserNickname>
-					<IssueAddress>유저가 제보한 이슈의 위치가 떠야합니다.</IssueAddress>
-				</UserProfileContainer>
+				<UserProfilePhoto>프로필사진</UserProfilePhoto>
+				<UserNickname>복정동</UserNickname>
+				<IssueAddress>유저가 제보한 이슈의 위치가 떠야합니다.</IssueAddress>
 				<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
 				<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
 				<IssueContents>{state.selected[0].body}</IssueContents>
@@ -56,19 +54,10 @@ const IssueInfoContainer = styled.div`
 `;
 
 const IssueInfoImage = styled.div`
-	width: 98%;
-	height: 42vh;
+	width: 100%;
+	height: 40%;
 	border: 1px solid black;
 	position: absolute;
-	left: 3px;
-	top: 3px;
-`;
-
-const UserProfileContainer = styled.div`
-	width: 430px;
-	height: 100px;
-	position: absolute;
-	top: 14px;
 `;
 
 const UserProfilePhoto = styled.div`
@@ -78,7 +67,7 @@ const UserProfilePhoto = styled.div`
 	border: 1px solid grey;
 	position: absolute;
 	left: 16px;
-	top: 446px;
+	top: 42%;
 `;
 
 const UserNickname = styled.div`
@@ -87,7 +76,7 @@ const UserNickname = styled.div`
 	border: 1px solid grey;
 	position: absolute;
 	left: 74px;
-	top: 450px;
+	top: 42%;
 	text-align: left;
 	font-weight: 700;
 	font-size: 16px;
@@ -102,7 +91,7 @@ const IssueAddress = styled.div`
 	border: 1px solid grey;
 	position: absolute;
 	left: 74px;
-	top: 477px;
+	top: 45%;
 	text-align: left;
 	font-weight: 400;
 	font-size: 13x;
@@ -116,7 +105,7 @@ const IssueInfoTitle = styled.div`
 	height: 24px;
 	position: absolute;
 	left: 16px;
-	top: 543px;
+	top: 49%;
 	text-align: left;
 	font-weight: 700;
 	font-size: 20px;
@@ -130,7 +119,7 @@ const IssueInfoClass = styled.div`
 	height: 16px;
 	position: absolute;
 	left: 16px;
-	top: 579px;
+	top: 53%;
 	text-align: left;
 	font-weight: 400;
 	font-size: 13px;
@@ -146,7 +135,7 @@ const IssueContents = styled.div`
 	height: 100px;
 	position: absolute;
 	left: 16px;
-	top: 619px;
+	top: 56%;
 	text-align: left;
 	font-weight: 400;
 	font-size: 16px;
@@ -157,11 +146,11 @@ const IssueContents = styled.div`
 `;
 
 const IssueInfoFooter = styled.div`
-	width: 430px;
-	height: 110px;
+	width: 100%;
+	height: 100px;
 	position: absolute;
 	left: 0px;
-	top: 788px;
+	top: 75%;
 	background-color: #ffffff;
 	box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.05);
 `;
@@ -170,7 +159,7 @@ const Liked = styled.div`
 	position: absolute;
 	width: 23px;
 	height: 36px;
-	left: 20px;
+	left: 3%;
 	top: 39px;
 	border: 1px solid black;
 `;
@@ -179,7 +168,7 @@ const Resolve = styled.div`
 	position: absolute;
 	width: 172px;
 	height: 54px;
-	left: 62px;
+	left: 12%;
 	top: 28px;
 	background-color: #0ee163;
 	border-radius: 12px;
@@ -191,7 +180,7 @@ const Comment = styled.div`
 	position: absolute;
 	width: 86px;
 	height: 54px;
-	left: 242px;
+	left: 58%;
 	top: 28px;
 	background-color: #0ee163;
 	border-radius: 12px;
@@ -201,9 +190,9 @@ const Comment = styled.div`
 
 const Report = styled.div`
 	position: absolute;
-	width: 86px;
+	width: 54px;
 	height: 54px;
-	left: 336px;
+	left: 82%;
 	top: 28px;
 	background-color: #de6b5a;
 	border-radius: 12px;

@@ -74,7 +74,6 @@ export default function App() {
 	return (
 		<>
 			<BrowserView>
-				데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!데스크톱브라우져!
 				<GlobalContextProvider>
 					<BrowserRouter>
 						<GlobalStyle />
@@ -84,8 +83,6 @@ export default function App() {
 			</BrowserView>
 
 			<MobileView>
-				{/* 모바일 브라우져!모바일 브라우져!모바일 브라우져!모바일 브라우져!모바일
-				브라우져!모바일 브라우져! */}
 				<GlobalContextProvider>
 					<BrowserRouter>
 						<GlobalStyle />
