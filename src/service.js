@@ -28,7 +28,7 @@ export async function getFixedPointIssue() {
 }
 
 export async function getUserPointIssues(userPoint) {
-	return await TownCleanerAPI.post("/issue", userPoint);
+	return await TownCleanerAPI.post("/issue", { user: userPoint });
 }
 export async function serverLog(data) {
 	return await TownCleanerAPI.get("/log", data);

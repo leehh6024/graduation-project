@@ -65,7 +65,7 @@ export default function Location() {
 	}, []);
 
 	const getIssuePoints = useCallback(async (user) => {
-		const { data } = await API.getFixedPointIssue({ user });
+		const { data } = await API.getUserPointIssues(user);
 
 		if (!data) throw new Error("No data");
 		const processedIssuePoint = formatIssueData(data);
