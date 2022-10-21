@@ -18,7 +18,7 @@ const formatIssueData = (data) => {
 				Number(issuePoint.issueLoc.lng)
 			),
 			body: issuePoint.body,
-			img: issuePoint.img,
+			img: issuePoint.imgUrl,
 		};
 	});
 	return processedLocation;

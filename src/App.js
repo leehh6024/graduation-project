@@ -83,8 +83,6 @@ export default function App() {
 			</BrowserView>
 
 			<MobileView>
-				{/* 모바일 브라우져!모바일 브라우져!모바일 브라우져!모바일 브라우져!모바일
-				브라우져!모바일 브라우져! */}
 				<GlobalContextProvider>
 					<BrowserRouter>
 						<GlobalStyle />

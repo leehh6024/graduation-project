@@ -5,7 +5,7 @@
 	height: 96px;
 	left: 50%;
 	bottom: 0%;
-	transform: translate(-50%, -50%);
+	transform: translate(-52%, -100%);
 	border-radius: 50px;
 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -13,13 +13,13 @@
 /* @media (max-width: 404px) {
 	.btn-issue {
 		position: absolute;
-			z-index: 4;
-			width: 96px;
-			height: 96px;
-			left: 147px;
-			top: 576px;	
-			border-radius: 50px;
-			box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+		z-index: 4;
+		width: 96px;
+		height: 96px;
+		left: 147px;
+		top: 576px;	
+		border-radius: 50px;
+		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 	}
 } */
 /* @media (max-height: 790px) {
