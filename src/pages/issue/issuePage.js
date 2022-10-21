@@ -6,6 +6,7 @@ import ImageUploadButton from "./component/imageUploadButton";
 import ContentInputField from "./component/contentField";
 import CategorySelector from "./component/classSelectList";
 import { API } from "../../service.js";
+import "./component/contentField.css";
 
 const Issue = styled.div`
 	position: absolute;
@@ -86,22 +87,7 @@ export default function IssuePage() {
 			)}
 			{image && (
 				<button
-					style={{
-						position: "absolute",
-						left: "24px",
-						top: "833px",
-						width: "382px",
-						height: "45px",
-						fontSize: "16px",
-						fontFamily: "Pretendard",
-						fontStyle: "bold",
-						fontWeight: "700",
-						color: "white",
-						backgroundColor: "#0EE163",
-						borderColor: "#0EE163",
-						border: "1px solid #0EE163",
-						borderRadius: "5px",
-					}}
+					className="btn-submit-issue"
 					type="submit"
 					onClick={createIssue}
 				>

@@ -1,27 +1,12 @@
 import styled from "styled-components";
+import "./contentField.css";
 
 const CategoryList = styled.div``;
 
 function CategorySelector({ onCategoryChange }) {
 	return (
 		<CategoryList>
-			<select
-				style={{
-					position: "absolute",
-					left: "24px",
-					top: "596px",
-					width: "91px",
-					height: "22px",
-					fontSize: "13px",
-					border: "none",
-					fontFamily: "Pretendard",
-					fontWeight: "400",
-					fontStyle: "regular",
-					backgroundColor: "#F5F5F5",
-				}}
-				type="text"
-				onChange={onCategoryChange}
-			>
+			<select className="select-class1" type="text" onChange={onCategoryChange}>
 				<option key={0} value={0}>
 					클래스 0
 				</option>
@@ -35,39 +20,8 @@ function CategorySelector({ onCategoryChange }) {
 					클래스 3
 				</option>
 			</select>
-			<span
-				style={{
-					position: "absolute",
-					left: "123px",
-					top: "602px",
-					width: "5px",
-					height: "16px",
-					fontSize: "13px",
-					border: "none",
-					fontFamily: "Pretendard",
-					fontWeight: "400",
-					fontStyle: "Normal",
-				}}
-			>
-				/
-			</span>
-			<select
-				style={{
-					position: "absolute",
-					left: "136px",
-					top: "596px",
-					width: "91px",
-					height: "22px",
-					fontSize: "13px",
-					border: "none",
-					fontFamily: "Pretendard",
-					fontWeight: "400",
-					fontStyle: "regular",
-					backgroundColor: "#F5F5F5",
-				}}
-				type="text"
-				onChange={onCategoryChange}
-			>
+			<span>/</span>
+			<select className="select-class2" type="text" onChange={onCategoryChange}>
 				<option key={0} value={0}>
 					클래스 0
 				</option>

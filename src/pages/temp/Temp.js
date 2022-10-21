@@ -28,16 +28,18 @@ function Image(props) {
 	return <img src={img}></img>;
 }
 
-const BottomSheetContainer = styled.div`
+const BottomSheetContainer = styled.button`
 	width: 430px;
 	height: 146px;
 	position: relative;
+	background-color: white;
+	border: none;
 `;
 
 const ImageSheetContainer = styled.div`
 	width: 133px;
 	height: 100px;
-	border: 1px solid black;
+	border: none;
 	position: absolute;
 	left: 16px;
 	top: 3px;
