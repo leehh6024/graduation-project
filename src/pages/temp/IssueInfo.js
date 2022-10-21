@@ -174,6 +174,10 @@ const Resolve = styled.div`
 	border-radius: 12px;
 	color: white;
 	text-align: center;
+	vertical-text: middle;
+	display: flex;
+	justify-content: center;
+	align-content: center;
 `;
 
 const Comment = styled.div`
