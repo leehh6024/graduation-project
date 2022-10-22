@@ -35,6 +35,8 @@ export default function Location() {
 						userLocation.current.lng
 				);
 				setUserCenter(userLocation.current.lat, userLocation.current.lng);
+				globalRef.current.userLocation.lat = userLocation.current.lat;
+				globalRef.current.userLocation.lng = userLocation.current.lng;
 			});
 		} else {
 			alert("GPS 켜주세요");

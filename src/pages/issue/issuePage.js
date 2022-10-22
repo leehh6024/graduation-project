@@ -19,12 +19,11 @@ const Issue = styled.div`
 	margin: auto;
 	min-height: 100vh;
 	vertical-align: middle;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 export default function IssuePage() {
-	const { state, setState } = useContext(GlobalContext);
+	const { state, setState, globalRef } = useContext(GlobalContext);
 	const [image, setImage] = useState("");
 	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
@@ -53,8 +52,8 @@ export default function IssuePage() {
 			class: category,
 			body,
 			location: {
-				lat: Number(state.userLocation.lat),
-				lng: Number(state.userLocation.lng),
+				lat: Number(globalRef.current.userLocation.lat),
+				lng: Number(globalRef.current.userLocation.lng),
 			},
 		};
 		formData.append("title", issue.title);
@@ -80,17 +79,10 @@ export default function IssuePage() {
 
 			{image && <CategorySelector onCategoryChange={onCategoryChange} />}
 			{image && (
-				<ContentInputField
-					onTitledChange={onTitledChange}
-					onBodyChange={onBodyChange}
-				/>
+				<ContentInputField onTitledChange={onTitledChange} onBodyChange={onBodyChange} />
 			)}
 			{image && (
-				<button
-					className="btn-submit-issue"
-					type="submit"
-					onClick={createIssue}
-				>
+				<button className="btn-submit-issue" type="submit" onClick={createIssue}>
 					이슈 등록하기
 				</button>
 			)}
