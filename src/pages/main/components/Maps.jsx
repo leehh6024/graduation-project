@@ -92,7 +92,7 @@ export default function Location() {
 		container = document.getElementById("map");
 		options = {
 			center: new kakao.maps.LatLng(37.454448442968726, 127.130440332797),
-			level: 2,
+			level: 3,
 		};
 		map = new kakao.maps.Map(container, options);
 	}, []);
