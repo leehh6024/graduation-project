@@ -10,9 +10,7 @@ export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
 
 	useEffect(() => setState((prev) => ({ ...prev, sheet: false })), []);
-	const setPage = useCallback((page) =>
-		setState((prev) => ({ ...prev, page: page }))
-	);
+	const setPage = useCallback((page) => setState((prev) => ({ ...prev, page: page })));
 
 	function onDismiss() {
 		setState((prev) => ({ ...prev, sheet: false }));
