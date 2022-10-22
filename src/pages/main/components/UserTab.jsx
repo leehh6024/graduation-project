@@ -8,10 +8,10 @@ const UserTabContainer = styled.div`
 	position: absolute;
 	z-index: 7;
 	width: 270px;
+	height: 100%;
 	left: 0px;
 	top: 0px;
 	background: white;
-	height: calc(var(--vh, 1vh) * 100);
 `;
 
 const CloseUserTab = styled.div`
