@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const Navigation = styled.nav`
 	min-width: 230px;
-	min-height: 610px;
 	font-family: "Inter";
 	font-style: normal;
 	font-weight: 700;

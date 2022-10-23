@@ -5,12 +5,12 @@ import { useContext, useEffect, useCallback } from "react";
 import "./mainPage.css";
 import Temp from "../../pages/temp/Temp.js";
 import Search from "./components/Search.jsx";
+import { Link } from "react-router-dom";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
 
 	useEffect(() => setState((prev) => ({ ...prev, sheet: false })), []);
-	const setPage = useCallback((page) => setState((prev) => ({ ...prev, page: page })));
 
 	function onDismiss() {
 		setState((prev) => ({ ...prev, sheet: false }));
@@ -21,18 +21,14 @@ export default function Main() {
 			<div className="mainpage">
 				<Search />
 				<Map />
-				<img
-					className="btn-issue"
-					src="/issue-button.png"
-					alt="issue"
-					onClick={() => setPage(1)}
-				></img>
+				<Link to="/issue">
+					<img className="btn-issue" src="/issue-button.png" alt="issue"></img>
+				</Link>
 				<BottomSheet
 					open={state.sheet}
 					onDismiss={onDismiss}
 					snapPoints={({ maxHeight }) => [0.25 * maxHeight]}
 					blocking={false}
-					onClick={() => setPage(2)}
 					expandOnContentDrag={true}
 				>
 					<Temp />

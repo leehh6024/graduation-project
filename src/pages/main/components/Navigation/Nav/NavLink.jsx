@@ -15,12 +15,12 @@ const Link = styled.a`
 	${(p) =>
 		p.active &&
 		css`
-			color: #0ee163;
+			color: #6ac47a;
 			font-weight: bold;
 		`}
 
 	&:hover {
-		background: #0ee163;
+		background: #6ac47a;
 		color: #fffffe;
 		transform: translateY(-2px);
 		transition: 1s;
@@ -35,11 +35,7 @@ const Link = styled.a`
 
 function NavLink({ children, to, active = false }) {
 	return (
-		<Link
-			href={to}
-			active={active}
-			aria-current={isCurrent(to) ? "page" : null}
-		>
+		<Link href={to} aria-current={isCurrent(to) ? "page" : null}>
 			{children}
 		</Link>
 	);

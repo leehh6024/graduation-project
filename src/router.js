@@ -4,14 +4,14 @@ import React, { useContext } from "react";
 import GlobalContext from "./common/context/store";
 import styled from "styled-components";
 import IssueInfo from "./pages/temp/IssueInfo.js";
+import Community from "./pages/community/Community.js";
+import { Route, Routes } from "react-router-dom";
 
 const Container = styled.div`
 	position: relative;
 	width: 100%;
 	min-height: 100vh;
 	height: 100%;
-	max-width: 430px;
-	min-width: 320px;
 	margin: auto;
 	background-color: white;
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
@@ -19,33 +19,17 @@ const Container = styled.div`
 `;
 
 function Controller() {
-	const pages = [<Main />, <IssuePage />, <IssueInfo />];
-
-	const {
-		state: { page },
-		setState,
-	} = useContext(GlobalContext);
-
-	const setPage = (page) => setState((prev) => ({ ...prev, page: page }));
+	const pages = [<Main />, <IssuePage />, <IssueInfo />, <Community />];
 
 	return (
 		<Container>
-			<button
-				className="btn-map"
-				style={{
-					position: "fixed",
-					left: 0,
-					top: 0,
-					width: "100px",
-					height: "30px",
-				}}
-				onClick={() => setPage(0)}
-			>
-				Map
-			</button>
-			{/* <IssueInfo /> */}
-
-			{pages[page]}
+			<Routes>
+				<Route path="/" element={<Main />} />
+				<Route path="/issue" element={<IssuePage />} />
+				<Route path="/issueinfo" element={<IssueInfo />} />
+				<Route path="/community" element={<Community />} />
+			</Routes>
+			{/* {pages[page]} */}
 		</Container>
 	);
 }

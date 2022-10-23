@@ -170,7 +170,7 @@ const Resolve = styled.div`
 	height: 54px;
 	left: 12%;
 	top: 28px;
-	background-color: #0ee163;
+	background-color: #6ac47a;
 	border-radius: 12px;
 	color: white;
 	text-align: center;
@@ -185,7 +185,7 @@ const Comment = styled.div`
 	height: 54px;
 	left: 58%;
 	top: 28px;
-	background-color: #0ee163;
+	background-color: #6ac47a;
 	border-radius: 12px;
 	color: white;
 	text-align: center;

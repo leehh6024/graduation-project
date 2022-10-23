@@ -1,12 +1,13 @@
 import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function Temp() {
 	const { state, setState } = useContext(GlobalContext);
 
 	return (
-		<>
+		<Link to="issueinfo">
 			<BottomSheetContainer>
 				<ImageSheetContainer>
 					<img src={state.selected[0].img} width="133px" height="100px"></img>
@@ -16,7 +17,7 @@ export default function Temp() {
 				<SheetBody>{state.selected[0].body}</SheetBody>
 				<SheetClass>{state.selected[0].class}</SheetClass>
 			</BottomSheetContainer>
-		</>
+		</Link>
 	);
 }
 
