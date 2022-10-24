@@ -1,0 +1,100 @@
+.btn-back {
+    position: absolute;
+    display: inline-block;
+    width: 2rem;
+    left: 5%;
+    cursor: pointer;
+    margin: auto;
+    transform: translate(-50%, 150%);
+}
+
+.trade-image {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #464646;
+    width: 3rem;
+    height: 1rem;
+}
+.trade-text {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: #ED6C67;
+    width: 5rem;
+    height: 1rem;
+}
+
+.trade-title {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #464646;
+    width: 3rem;
+    height: 1rem;
+}
+.input-trade-name {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    color: #e2e2e2;
+    line-height: 14px;
+    color: #464646;
+    width: 21rem;
+    height: 3.5rem;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+}
+.trade-info {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #464646;
+    width: 4rem;
+    height: 1rem;
+}
+.input-trade-info {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    color: #e2e2e2;
+    line-height: 14px;
+    color: #464646;
+    width: 21rem;
+    height: 5.5rem;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+}
+.brush {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #464646;
+    width: 6.5rem;
+    height: 1rem;
+}
+.input-brush {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    color: #e2e2e2;
+    line-height: 14px;
+    color: #464646;
+    width: 21rem;
+    height: 3.5rem;
+    border: 1px solid #e2e2e2;
+    border-radius: 5px;
+}

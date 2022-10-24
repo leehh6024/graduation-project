@@ -1,46 +1,23 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import GlobalContext from "../../common/context/store.js";
+import Tab from "./Tab.js";
 import Quest from "./Quest/Quest.js";
 import Trade from "./Trade/Trade.js";
 
-const Wrapper = styled.div`
-	display: flex;
-	justify-content: space-between;
-	padding: 10px 30px;
-	font-weight: 700;
-`;
-const TabItem = styled.div`
-	padding: 8px;
-	opacity: 0.5;
-	border-bottom: ${(props) => props.isActive && "2px solid white"};
-	opacity: ${(props) => props.isActive && 1};
-	cursor: pointer;
-`;
-
-export default function Community({ activeTab, setActiveTab }) {
+export default function Community() {
 	// only T, Q
 	const [activeTab, setActiveTab] = useState("Q");
 
 	return (
-		<div>
-			<CommunityContainer>
-				<Wrapper>
-					<TabItem
-						isActive={activeTab === "Q"}
-						onClick={() => setActiveTab("Q")}
-					>
-						퀘스트
-					</TabItem>
-					<TabItem
-						isActive={activeTab === "T"}
-						onClick={() => setActiveTab("T")}
-					>
-						거래
-					</TabItem>
-				</Wrapper>
-			</CommunityContainer>
-		</div>
+		<CommunityContainer>
+			<Tab activeTab={activeTab} setActiveTab={setActiveTab} />
+			{activeTab == "Q" ? (
+				<Quest>퀘스트창입니다.</Quest>
+			) : (
+				<Trade>거래창입니다.</Trade>
+			)}
+		</CommunityContainer>
 	);
 }
 
