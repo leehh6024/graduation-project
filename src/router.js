@@ -1,6 +1,6 @@
 import IssuePage from "./pages/issue/issuePage";
 import Main from "./pages/main/mainPage";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import GlobalContext from "./common/context/store";
 import styled from "styled-components";
 import IssueInfo from "./pages/temp/IssueInfo.js";
@@ -16,11 +16,20 @@ const Container = styled.div`
 	height: 100%;
 	margin: auto;
 	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 function Controller() {
+	const { globalRef } = useContext(GlobalContext);
+
+	useEffect(() => {
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (position) {
+				globalRef.current.userLocation.lat = position.coords.latitude;
+				globalRef.current.userLocation.lng = position.coords.longitude;
+			});
+		}
+	}, []);
 	return (
 		<Container>
 			<Routes>

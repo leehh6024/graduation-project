@@ -4,6 +4,7 @@ import styled from "styled-components";
 import GlobalContext from "../../../common/context/store";
 import { kakao } from "../../main/components/Map";
 import "./contentField.css";
+import { setUserLocation } from "../../../common/function/setUserLocation";
 
 const Content = styled.div`
 	margin: auto;
