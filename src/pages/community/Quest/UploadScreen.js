@@ -19,11 +19,11 @@ export default function UploadScreen() {
 					<h4 className="trade-text">(1장 이상 필수)</h4>
 					<ImageUploadButton className="btn-image-upload-button">
 						<img
-							src="/photo.png"
+							src="/community/btn-upload-image.png"
 							alt="ss"
 							style={{
-								width: "80%",
-								height: "60%",
+								width: "30%",
+								height: "40%",
 								margin: "auto",
 								verticalAlign: "middle",
 							}}

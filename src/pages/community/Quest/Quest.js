@@ -10,9 +10,7 @@ export default function Quest() {
 	return (
 		<div>
 			<Link to="/upload">
-				<button className="btn-addQuest">
-					<img src="/community/btn-addQuest.png" />
-				</button>
+				<img className="btn-addQuest" src="/community/btn-addQuest.png" />
 			</Link>
 			<ContentsList />
 		</div>
