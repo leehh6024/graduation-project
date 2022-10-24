@@ -13,28 +13,26 @@ const Content = styled.div`
 const geocoder = new kakao.maps.services.Geocoder();
 
 function ContentInputField({ onTitledChange, onBodyChange }) {
-	const { state, setState } = useContext(GlobalContext);
+	const { state, setState, globalRef } = useContext(GlobalContext);
 	const [address, setAddress] = useState("");
 
 	useEffect(() => {
 		const coords = new kakao.maps.LatLng(
-			state.userLocation.lat,
-			state.userLocation.lng
+			globalRef.current.userLocation.lat,
+			globalRef.current.userLocation.lng
 		);
-		geocoder.coord2RegionCode(
-			coords.getLng(),
-			coords.getLat(),
-			(result, status) => {
-				setAddress(
-					result[0].region_1depth_name +
-						" " +
-						result[0].region_2depth_name +
-						" " +
-						result[0].region_3depth_name
-				);
-			}
-		);
-	}, [state.userLocation]);
+		console.log(coords);
+		console.log(globalRef.current.userLocation);
+		geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), (result, status) => {
+			setAddress(
+				result[0].region_1depth_name +
+					" " +
+					result[0].region_2depth_name +
+					" " +
+					result[0].region_3depth_name
+			);
+		});
+	}, [globalRef.current.userLocation]);
 
 	return (
 		<Content>

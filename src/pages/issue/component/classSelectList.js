@@ -19,7 +19,7 @@ function CategorySelector({ onCategoryChange }) {
 				<option key={3} value={3}>
 					클래스 3
 				</option>
-				<option key={3} value={4}>
+				<option key={4} value={4}>
 					클래스 4
 				</option>
 			</select>
