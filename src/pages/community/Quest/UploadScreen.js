@@ -3,87 +3,74 @@ import styled from "styled-components";
 import GlobalContext from "../../../common/context/store";
 import { useContext } from "react";
 import "./UploadScreen.css";
+import { Link } from "react-router-dom";
 
 export default function UploadScreen() {
-	const { state, setState } = useContext(GlobalContext);
-
-	const closeUploadScreen = () => {
-		setState((prev) => ({ ...prev, uploadScreen: false }));
-	};
-
-	const RegisterSuccess = () => {
-		// 성공적으로 등록한 창 띄워주기 이후에 메인으로 화면전환
-	};
-	const RegisterFailed = () => {
-		// 성공적으로 등록하지못한 창 띄워주기 이후에 메인으로 화면전환
-	};
-
 	return (
 		<div>
-			{state.uploadScreen && (
-				<UploadScreenContainer>
-					<img
-						className="btn-back"
-						src="/community/btn-back.png"
-						onClick={closeUploadScreen}
+			<UploadScreenContainer>
+				<Link to="/community">
+					<img className="btn-back" src="/community/btn-back.png" />
+				</Link>
+				<UploadTitle>거래 등록</UploadTitle>
+
+				<ImageUploadContainer>
+					<h3 className="trade-image">이미지</h3>
+					<h4 className="trade-text">(1장 이상 필수)</h4>
+					<ImageUploadButton className="btn-image-upload-button">
+						<img
+							src="/photo.png"
+							alt="ss"
+							style={{
+								width: "80%",
+								height: "60%",
+								margin: "auto",
+								verticalAlign: "middle",
+							}}
+						/>
+						<label htmlFor="upload-image" />
+						<input
+							id="upload-image"
+							type="file"
+							accept="image/jpg, image/png, image/jpeg"
+							// onChange={onUpload}
+						/>
+					</ImageUploadButton>
+				</ImageUploadContainer>
+
+				<TradeTitleContainer>
+					<h3 className="trade-title">거래명</h3>
+					<input
+						className="input-trade-name"
+						type="text"
+						placeholder="상품명을 입력해주세요"
 					/>
-					<UploadTitle>거래 등록</UploadTitle>
+				</TradeTitleContainer>
 
-					<ImageUploadContainer>
-						<h3 className="trade-image">이미지</h3>
-						<h4 className="trade-text">(1장 이상 필수)</h4>
-						<ImageUploadButton className="btn-image-upload-button">
-							<img
-								src="/photo.png"
-								alt="ss"
-								style={{
-									width: "80%",
-									height: "60%",
-									margin: "auto",
-									verticalAlign: "middle",
-								}}
-							/>
-							<label htmlFor="upload-image" />
-							<input
-								id="upload-image"
-								type="file"
-								accept="image/jpg, image/png, image/jpeg"
-								// onChange={onUpload}
-							/>
-						</ImageUploadButton>
-					</ImageUploadContainer>
+				<TradeInfoContainer>
+					<h3 className="trade-info">거래 설명</h3>
+					<input
+						className="input-trade-info"
+						type="text"
+						placeholder="퀘스트에 대한 정보를 입력해 주세요. 개인정보 유출에 유의해 주세요. (1000자)"
+					/>
+				</TradeInfoContainer>
 
-					<TradeTitleContainer>
-						<h3 className="trade-title">거래명</h3>
-						<input
-							className="input-trade-name"
-							type="text"
-							placeholder="상품명을 입력해주세요"
-						/>
-					</TradeTitleContainer>
+				<BrushContainer>
+					<h3 className="brush">빗자루 개수 입력</h3>
+					<input
+						className="input-brush"
+						type="text"
+						placeholder="빗자루 개수 입력 (최소 100개 이상)"
+					/>
+				</BrushContainer>
 
-					<TradeInfoContainer>
-						<h3 className="trade-info">거래 설명</h3>
-						<input
-							className="input-trade-info"
-							type="text"
-							placeholder="퀘스트에 대한 정보를 입력해 주세요. 개인정보 유출에 유의해 주세요. (1000자)"
-						/>
-					</TradeInfoContainer>
-
-					<BrushContainer>
-						<h3 className="brush">빗자루 개수 입력</h3>
-						<input
-							className="input-brush"
-							type="text"
-							placeholder="빗자루 개수 입력 (최소 100개 이상)"
-						/>
-					</BrushContainer>
+				<Link to="/community">
 					<RegisterTrade>
 						<div>거래 등록하기</div>
 					</RegisterTrade>
-				</UploadScreenContainer>
-			)}
+				</Link>
+			</UploadScreenContainer>
 		</div>
 	);
 }
@@ -102,6 +89,7 @@ const UploadTitle = styled.div`
 	display: inline-block;
 	margin: auto;
 	transform: translate(-50%, 150%);
+	left: 50%;
 	top: 3%;
 	font-family: "Pretendard";
 	font-style: normal;
@@ -197,7 +185,7 @@ const RegisterTrade = styled.div`
 	width: 94%;
 	border: none;
 	border-radius: 5px;
-	background-color: #6ad47a;
+	background-color: #6ac47a;
 	color: white;
 	height: 3rem;
 	font-family: "Pretendard";

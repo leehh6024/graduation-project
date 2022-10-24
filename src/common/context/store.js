@@ -1,11 +1,9 @@
 import React, { useState, useRef } from "react";
 
 const initialState = {
-	communityPage: 0,
 	sheet: false,
 	selected: [],
 	usertab: false,
-	uploadScreen: false,
 };
 
 const initialRef = {

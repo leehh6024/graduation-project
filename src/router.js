@@ -5,6 +5,8 @@ import GlobalContext from "./common/context/store";
 import styled from "styled-components";
 import IssueInfo from "./pages/temp/IssueInfo.js";
 import Community from "./pages/community/Community.js";
+import Contents from "./pages/community/Quest/Contents.js";
+import UploadScreen from "./pages/community/Quest/UploadScreen.js";
 import { Route, Routes } from "react-router-dom";
 
 const Container = styled.div`
@@ -19,8 +21,6 @@ const Container = styled.div`
 `;
 
 function Controller() {
-	const pages = [<Main />, <IssuePage />, <IssueInfo />, <Community />];
-
 	return (
 		<Container>
 			<Routes>
@@ -28,8 +28,9 @@ function Controller() {
 				<Route path="/issue" element={<IssuePage />} />
 				<Route path="/issueinfo" element={<IssueInfo />} />
 				<Route path="/community" element={<Community />} />
+				<Route path="/contents" element={<Contents />} />
+				<Route path="/upload" element={<UploadScreen />} />
 			</Routes>
-			{/* {pages[page]} */}
 		</Container>
 	);
 }

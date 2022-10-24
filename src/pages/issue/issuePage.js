@@ -19,7 +19,8 @@ const Issue = styled.div`
 	margin: auto;
 	min-height: 100vh;
 	vertical-align: middle;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 export default function IssuePage() {
@@ -79,10 +80,17 @@ export default function IssuePage() {
 
 			{image && <CategorySelector onCategoryChange={onCategoryChange} />}
 			{image && (
-				<ContentInputField onTitledChange={onTitledChange} onBodyChange={onBodyChange} />
+				<ContentInputField
+					onTitledChange={onTitledChange}
+					onBodyChange={onBodyChange}
+				/>
 			)}
 			{image && (
-				<button className="btn-submit-issue" type="submit" onClick={createIssue}>
+				<button
+					className="btn-submit-issue"
+					type="submit"
+					onClick={createIssue}
+				>
 					이슈 등록하기
 				</button>
 			)}
