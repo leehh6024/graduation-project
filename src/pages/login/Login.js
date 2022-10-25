@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "./components/Logo.js";
+import LoginBox from "./components/LoginBox.js";
 
 export default function Login() {
 	return (
 		<LoginContainer>
 			<Logo />
-			{/* <LoginInput />
-			<Signup /> */}
+			<LoginBox />
+			{/* <Signup /> */}
 		</LoginContainer>
 	);
 }

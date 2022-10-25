@@ -6,7 +6,7 @@ const Box = styled.div`
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	height: 50%;
+	height: 40%;
 `;
 
 export default function Logo() {
