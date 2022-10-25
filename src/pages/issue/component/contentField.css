@@ -56,8 +56,9 @@
     font-family: Pretendard;
     font-weight: 400;
     font-style: normal;
+    border: none;
     border-radius: 5px;
-    background-color: #333333;
+    background-color: #6AC47A;
     line-height: 10px;
     color: white;
 }
@@ -142,17 +143,32 @@ textarea {
 }
 
 @media (max-width: 404px) {
+    .issue-title {
+        position: absolute;
+        left: 2%;
+        top: 312px;
+        width: 20%;
+        height: 18px;
+        font-size: 14px;
+        font-family: Pretendard;
+        font-weight: 700;
+        font-style: normal;
+        line-height: 18px;
+        color: #6ac47a;
+    }
     .input-title {
         position: absolute;
-        left: 24px;
+        left: 5%;
         top: 336px;
         width: 308px;
         height: 24px;
-        font-size: 20px;
+        font-size: 22px;
         border: none;
         font-family: Pretendard;
         font-weight: 700;
-        font-style: bold;
+        font-style: normal;
+        color: #999999;
+        opacity: 0.8;
     }
     .line {
         position: absolute;
@@ -164,27 +180,29 @@ textarea {
     }
     .address-title {
         position: absolute;
-        left: 24px;
+        left: 4%;
         top: 392px;
-        width: 27px;
+        width: 20%;
         height: 18px;
-        font-size: 15px;
+        font-size: 16px;
         font-family: Pretendard;
         font-weight: 700;
         font-style: normal;
         line-height: 18px;
+        color: #464646;
     }
     .address {
         position: absolute;
-        left: 20px;
+        left: 4%;
         top: 412px;
-        width: 144px;
+        width: 40%;
         height: 18px;
         font-size: 12px;
         font-family: Pretendard;
         font-weight: 400;
         font-style: normal;
         line-height: 18px;
+        color: #464646;
     }
     .btn-re-input {
         position: absolute;
@@ -196,22 +214,24 @@ textarea {
         font-family: Pretendard;
         font-weight: 400;
         font-style: normal;
+        border: none;
         border-radius: 5px;
-        background-color: #333333;
+        background-color: #6AC47A;
         line-height: 10px;
         color: white;
     }
     .category-title {
         position: absolute;
-        left: 24px;
+        left: 5%;
         top: 442px;
-        width: 54px;
+        width: 25%;
         height: 18px;
-        font-size: 15px;
+        font-size: 16px;
         font-family: Pretendard;
         font-weight: 700;
         font-style: normal;
         line-height: 18px;
+        color: #464646;
     }
     .select-class1 {
         position: absolute;
@@ -251,12 +271,33 @@ textarea {
         font-style: regular;
         background-color: #F5F5F5;
     }
+    .line2 {
+        position: absolute;
+        width: 88%;
+        height: 0px;
+        left: 16px;
+        top: 490px;
+        border: 1px solid #f5f5f5;
+    }
+    .content {
+        position: absolute;
+        left: 2%;
+        top: 510px;
+        width: 40%;
+        height: 18px;
+        font-size: 14px;
+        font-family: Pretendard;
+        font-weight: 700;
+        font-style: normal;
+        line-height: 18px;
+        color: #464646;
+    }
     textarea {
         position: absolute;
         left: 24px;
-        top: 495px;
+        top: 530px;
         width: 86%;
-        height: 102px;
+        height: 92px;
         font-size: 13px;
         border: none;
         font-family: Pretendard;
@@ -267,7 +308,7 @@ textarea {
     .btn-submit-issue {
         position: absolute;
         left: 24px;
-        top: 603px;
+        top: 636px;
         width: 86%;
         height: 45px;
         font-size: 16px;

@@ -3,8 +3,8 @@ import "./imageUploadButton.css";
 
 const Box = styled.div`
 	& > img {
-		width: 237px;
-		height: 153px;
+		width: 210px;
+		height: 210px;
 	}
 
 	& > label {
@@ -30,25 +30,30 @@ const Box = styled.div`
 
 function ImageUploadButton({ onUpload }) {
 	return (
-		<Box className="Box">
-			<img
-				src="/photo.png"
-				alt="ss"
-				style={{
-					width: "237px",
-					height: "153px",
-					margin: "auto",
-					verticalAlign: "middle",
-				}}
-			/>
-			<label htmlFor="button-upload"></label>
-			<input
-				id="button-upload"
-				type="file"
-				accept="image/jpg, image/png, image/jpeg"
-				onChange={onUpload}
-			/>
-		</Box>
+		<>
+			<Box className="Box">
+				<img
+					src="/photo.png"
+					alt="ss"
+					style={{
+						width: "210px",
+						height: "210px",
+						margin: "auto",
+						verticalAlign: "middle",
+						borderRadius: "50%",
+						boxShadow: "3px 9px 10px rgba(0,0,0,0.25)",
+					}}
+				/>
+				<label htmlFor="button-upload"></label>
+				<input
+					id="button-upload"
+					type="file"
+					accept="image/jpg, image/png, image/jpeg"
+					onChange={onUpload}
+				/>
+			</Box>
+			<div className="info-text">이슈를 등록해 주세요</div>
+		</>
 	);
 }
 

@@ -24,20 +24,25 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 		);
 		console.log(coords);
 		console.log(globalRef.current.userLocation);
-		geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), (result, status) => {
-			setAddress(
-				result[0].region_1depth_name +
-					" " +
-					result[0].region_2depth_name +
-					" " +
-					result[0].region_3depth_name
-			);
-		});
+		geocoder.coord2RegionCode(
+			coords.getLng(),
+			coords.getLat(),
+			(result, status) => {
+				setAddress(
+					result[0].region_1depth_name +
+						" " +
+						result[0].region_2depth_name +
+						" " +
+						result[0].region_3depth_name
+				);
+			}
+		);
 	}, [globalRef.current.userLocation]);
 
 	return (
 		<Content>
 			<div>
+				<div className="issue-title">이슈 제목</div>
 				<input
 					className="input-title"
 					type="text"
@@ -46,17 +51,19 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 				></input>
 			</div>
 			<hr className="line"></hr>
-			<div className="address-title">주소</div>
+			<div className="address-title">이슈 위치</div>
 			<div className="address">{address}</div>
 			<div>
 				<button className="btn-re-input">재입력</button>
 			</div>
-			<div className="category-title">카테고리</div>
+			<div className="category-title">이슈 카테고리</div>
 			<div>
+				<hr className="line2"></hr>
+				<div className="content">무엇이 불편하셨나요?</div>
 				<textarea
 					type="text"
 					onChange={onBodyChange}
-					placeholder="내용을 작성해주세요."
+					placeholder="불편사항을 적어주세요. (10자 이상)"
 				></textarea>
 			</div>
 		</Content>
