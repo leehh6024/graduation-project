@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import "./Contents.css";
+import "./components/Contents.css";
 
-export default function Contents() {
+export default function ContentsInfo() {
 	return (
 		<div>
 			<Link to="/community">
@@ -20,7 +20,7 @@ export default function Contents() {
 
 			<ContentsAddress>address</ContentsAddress>
 
-			<ContentsInfo>Information</ContentsInfo>
+			<ContentsInfos>Information</ContentsInfos>
 
 			<UserProfile>
 				<img src="user-profile-image" />
@@ -84,7 +84,8 @@ const ContentsAddress = styled.div`
 	line-height: 100%;
 	color: #999999;
 `;
-const ContentsInfo = styled.div`
+
+const ContentsInfos = styled.div`
     width: 30%
     height: 190px;
 	position: absolute;

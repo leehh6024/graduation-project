@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./ContentsList.css";
-import { API } from "../../../service.js";
+import "./Contents.css";
+import { API } from "../../../../service.js";
 import { Link } from "react-router-dom";
 
-export default function ContentsList() {
+export default function Contents() {
 	// API에서 받아온 데이터로 address, title, contentsImage, Brush 개수 넣어주야지
 	const [image, setImage] = useState("");
 	const [address, setAddress] = useState("");
@@ -12,12 +12,12 @@ export default function ContentsList() {
 
 	return (
 		<div>
-			<Link to="/contents" className="contents-list">
+			<Link to="/contentsinfo" className="contents-container">
 				<img className="contents-image" src={image} alt="contents" />
 				<div className="contents-address">{address}주소</div>
 				<div className="contents-title">{title}제목</div>
 				<div className="contents-brush">
-					<img src="brush.png" alt="brush" />
+					<img src="/community/brush.png" alt="brush" />
 					{numOfBrush}
 				</div>
 			</Link>
