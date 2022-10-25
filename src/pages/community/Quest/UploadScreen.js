@@ -1,11 +1,45 @@
-import React from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import GlobalContext from "../../../common/context/store";
-import { useContext } from "react";
 import "./UploadScreen.css";
 import { Link } from "react-router-dom";
+import UploadAddButton from "./UploadAddButton.js";
+import UploadImage from "./UploadImage.js";
+
+const UploadQuestBoard = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	row-gap: 1rem;
+
+	margin-top: 20px;
+	margin-left: 0px;
+	margin-right: 30px;
+
+	label {
+		cursor: pointer;
+	}
+`;
 
 export default function UploadScreen() {
+	const [files, setFiles] = useState([]);
+
+	const onFileChange = useCallback(
+		(e) => {
+			if (e.target.files && e.target.files[0]) {
+				if (files.length === 2) {
+					alert("사진은 최대 2개까지 등록할 수 있어요");
+					return;
+				}
+
+				setFiles((files) => [...files, e.target.files[0]]);
+			}
+		},
+		[files.length]
+	);
+	const onRemovePicture = useCallback((idx) => {
+		setFiles((files) => files.filter((file, index) => idx !== index));
+	}, []);
+
 	return (
 		<div>
 			<UploadScreenContainer>
@@ -15,27 +49,25 @@ export default function UploadScreen() {
 				<UploadTitle>거래 등록</UploadTitle>
 
 				<ImageUploadContainer>
-					<h3 className="trade-image">이미지</h3>
-					<h4 className="trade-text">(1장 이상 필수)</h4>
-					<ImageUploadButton className="btn-image-upload-button">
-						<img
-							src="/community/btn-upload-image.png"
-							alt="ss"
-							style={{
-								width: "30%",
-								height: "40%",
-								margin: "auto",
-								verticalAlign: "middle",
-							}}
-						/>
-						<label htmlFor="upload-image" />
-						<input
-							id="upload-image"
-							type="file"
-							accept="image/jpg, image/png, image/jpeg"
-							// onChange={onUpload}
-						/>
-					</ImageUploadButton>
+					<h3 className="trade-image">
+						이미지<h4 className="trade-text">(1장 이상 필수)</h4>
+					</h3>
+
+					<UploadQuestBoard>
+						<UploadAddButton onFileChange={onFileChange} />
+
+						{files &&
+							files.map((file, index) => {
+								return (
+									<UploadImage
+										key={index}
+										index={index}
+										file={file}
+										onRemovePicture={onRemovePicture}
+									/>
+								);
+							})}
+					</UploadQuestBoard>
 				</ImageUploadContainer>
 
 				<TradeTitleContainer>
@@ -101,51 +133,13 @@ const UploadTitle = styled.div`
 
 const ImageUploadContainer = styled.div`
 	position: absolute;
-	display: flex;
+	display: grid;
 	margin: auto;
+	width: 100%;
+	height: 2%;
 	left: 3%;
 	top: 14%;
 `;
-
-const ImageUploadButton = styled.div`
-	display: flex;
-	justify-content: center;
-	align-content: center;
-	position: absolute;
-	width: 80%;
-	height: 600%;
-	border: 1px solid #999999;
-	border-radius: 18px;
-	margin: auto;
-	left: 3%;
-	top: 200%;
-
-	& > img {
-		width: 50px;
-		height: 50px;
-	}
-
-	& > label {
-		width: 100%;
-		height: 100%;
-		position: absolute;
-	}
-
-	& > input {
-		display: none;
-	}
-
-	.button-upload {
-		width: 100%;
-		object-fit: contain;
-		margin: auto;
-	}
-
-	label {
-		cursor: pointer;
-	}
-`;
-
 const TradeTitleContainer = styled.div`
 	position: absolute;
 	display: block;
