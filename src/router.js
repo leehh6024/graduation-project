@@ -1,13 +1,15 @@
-import IssuePage from "./pages/issue/issuePage";
-import Main from "./pages/main/mainPage";
 import React, { useContext, useEffect } from "react";
 import GlobalContext from "./common/context/store";
+import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
+
+import Main from "./pages/main/mainPage";
+import Login from "./pages/login/Login.js";
+import IssuePage from "./pages/issue/issuePage";
 import IssueInfo from "./pages/temp/IssueInfo.js";
 import Community from "./pages/community/Community.js";
 import ContentsInfo from "./pages/community/Quest/ContentsInfo.js";
 import UploadScreen from "./pages/community/Quest/UploadScreen.js";
-import { Route, Routes } from "react-router-dom";
 
 const Container = styled.div`
 	position: relative;
@@ -35,6 +37,7 @@ function Controller() {
 		<Container>
 			<Routes>
 				<Route path="/" element={<Main />} />
+				<Route path="/login" element={<Login />} />
 				<Route path="/issue" element={<IssuePage />} />
 				<Route path="/issueinfo" element={<IssueInfo />} />
 				<Route path="/community" element={<Community />} />

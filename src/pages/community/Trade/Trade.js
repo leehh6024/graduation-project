@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import GlobalContext from "../../../common/context/store.js";
-import { useContext } from "react";
-import UploadScreen from "./UploadScreen.js";
+import { Link } from "react-router-dom";
+import ContentsList from "../Quest/components/ContentsList.js";
 
-export default function Quest() {
-	const { state, setState } = useContext(GlobalContext);
-
-	const openUploadScreen = () => {
-		setState((prev) => ({ ...prev, uploadScreen: true }));
-	};
-
+export default function Trade() {
 	return (
 		<div>
-			<button onClick={openUploadScreen}>-</button>
-			{state.uploadScreen && <UploadScreen />}
+			<Link to="/upload">
+				<img className="btn-addQuest" src="/community/btn-addQuest.png" />
+			</Link>
+			<ContentsList />
 		</div>
 	);
 }

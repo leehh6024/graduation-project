@@ -8,7 +8,7 @@ export default function Contents() {
 	const [image, setImage] = useState("");
 	const [address, setAddress] = useState("");
 	const [title, setTitle] = useState("");
-	const [numOfBrush, setNumOfBrush] = useState(0);
+	// const [numOfBrush, setNumOfBrush] = useState(0);
 
 	return (
 		<div>
@@ -18,7 +18,7 @@ export default function Contents() {
 				<div className="contents-title">{title}제목</div>
 				<div className="contents-brush">
 					<img src="/community/brush.png" alt="brush" />
-					{numOfBrush}
+					{/* {numOfBrush} */}
 				</div>
 			</Link>
 		</div>

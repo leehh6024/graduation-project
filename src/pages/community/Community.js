@@ -12,11 +12,7 @@ export default function Community() {
 	return (
 		<CommunityContainer>
 			<Tab activeTab={activeTab} setActiveTab={setActiveTab} />
-			{activeTab == "Q" ? (
-				<Quest>퀘스트창입니다.</Quest>
-			) : (
-				<Trade>거래창입니다.</Trade>
-			)}
+			{activeTab == "Q" ? <Quest /> : <Trade />}
 		</CommunityContainer>
 	);
 }

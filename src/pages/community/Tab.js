@@ -9,12 +9,13 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	font-weight: 700;
+	font-size: 20px;
 `;
 const TabItem = styled.div`
 	padding: 4px;
 	opacity: 0.5;
 	width: 50%;
-	border-bottom: ${(props) => props.isActive && "2px solid #6AC47A"};
+	border-bottom: ${(props) => props.isActive && "3px solid #6AC47A"};
 	opacity: ${(props) => props.isActive && 1};
 	cursor: pointer;
 	display: flex;

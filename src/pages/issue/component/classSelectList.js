@@ -8,37 +8,37 @@ function CategorySelector({ onCategoryChange }) {
 		<CategoryList>
 			<select className="select-class1" type="text" onChange={onCategoryChange}>
 				<option key={0} value={0}>
-					클래스 0
+					생활 폐기물
 				</option>
 				<option key={1} value={1}>
-					클래스 1
+					불연성 건설폐기물
 				</option>
 				<option key={2} value={2}>
-					클래스 2
+					가연성 건설폐기물
 				</option>
 				<option key={3} value={3}>
-					클래스 3
+					혼합 건설폐기물
 				</option>
 				<option key={4} value={4}>
-					클래스 4
+					사업장 일반 폐기물
 				</option>
 			</select>
 			<span>/</span>
 			<select className="select-class2" type="text" onChange={onCategoryChange}>
 				<option key={0} value={0}>
-					클래스 0
+					생활 폐기물
 				</option>
 				<option key={1} value={1}>
-					클래스 1
+					불연성 건설폐기물
 				</option>
 				<option key={2} value={2}>
-					클래스 2
+					가연성 건설폐기물
 				</option>
 				<option key={3} value={3}>
-					클래스 3
+					혼합 건설폐기물
 				</option>
 				<option key={4} value={4}>
-					클래스 4
+					사업장 일반 폐기물
 				</option>
 			</select>
 		</CategoryList>

@@ -7,6 +7,9 @@ export default function ContentsList() {
 		<div>
 			<Link to="/contentsinfo">
 				<Contents />
+				<Contents />
+				<Contents />
+				<Contents />
 			</Link>
 		</div>
 	);
