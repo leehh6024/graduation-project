@@ -1,6 +1,7 @@
 import GlobalContext from "../../common/context/store";
 import { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export default function IssueInfo() {
 	const { state, setState } = useContext(GlobalContext);
@@ -8,24 +9,30 @@ export default function IssueInfo() {
 
 	return (
 		<>
-			<IssueInfoContainer>
-				<IssueInfoImage>
-					<img src={state.selected[0].img} width="100%" height="100%"></img>
-					{/* <Image src={state.selected[0].img}></Image> */}
-				</IssueInfoImage>
-				<UserProfilePhoto>프로필사진</UserProfilePhoto>
-				<UserNickname>복정동</UserNickname>
-				<IssueAddress>유저가 제보한 이슈의 위치가 떠야합니다.</IssueAddress>
-				<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
-				<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
-				<IssueContents>{state.selected[0].body}</IssueContents>
-				<IssueInfoFooter>
-					<Liked></Liked>
-					<Resolve>해결 / 1,330 빗자루</Resolve>
-					<Comment>댓글</Comment>
-					<Report>신고</Report>
-				</IssueInfoFooter>
-			</IssueInfoContainer>
+			<IssueInfoImage>
+				<img src={state.selected[0].img} width="100%" height="100%"></img>
+				{/* <Image src={state.selected[0].img}></Image> */}
+			</IssueInfoImage>
+			<Brush>
+				<img src="small-brush.png" />
+				1,000빗자루
+			</Brush>
+			<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
+			<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
+			<IssueContents>{state.selected[0].body}</IssueContents>
+
+			<IssueInfoFooter>
+				<Liked>
+					<img src="bookmark.png" />
+				</Liked>
+				<Link to="/issueresolve">
+					<Resolve>이슈 해결하기</Resolve>
+				</Link>
+				<Comment>
+					<img src="comment.png" />
+				</Comment>
+				<Report>신고</Report>
+			</IssueInfoFooter>
 		</>
 	);
 }
@@ -38,21 +45,6 @@ function Image(props) {
 	return <img src={img}></img>;
 }
 
-const IssueInfoContainer = styled.div`
-	position: absolute;
-	text-align: center;
-	align: center;
-	width: 100%;
-	justify-content: center;
-	align-items: center;
-	background-color: white;
-	margin: auto;
-	min-height: 100vh;
-	vertical-align: middle;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
-`;
-
 const IssueInfoImage = styled.div`
 	width: 100%;
 	height: 40%;
@@ -60,41 +52,15 @@ const IssueInfoImage = styled.div`
 	position: absolute;
 `;
 
-const UserProfilePhoto = styled.div`
-	width: 50px;
-	height: 50px;
-	border-radius: 50px;
-	border: 1px solid grey;
+const Brush = styled.div`
+	width: 160px;
+	height: 29px;
 	position: absolute;
-	left: 16px;
-	top: 42%;
-`;
-
-const UserNickname = styled.div`
-	width: 90px;
-	height: 19px;
-	border: 1px solid grey;
-	position: absolute;
-	left: 74px;
-	top: 42%;
+	left: 3%;
+	top: 43%;
 	text-align: left;
 	font-weight: 700;
-	font-size: 16px;
-	line-height: 16px;
-	font-family: "Pretendard";
-	font-styled: normal;
-`;
-
-const IssueAddress = styled.div`
-	width: 300px;
-	height: 16px;
-	border: 1px solid grey;
-	position: absolute;
-	left: 74px;
-	top: 45%;
-	text-align: left;
-	font-weight: 400;
-	font-size: 13x;
+	font-size: 24px;
 	line-height: 16px;
 	font-family: "Pretendard";
 	font-styled: normal;
@@ -153,25 +119,32 @@ const IssueInfoFooter = styled.div`
 	top: 75%;
 	background-color: #ffffff;
 	box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.05);
+
+	font-size: 18px;
+	font-family: Pretendard;
+	font-weight: 700;
 `;
 
 const Liked = styled.div`
 	position: absolute;
-	width: 23px;
+	width: 30px;
 	height: 36px;
 	left: 3%;
 	top: 39px;
-	border: 1px solid black;
+	border: 1px solid #e2e2e2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 `;
 
 const Resolve = styled.div`
 	position: absolute;
 	width: 172px;
 	height: 54px;
-	left: 12%;
+	left: 36%;
 	top: 28px;
 	background-color: #6ac47a;
-	border-radius: 12px;
+	border-radius: 5px;
 	color: white;
 	text-align: center;
 	display: flex;
@@ -183,9 +156,10 @@ const Comment = styled.div`
 	position: absolute;
 	width: 86px;
 	height: 54px;
-	left: 58%;
+	left: 12%;
 	top: 28px;
-	background-color: #6ac47a;
+	background-color: #white;
+	border: 1px solid #e2e2e2;
 	border-radius: 12px;
 	color: white;
 	text-align: center;

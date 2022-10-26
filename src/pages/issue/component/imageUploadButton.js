@@ -53,6 +53,7 @@ function ImageUploadButton({ onUpload }) {
 				/>
 			</Box>
 			<div className="info-text">이슈를 등록해 주세요</div>
+			<div className="info-text2">촬영시 물체가 겹치지 않도록 촬영해주세요</div>
 		</>
 	);
 }

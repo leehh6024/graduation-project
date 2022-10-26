@@ -5,8 +5,10 @@ import styled from "styled-components";
 
 import Main from "./pages/main/mainPage";
 import Login from "./pages/login/Login.js";
-import IssuePage from "./pages/issue/issuePage";
 import IssueInfo from "./pages/temp/IssueInfo.js";
+import IssueResolve from "./pages/temp/IssueResolve.js";
+import IssueResolveWriting from "./pages/temp/IssueResolveWriting.js";
+import IssuePage from "./pages/issue/issuePage";
 import Community from "./pages/community/Community.js";
 import ContentsInfo from "./pages/community/Quest/ContentsInfo.js";
 import UploadScreen from "./pages/community/Quest/UploadScreen.js";
@@ -40,6 +42,8 @@ function Controller() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/issue" element={<IssuePage />} />
 				<Route path="/issueinfo" element={<IssueInfo />} />
+				<Route path="/issueresolve" element={<IssueResolve />} />
+				<Route path="/issueresolvewriting" element={<IssueResolveWriting />} />
 				<Route path="/community" element={<Community />} />
 				<Route path="/contentsinfo" element={<ContentsInfo />} />
 				<Route path="/upload" element={<UploadScreen />} />
