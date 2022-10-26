@@ -47,7 +47,7 @@ function UploadImage({ index, file, onRemovePicture }) {
 			<img
 				style={{ cursor: "pointer" }}
 				className="remove"
-				src="/community/remove.png"
+				src="/community/delete.png"
 				alt="icon-remove"
 				onClick={() => onRemovePicture(index)}
 			/>

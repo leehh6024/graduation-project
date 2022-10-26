@@ -46,3 +46,25 @@ function CategorySelector({ onCategoryChange }) {
 }
 
 export default CategorySelector;
+
+// import styled from "styled-components";
+// import "./contentField.css";
+
+// const CategoryList = styled.div``;
+
+// function CategorySelector({ onCategoryChange }) {
+// 	return (
+// 		<CategoryList>
+// 			<button>불연성 건설폐기물</button>
+// 			<button>가연성 건설폐기물</button>
+// 			<button>혼합 건설폐기물</button>
+// 			<button>사업장 일반폐기물</button>
+// 			<button>생활폐기물</button>
+// 		</CategoryList>
+// 	);
+// }
+
+// export default CategorySelector;
+
+// Tab.js 참고해서 클릭되어져있는 상태에서 색상주는 코드 활용하기
+// 위치가 다른 . .

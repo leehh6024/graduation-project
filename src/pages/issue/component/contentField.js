@@ -51,12 +51,12 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 				></input>
 			</div>
 			<hr className="line"></hr>
-			<div className="address-title">이슈 위치</div>
-			<div className="address">{address}</div>
+			<div className="issue-position">이슈 위치</div>
+			<div className="position">{address}</div>
 			<div>
 				<button className="btn-re-input">재입력</button>
 			</div>
-			<div className="category-title">이슈 카테고리</div>
+			<div className="issue-category">이슈 카테고리</div>
 			<div>
 				<hr className="line2"></hr>
 				<div className="content">무엇이 불편하셨나요?</div>
