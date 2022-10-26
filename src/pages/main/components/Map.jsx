@@ -29,10 +29,8 @@ export default function Location() {
 				userLocation.current.lat = position.coords.latitude;
 				userLocation.current.lng = position.coords.longitude;
 				console.log(
-					"2. 유저의 위치를 획득하였습니다 | " +
-						userLocation.current.lat +
-						", " +
-						userLocation.current.lng
+					`2. 유저의 위치를 획득하였습니다 | lat : ${userLocation.current.lat}, lng : ${userLocation.current.lng}` +
+						` | 정확도 : ${position.coords.accuracy}`
 				);
 				setUserCenter(userLocation.current.lat, userLocation.current.lng);
 				globalRef.current.userLocation.lat = userLocation.current.lat;
@@ -77,37 +75,18 @@ export default function Location() {
 		const latlngObj = new kakao.maps.LatLng(lat, lng);
 		map.setCenter(latlngObj);
 		console.log("4. 유저의 위치를 지도의 중심으로 설정합니다");
-		const user = getBoundingInfo();
 
-		getIssueList(user);
+		getIssueList(lat, lng);
 	}, []);
 
-	const getIssueList = useCallback(async (user) => {
+	const getIssueList = useCallback(async (lat, lng) => {
 		console.log("5. 유저 주변의 이슈 리스트를 요청합니다");
-		const { data } = await API.getUserPointIssues(user);
-		if (!data) alert("주변의 이슈가 없습니다.");
+		const { data } = await API.getUserPointIssues(lat, lng);
+		if (!data.success) alert("주변의 이슈가 없습니다.");
 		const processedIssuePoint = formatIssueData(data);
 
 		setIssueList(processedIssuePoint);
 		console.log("6. 이슈 리스트를 state로 저장하였습니다");
-	}, []);
-
-	const getBoundingInfo = useCallback(() => {
-		const bounds = map.getBounds();
-		const swLatLng = bounds.getSouthWest();
-		const neLatLng = bounds.getNorthEast();
-
-		const user = {
-			southWest: {
-				lat: swLatLng.La,
-				lng: swLatLng.Ma,
-			},
-			northEast: {
-				lat: neLatLng.La,
-				lng: neLatLng.Ma,
-			},
-		};
-		return user;
 	}, []);
 
 	const formatIssueData = useCallback((data) => {
@@ -117,8 +96,8 @@ export default function Location() {
 				title: issuePoint.title,
 				class: issuePoint.class,
 				latlng: new kakao.maps.LatLng(
-					Number(issuePoint.issueLoc.lat),
-					Number(issuePoint.issueLoc.lng)
+					Number(issuePoint.issueLocation.lat),
+					Number(issuePoint.issueLocation.lng)
 				),
 				body: issuePoint.body,
 				img: issuePoint.imgUrl,

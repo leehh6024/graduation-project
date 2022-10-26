@@ -3,9 +3,9 @@ import axios from "axios";
 export const TownCleanerAPI = axios.create({
 	// baseURL: "http://43.200.121.200",
 	// baseURL: "http://172.30.1.100:3000",
-	// baseURL: "http://localhost:3001",
+	baseURL: "http://localhost:3001",
 	// baseURL: "http://akdfkeks.iptime.org:3001",
-	baseURL: "https://valun.kro.kr",
+	// baseURL: "https://valun.kro.kr",
 	headers: {
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",
@@ -27,8 +27,8 @@ export async function getFixedPointIssue() {
 	return await TownCleanerAPI.get("/issue");
 }
 
-export async function getUserPointIssues(userPoint) {
-	return await TownCleanerAPI.post("/issue", { user: userPoint });
+export async function getUserPointIssues(lat, lng) {
+	return await TownCleanerAPI.post("/issue", { lat, lng });
 }
 export async function serverLog(data) {
 	return await TownCleanerAPI.get("/log", data);
