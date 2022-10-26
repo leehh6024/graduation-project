@@ -6,20 +6,6 @@ import { Link } from "react-router-dom";
 import ResolveAddButton from "./ResolveAddButton.js";
 import ResolveImage from "./ResolveImage.js";
 
-const IssueResolveBoard = styled.div`
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	row-gap: 1rem;
-
-	margin-top: 20px;
-	margin-left: 0px;
-	margin-right: 30px;
-
-	label {
-		cursor: pointer;
-	}
-`;
-
 export default function IssueResolveWriting() {
 	const [files, setFiles] = useState([]);
 
@@ -42,73 +28,70 @@ export default function IssueResolveWriting() {
 
 	return (
 		<div>
-			<UploadScreenContainer>
-				<Link to="/issueresolve">
-					<img className="btn-back" src="/community/btn-back.png" />
-				</Link>
-				<UploadTitle>이슈 해결하기</UploadTitle>
+			<Link to="/issueresolve">
+				<img className="btn-back" src="/community/btn-back.png" />
+			</Link>
+			<IssueResolveHeader>이슈 해결하기</IssueResolveHeader>
 
-				<ImageUploadContainer>
-					<h3 className="issue-resolve-image">
-						이슈 해결 이미지
-						<h4 className="issue-resolve-need">(1장 이상 필수)</h4>
-					</h3>
+			<IssueResolveTitle>
+				<div className="issue-resolve-title">이슈 제목</div>
+				<div className="issue-resolve-title-content">
+					이슈의 본문 타이틀이 와야합니다.
+				</div>
+			</IssueResolveTitle>
 
-					<IssueResolveBoard>
-						<ResolveAddButton onFileChange={onFileChange} />
+			<IssueResolveImageContainer>
+				<h3 className="issue-resolve-image">
+					이슈 해결 이미지
+					<h4 className="issue-resolve-need">(1장 이상 필수)</h4>
+				</h3>
 
-						{files &&
-							files.map((file, index) => {
-								return (
-									<ResolveImage
-										key={index}
-										index={index}
-										file={file}
-										onRemovePicture={onRemovePicture}
-									/>
-								);
-							})}
-					</IssueResolveBoard>
-				</ImageUploadContainer>
+				<IssueResolveBoard>
+					<ResolveAddButton onFileChange={onFileChange} />
 
-				<TradeTitleContainer>
-					<h3 className="issue-category">이슈 카테고리</h3>
-					<input
-						className="input-trade-name"
-						type="text"
-						placeholder="이슈 유형을 입력해주세요"
-					/>
-				</TradeTitleContainer>
+					{files &&
+						files.map((file, index) => {
+							return (
+								<ResolveImage
+									key={index}
+									index={index}
+									file={file}
+									onRemovePicture={onRemovePicture}
+								/>
+							);
+						})}
+				</IssueResolveBoard>
+			</IssueResolveImageContainer>
 
-				<TradeInfoContainer>
-					<h3 className="resolve-info">이슈 해결 방법</h3>
-					<input
-						className="input-resolve-info"
-						type="text"
-						placeholder="이슈를 해결할 때 사용한 밥법을 입력해 주세요."
-					/>
-				</TradeInfoContainer>
+			<IssueCategoryContainer>
+				<h3 className="issue-category">이슈 카테고리</h3>
+				{/* 인풋태그말고 => 버튼형태로 클래스별 카테고리 나열할것 */}
+				<input
+					className="input-trade-name"
+					type="text"
+					placeholder="이슈 유형을 입력해주세요"
+				/>
+			</IssueCategoryContainer>
 
-				<Link to="/issueresolve">
-					<RegisterTrade>
-						<div>1,200 빗자루 획득하기</div>
-					</RegisterTrade>
-				</Link>
-			</UploadScreenContainer>
+			<IssueResolveContainer>
+				<h3 className="resolve-info">이슈 해결 방법</h3>
+				<input
+					className="input-resolve-info"
+					type="text"
+					placeholder="이슈를 해결할 때 사용한 밥법을 입력해 주세요."
+				/>
+			</IssueResolveContainer>
+
+			<Link to="/issueresolve">
+				<RegisterTrade>
+					<div>1,200 빗자루 획득하기</div>
+				</RegisterTrade>
+			</Link>
 		</div>
 	);
 }
 
-const UploadScreenContainer = styled.div`
-	position: absolute;
-	width: 100%;
-	background-color: white;
-	min-height: 100vh;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
-`;
-
-const UploadTitle = styled.div`
+const IssueResolveHeader = styled.div`
 	position: absolute;
 	display: inline-block;
 	margin: auto;
@@ -122,8 +105,7 @@ const UploadTitle = styled.div`
 	line-height: 21px;
 	color: #464646;
 `;
-
-const ImageUploadContainer = styled.div`
+const IssueResolveTitle = styled.div`
 	position: absolute;
 	display: grid;
 	margin: auto;
@@ -132,33 +114,45 @@ const ImageUploadContainer = styled.div`
 	left: 3%;
 	top: 14%;
 `;
-const TradeTitleContainer = styled.div`
+
+const IssueResolveImageContainer = styled.div`
+	position: absolute;
+	display: grid;
+	margin: auto;
+	width: 100%;
+	height: 2%;
+	left: 3%;
+	top: 22%;
+`;
+const IssueResolveBoard = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	row-gap: 1rem;
+
+	margin-top: 20px;
+	margin-left: 0px;
+	margin-right: 30px;
+
+	label {
+		cursor: pointer;
+	}
+`;
+const IssueCategoryContainer = styled.div`
 	position: absolute;
 	display: block;
 	margin: auto;
 	left: 3%;
-	top: 34%;
+	top: 41%;
 	width: 94%;
 `;
-
-const TradeInfoContainer = styled.div`
+const IssueResolveContainer = styled.div`
 	position: absolute;
 	display: block;
 	margin: auto;
 	left: 3%;
-	top: 47%;
+	top: 54%;
 	width: 94%;
 `;
-
-const BrushContainer = styled.div`
-	position: absolute;
-	display: block;
-	margin: auto;
-	left: 3%;
-	top: 64%;
-	width: 94%;
-`;
-
 const RegisterTrade = styled.div`
 	position: absolute;
 	margin: auto;

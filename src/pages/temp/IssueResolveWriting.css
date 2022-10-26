@@ -8,6 +8,28 @@
     transform: translate(-50%, 150%);
 }
 
+.issue-resolve-title {
+    font-family: "Pretendard";
+    font-style: bold;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 8px;
+    color: #6ac47a;
+    width: 6rem;
+    height: 1rem;
+}
+
+.issue-resolve-title-content {
+    font-family: "Pretendard";
+    font-style: bold;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: #464646;
+    width: 24rem;
+    height: 1rem;
+}
+
 .issue-resolve-image {
     font-family: "Pretendard";
     font-style: normal;
