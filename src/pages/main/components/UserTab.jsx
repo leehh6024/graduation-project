@@ -36,6 +36,7 @@ const UserProfileImage = styled.div`
 	display: block;
 	align-items: center;
 	justify-content: center;
+	text-align: center;
 
 	font-family: "Pretendard";
 	font-style: bold;
