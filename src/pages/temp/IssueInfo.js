@@ -19,20 +19,28 @@ export default function IssueInfo() {
 			</Brush>
 			<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
 			<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
+
+			<LineBreak2 />
+
 			<IssueContents>{state.selected[0].body}</IssueContents>
 
-			<IssueInfoFooter>
-				<Liked>
-					<img src="bookmark.png" />
-				</Liked>
-				<Link to="/issueresolve">
-					<Resolve>이슈 해결하기</Resolve>
-				</Link>
-				<Comment>
-					<img src="comment.png" />
-				</Comment>
-				<Report>신고</Report>
-			</IssueInfoFooter>
+			<LineBreak />
+			<UserProfile>
+				<img src="userprofile.png" />
+				<div>조현성</div>
+			</UserProfile>
+
+			<MoreContents>조현성이 등록한 다른 이슈보기 {">"}</MoreContents>
+
+			<BookMark>
+				<img src="bookmark.png" />
+			</BookMark>
+			<Link to="/issueresolve">
+				<Resolve>이슈 해결하기</Resolve>
+			</Link>
+			<Comment>
+				<img src="comment.png" />
+			</Comment>
 		</>
 	);
 }
@@ -51,99 +59,139 @@ const IssueInfoImage = styled.div`
 	border: 1px solid black;
 	position: absolute;
 `;
-
 const Brush = styled.div`
-	width: 160px;
-	height: 29px;
+	 width: 100%
+	height: 100%;
 	position: absolute;
+	top: 42%;
 	left: 3%;
-	top: 43%;
-	text-align: left;
-	font-weight: 700;
-	font-size: 24px;
-	line-height: 16px;
-	font-family: "Pretendard";
-	font-styled: normal;
-`;
 
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-family: "Pretendard";
+	font-style: normal;
+	font-size: 22px;
+	font-weight: 700;
+	line-height: 100%;
+	color: #464646;
+`;
 const IssueInfoTitle = styled.div`
-	width: 362px;
-	height: 24px;
+	width: 100%
+    height: 100%;
 	position: absolute;
-	left: 16px;
-	top: 49%;
-	text-align: left;
-	font-weight: 700;
-	font-size: 20px;
-	font-family: "Pretendard";
-	letter-spacing: 0.03em;
-	line-height: 24px;
-`;
-
-const IssueInfoClass = styled.div`
-	width: 136px;
-	height: 16px;
-	position: absolute;
-	left: 16px;
-	top: 53%;
-	text-align: left;
-	font-weight: 400;
-	font-size: 13px;
-	font-style: normal;
-	line-height: 16px;
-	font-family: "Pretendard";
-	color: #878b93;
-`;
-
-// Body말고 게시글이나 다른 컴포넌트들이 들어가야함
-const IssueContents = styled.div`
-	width: 379px;
-	height: 100px;
-	position: absolute;
-	left: 16px;
-	top: 56%;
-	text-align: left;
-	font-weight: 400;
-	font-size: 16px;
-	font-style: normal;
-	line-height: 19px;
-	font-family: "Pretendard";
-	color: #4d5158;
-`;
-
-const IssueInfoFooter = styled.div`
-	width: 100%;
-	height: 100px;
-	position: absolute;
-	left: 0px;
-	top: 75%;
-	background-color: #ffffff;
-	box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.05);
-
-	font-size: 18px;
-	font-family: Pretendard;
-	font-weight: 700;
-`;
-
-const Liked = styled.div`
-	position: absolute;
-	width: 30px;
-	height: 36px;
+	top: 48%;
 	left: 3%;
-	top: 39px;
+
+	font-family: "Pretendard";
+	font-style: Bold;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 100%;
+	color: #464646;
+`;
+const IssueInfoClass = styled.div`
+	 width: 100%
+    height: 100%;
+	position: absolute;
+	top: 57%;
+	left: 3%;
+
+	font-family: "Pretendard";
+	font-style: Bold;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 100%;
+	color: #999999;
+`;
+const LineBreak2 = styled.div`
+	position: absolute;
+	width: 90%;
+	height: 0px;
+	left: 4%;
+	top: 62%;
+	border: 1px solid #f5f5f5;
+`;
+const IssueContents = styled.div`
+	width: 100%
+    height: 100%;
+	position: absolute;
+	top: 64%;
+	left: 3%;
+
+	font-family: "Pretendard";
+	font-style: regular;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 100%;
+	color: black;
+`;
+const LineBreak = styled.div`
+	position: absolute;
+	width: 100%;
+	height: 0px;
+	top: 77%;
+	border: 2px solid #f5f5f5;
+`;
+const UserProfile = styled.div`
+    width: 100%
+    height: 100%;
+	position: absolute;
+	top: 78%;
+	left: 4%;
+	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Pretendard";
+	font-style: bold;
+	font-size: 12px;
+	font-weight: 700;
+	line-height: 100%;
+	color: #464646;
+`;
+const MoreContents = styled.div`
+	position: absolute;
+	margin: auto;
+	left: 6%;
+	top: 83%;
+	width: 94%;
+	height: 3rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	border: none;
+	border-radius: 5px;
+
+	color: #464646;
+	font-family: "Pretendard";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 17px;
+`;
+const BookMark = styled.div`
+	position: absolute;
+	width: 52px;
+	height: 52px;
+	left: 3%;
+	top: 90%;
 	border: 1px solid #e2e2e2;
+	border-radius: 5px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 `;
-
-const Resolve = styled.div`
+const Comment = styled.div`
 	position: absolute;
-	width: 172px;
-	height: 54px;
-	left: 36%;
-	top: 28px;
-	background-color: #6ac47a;
+	width: 72px;
+	height: 52px;
+	left: 20%;
+	top: 90%;
+	background-color: #white;
+	border: 1px solid #e2e2e2;
 	border-radius: 5px;
 	color: white;
 	text-align: center;
@@ -151,34 +199,23 @@ const Resolve = styled.div`
 	justify-content: center;
 	align-items: center;
 `;
-
-const Comment = styled.div`
+const Resolve = styled.div`
 	position: absolute;
-	width: 86px;
-	height: 54px;
-	left: 12%;
-	top: 28px;
-	background-color: #white;
-	border: 1px solid #e2e2e2;
-	border-radius: 12px;
+	width: 12rem;
+	height: 52px;
+	left: 44%;
+	top: 90%;
+	background-color: #6ac47a;
+	border-radius: 5px;
 	color: white;
 	text-align: center;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-`;
 
-const Report = styled.div`
-	position: absolute;
-	width: 54px;
-	height: 54px;
-	left: 82%;
-	top: 28px;
-	background-color: #de6b5a;
-	border-radius: 12px;
-	color: white;
-	text-align: center;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	font-family: "Pretendard";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
 `;

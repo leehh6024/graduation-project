@@ -56,7 +56,7 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 			<div>
 				<button className="btn-re-input">재입력</button>
 			</div>
-			<div className="issue-category">이슈 카테고리</div>
+			<div className="issue-point-category">이슈 카테고리</div>
 			<div>
 				<hr className="line2"></hr>
 				<div className="content">무엇이 불편하셨나요?</div>

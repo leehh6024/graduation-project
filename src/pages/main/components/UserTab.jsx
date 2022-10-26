@@ -27,29 +27,21 @@ const CloseUserTab = styled.div`
 const UserProfileImage = styled.div`
 	position: absolute;
 	z-index: 7;
-	width: 46px;
-	height: 46px;
-	left: 112px;
-	top: 58px;
+	width: 18%;
+	height: 10%;
+	transform: translate(220%, 80%);
 	background: white;
-`;
 
-const UserNickname = styled.div`
-	position: absolute;
-	z-index: 7;
-	width: 50px;
-	height: 22px;
-	left: 110px;
-	top: 113px;
-	background: white;
-	border: none;
+	margin: auto;
+	display: block;
+	align-items: center;
+	justify-content: center;
 
-	font-family: "Inter";
-	font-style: normal;
-	font-weight: 400;
+	font-family: "Pretendard";
+	font-style: bold;
+	font-weight: 700;
 	font-size: 18px;
-	line-height: 22px;
-	text-align: center;
+	line-height: 18px;
 `;
 
 const UserToolbar = styled.div`
@@ -93,10 +85,12 @@ export default function UserTab() {
 			{state && (
 				<UserTabContainer>
 					<CloseUserTab onClick={closeUserTab} />
+
 					<UserProfileImage>
-						<img src="userprofile-small.png" alt="userprofile-small" />
+						<img src="userprofile.png" />
+						조현성
 					</UserProfileImage>
-					<UserNickname>조현성</UserNickname>
+
 					<UserToolbar>
 						<button
 							style={{
@@ -246,6 +240,7 @@ export default function UserTab() {
 							</div>
 						</button>
 					</UserToolbar>
+
 					<hr
 						style={{
 							position: "absolute",
@@ -254,6 +249,7 @@ export default function UserTab() {
 							border: "1px solid #f5f5f5",
 						}}
 					/>
+
 					<Category />
 				</UserTabContainer>
 			)}
