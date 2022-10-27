@@ -42,6 +42,7 @@ const ImageSheetContainer = styled.div`
 	height: 100px;
 	border: none;
 	position: absolute;
+	display: flex;
 	left: 16px;
 	top: 3px;
 	bottom: 23px;
