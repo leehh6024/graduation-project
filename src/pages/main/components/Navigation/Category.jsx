@@ -16,7 +16,7 @@ const Layout = styled.div`
 	font-size: 1.5rem;
 	font-family: sans-serif;
 	position: absolute;
-	top: 265px;
+	top: 240px;
 `;
 
 function Category() {

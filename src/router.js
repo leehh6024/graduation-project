@@ -12,6 +12,7 @@ import IssuePage from "./pages/issue/issuePage";
 import Community from "./pages/community/Community.js";
 import ContentsInfo from "./pages/community/Quest/ContentsInfo.js";
 import UploadScreen from "./pages/community/Quest/UploadScreen.js";
+import EnvironmentPage from "./pages/environment/EnvironmentPage.js";
 
 const Container = styled.div`
 	position: relative;
@@ -47,6 +48,7 @@ function Controller() {
 				<Route path="/community" element={<Community />} />
 				<Route path="/contentsinfo" element={<ContentsInfo />} />
 				<Route path="/upload" element={<UploadScreen />} />
+				<Route path="/environmentpage" element={<EnvironmentPage />} />
 			</Routes>
 		</Container>
 	);

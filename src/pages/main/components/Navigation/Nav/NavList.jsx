@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const List = styled.ul`
 	display: ${(p) => (p.expanded ? "block" : "none")};
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
 	padding-left: 20px;
 	list-style: none;
 `;
