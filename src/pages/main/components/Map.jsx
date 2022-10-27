@@ -95,6 +95,7 @@ export default function Location() {
 		// const { data } = await API.getFixedPointIssue(lat, lng);
 		if (!data.success) alert("주변의 이슈가 없습니다.");
 		const processedIssuePoint = formatIssueData(data);
+		// console.log(data);
 
 		setIssueList(processedIssuePoint);
 		console.log("6. 이슈 리스트를 state로 저장하였습니다");

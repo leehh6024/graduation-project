@@ -1,11 +1,12 @@
-import Map from "./components/Map.jsx";
 import { BottomSheet } from "react-spring-bottom-sheet";
 import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useCallback } from "react";
-import "./mainPage.css";
-import Temp from "../../pages/temp/Temp.js";
-import Search from "./components/Search.jsx";
 import { Link } from "react-router-dom";
+import "./mainPage.css";
+import Map from "./components/Map.jsx";
+import Search from "./components/Search.jsx";
+import Temp from "../../pages/temp/Temp.js";
+import IssuePointImage from "./components/IssuePointImage.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -33,6 +34,7 @@ export default function Main() {
 				>
 					<Temp />
 				</BottomSheet>
+				<IssuePointImage />
 			</div>
 		</>
 	);

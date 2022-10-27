@@ -244,7 +244,7 @@ textarea {
     .content {
         position: absolute;
         left: 2%;
-        top: 510px;
+        top: 72%;
         width: 40%;
         height: 18px;
         font-size: 14px;
@@ -256,8 +256,8 @@ textarea {
     }
     textarea {
         position: absolute;
-        left: 24px;
-        top: 530px;
+        left: 6%;
+        top: 75%;
         width: 86%;
         height: 92px;
         font-size: 13px;
@@ -269,8 +269,8 @@ textarea {
     }
     .btn-submit-issue {
         position: absolute;
-        left: 24px;
-        top: 636px;
+        left: 6%;
+        top: 90%;
         width: 86%;
         height: 45px;
         font-size: 16px;

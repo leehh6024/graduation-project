@@ -3,12 +3,27 @@ import { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+const BackBtn = styled.div`
+	position: absolute;
+	z-index: 5;
+	display: flex;
+	width: 2rem;
+	left: 1%;
+	top: 3%;
+	cursor: pointer;
+`;
+
 export default function IssueInfo() {
 	const { state, setState } = useContext(GlobalContext);
 	const eachdata = state.selected;
 
 	return (
 		<>
+			<Link to="/">
+				<BackBtn>
+					<img src="/community/btn-back.png" />
+				</BackBtn>
+			</Link>
 			<IssueInfoImage>
 				<img src={state.selected[0].img} width="100%" height="100%"></img>
 				{/* <Image src={state.selected[0].img}></Image> */}
@@ -19,19 +34,14 @@ export default function IssueInfo() {
 			</Brush>
 			<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
 			<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
-
 			<LineBreak2 />
-
 			<IssueContents>{state.selected[0].body}</IssueContents>
-
 			<LineBreak />
 			<UserProfile>
 				<img src="userprofile.png" />
 				<div>조현성</div>
 			</UserProfile>
-
 			<MoreContents>조현성이 등록한 다른 이슈보기 {">"}</MoreContents>
-
 			<BookMark>
 				<img src="bookmark.png" />
 			</BookMark>

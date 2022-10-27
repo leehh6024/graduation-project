@@ -1,12 +1,13 @@
 import GlobalContext from "../../common/context/store";
 import { useContext, useEffect, useState, useRef } from "react";
 import styled from "styled-components";
+import { API } from "../../service.js";
+import { Link } from "react-router-dom";
+import "./component/contentField.css";
 import Preview from "./component/imagePreview";
 import ImageUploadButton from "./component/imageUploadButton";
 import ContentInputField from "./component/contentField";
 import CategorySelector from "./component/classSelectList";
-import { API } from "../../service.js";
-import "./component/contentField.css";
 
 const Issue = styled.div`
 	position: absolute;
@@ -86,13 +87,15 @@ export default function IssuePage() {
 				/>
 			)}
 			{image && (
-				<button
-					className="btn-submit-issue"
-					type="submit"
-					onClick={createIssue}
-				>
-					이슈 등록하기
-				</button>
+				<Link to="/">
+					<button
+						className="btn-submit-issue"
+						type="submit"
+						onClick={createIssue}
+					>
+						이슈 등록하기
+					</button>
+				</Link>
 			)}
 		</Issue>
 	);

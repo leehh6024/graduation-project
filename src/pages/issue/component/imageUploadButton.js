@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import "./imageUploadButton.css";
+import { Link } from "react-router-dom";
 
 const Box = styled.div`
 	& > img {
@@ -27,10 +28,24 @@ const Box = styled.div`
 		cursor: pointer;
 	}
 `;
+const BackBtn = styled.div`
+	position: absolute;
+	z-index: 5;
+	display: flex;
+	width: 2rem;
+	left: 1%;
+	top: 3%;
+	cursor: pointer;
+`;
 
 function ImageUploadButton({ onUpload }) {
 	return (
 		<>
+			<Link to="/">
+				<BackBtn>
+					<img src="/community/btn-back.png" />
+				</BackBtn>
+			</Link>
 			<Box className="Box">
 				<img
 					src="/photo.png"
