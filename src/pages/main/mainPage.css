@@ -108,7 +108,7 @@
 	transform: scale3d(1, var(--rsbs-antigap-scale-y), 1);
 	will-change: transform;
 }
-[data-rsbs-footer],
+[data-rsbs-footer],x
 [data-rsbs-header] {
 	flex-shrink: 0;
 	cursor: ns-resize;

@@ -20,10 +20,10 @@ export default function IssuePointImage() {
 }
 
 const IssueImage = styled.div`
-	z-index: 7;
+	z-index: 5;
 	position: absolute;
 	left: 56%;
-	top: 50%;
+	top: 55%;
 	margin: auto;
 
 	transition: 0.1s;
@@ -32,6 +32,6 @@ const IssueImage = styled.div`
 	}
 
 	width: 40%;
-	height: 20%;
+	height: 15%;
 	border: 2px solid white;
 `;

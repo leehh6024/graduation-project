@@ -9,13 +9,7 @@ export default function Temp() {
 	return (
 		<Link to="issueinfo">
 			<BottomSheetContainer>
-				<ImageSheetContainer>
-					<img src={state.selected[0].img} width="133px" height="100px"></img>
-					{/* <Image src={state.selected[0].img}></Image> */}
-				</ImageSheetContainer>
 				<SheetTitle>{state.selected[0].title}</SheetTitle>
-				<SheetBody>{state.selected[0].body}</SheetBody>
-				<SheetClass>{state.selected[0].class}</SheetClass>
 			</BottomSheetContainer>
 		</Link>
 	);
@@ -31,7 +25,6 @@ function Image(props) {
 
 const BottomSheetContainer = styled.button`
 	width: 430px;
-	height: 146px;
 	position: relative;
 	background-color: white;
 	border: none;
