@@ -6,7 +6,7 @@ import "./mainPage.css";
 import Map from "./components/Map.jsx";
 import Search from "./components/Search.jsx";
 import Temp from "../../pages/temp/Temp.js";
-import IssuePointImage from "./components/IssuePointImage.js";
+import IssuePointSmallImage from "./components/IssuePointSmallImage.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -34,7 +34,7 @@ export default function Main() {
 				>
 					<Temp />
 				</BottomSheet>
-				<IssuePointImage />
+				<IssuePointSmallImage />
 			</div>
 		</>
 	);

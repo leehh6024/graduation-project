@@ -3,7 +3,7 @@ import styled from "styled-components";
 import GlobalContext from "../../../common/context/store";
 import { Link } from "react-router-dom";
 
-export default function IssuePointImage() {
+export default function IssuePointSmallImage() {
 	const { state, setState } = useContext(GlobalContext);
 
 	return (
