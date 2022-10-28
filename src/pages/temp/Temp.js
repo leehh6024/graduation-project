@@ -14,7 +14,7 @@ export default function Temp() {
 				<BottomSheetClass>
 					{/* map함수로 재구현필요~ */}
 					<IssueClass>{state.selected[0].class}</IssueClass>
-					<IssueClass>{state.selected[0].class}</IssueClass>
+					<IssueClass>혼합 건설폐기물</IssueClass>
 					<IssueClass>클래스데이터 받아와야함</IssueClass>
 				</BottomSheetClass>
 
@@ -44,7 +44,7 @@ const BottomSheetTitle = styled.div`
 	position: absolute;
 	width: 100%;
 	left: 4%;
-	top: 6%;
+	top: 10%;
 
 	display: flex;
 	align-items: center;
@@ -59,8 +59,8 @@ const BottomSheetClass = styled.div`
 	position: absolute;
 	width: 96%;
 	height: 20%;
-	left: 2%;
-	top: 20%;
+	left: 4%;
+	top: 22%;
 
 	// border: 1px solid black;
 
@@ -70,8 +70,10 @@ const BottomSheetClass = styled.div`
 `;
 const IssueClass = styled.div`
 	position: relative;
-	width: 22%;
-	height: 80%;
+	width: auto;
+	height: 70%;
+	padding-left: 2%;
+	padding-right: 2%;
 
 	margin-right: 2%;
 	border-radius: 10px;
@@ -91,7 +93,7 @@ const BottomAddressContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	left: 4%;
-	top: 44%;
+	top: 46%;
 
 	display: flex;
 	align-items: center;
@@ -110,9 +112,9 @@ const Distance = styled.div`
 const IssueMore = styled.div`
 	position: absolute;
 	width: 96%;
-	height: 24%;
+	height: 22%;
 	left: 2%;
-	top: 70%;
+	top: 66%;
 
 	display: flex;
 	align-items: center;

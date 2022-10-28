@@ -114,7 +114,7 @@
 	cursor: ns-resize;
 	padding: 16px;
 }
-[data-rsbs-header] {
+/* [data-rsbs-header] {
 	text-align: center;
 	user-select: none;
 	box-shadow: 0 1px 0 rgba(46, 59, 66, calc(var(--rsbs-content-opacity) * 0.125));
@@ -142,7 +142,7 @@
 [data-rsbs-has-header="false"] [data-rsbs-header] {
 	box-shadow: none;
 	padding-top: calc(12px + env(safe-area-inset-top));
-}
+} */
 [data-rsbs-scroll] {
 	flex-shrink: 1;
 	flex-grow: 1;

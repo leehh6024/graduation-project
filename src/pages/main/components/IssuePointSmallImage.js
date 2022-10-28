@@ -22,8 +22,8 @@ export default function IssuePointSmallImage() {
 const IssueImage = styled.div`
 	z-index: 5;
 	position: absolute;
-	left: 56%;
-	top: 55%;
+	left: 52%;
+	top: 52%;
 	margin: auto;
 
 	transition: 0.1s;
@@ -31,7 +31,7 @@ const IssueImage = styled.div`
 		margin-left: 0%;
 	}
 
-	width: 40%;
-	height: 15%;
+	width: 44%;
+	height: 18%;
 	border: 2px solid white;
 `;
