@@ -28,10 +28,23 @@ const Box = styled.div`
 		cursor: pointer;
 	}
 `;
-
+const BackBtn = styled.div`
+	position: absolute;
+	z-index: 5;
+	display: flex;
+	width: 1%;
+	left: 3%;
+	top: 6%;
+	cursor: pointer;
+`;
 function IssueResolve({ onUpload }) {
 	return (
 		<>
+			<Link to="/issueinfo">
+				<BackBtn>
+					<img src="/community/btn-back.png"></img>
+				</BackBtn>
+			</Link>
 			<Box className="Box">
 				<Link to="/issueresolvewriting">
 					<img

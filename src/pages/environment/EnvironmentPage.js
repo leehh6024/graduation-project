@@ -12,20 +12,21 @@ export default function EnvironmentPage() {
 	const [activeTab, setActiveTab] = useState("D");
 
 	return (
-		<EnvironmentPageContainer>
+		<>
 			<Link to="/">
 				<BackBtn>
-					<img className="btn-back" src="/community/btn-back.png" />
+					<img src="/community/btn-back.png" />
 				</BackBtn>
 			</Link>
+			<EnvironmentPageContainer>
+				<EnvironmentHeader>환경 정보</EnvironmentHeader>
 
-			<EnvironmentHeader>환경 정보</EnvironmentHeader>
+				<Tab activeTab={activeTab} setActiveTab={setActiveTab} />
+				{/* {activeTab == "Q" ? <Quest /> : <Trade />} */}
 
-			<Tab activeTab={activeTab} setActiveTab={setActiveTab} />
-			{/* {activeTab == "Q" ? <Quest /> : <Trade />} */}
-
-			<InfoList />
-		</EnvironmentPageContainer>
+				<InfoList />
+			</EnvironmentPageContainer>
+		</>
 	);
 }
 
@@ -45,16 +46,19 @@ const EnvironmentPageContainer = styled.div`
 `;
 const BackBtn = styled.div`
 	position: absolute;
-	display: inline-block;
-	width: 2rem;
-	left: 6%;
+	z-index: 5;
+	display: flex;
+	width: 1%;
+	left: 3%;
+	top: 6%;
 	cursor: pointer;
-	margin: auto;
 `;
 const EnvironmentHeader = styled.div`
 	position: absolute;
-	transform: translate(-50%, 300%);
-	display: inline-block;
+	width: 100%;
+	top: 6%;
+
+	display: flex;
 	justify-content: center;
 	align-items: center;
 

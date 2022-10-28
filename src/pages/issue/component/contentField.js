@@ -7,7 +7,6 @@ import "./contentField.css";
 import { setUserLocation } from "../../../common/function/setUserLocation";
 
 const Content = styled.div`
-	margin: auto;
 	background-color: white;
 `;
 
@@ -52,9 +51,9 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 			</div>
 			<hr className="line"></hr>
 			<div className="issue-position">이슈 위치</div>
-			<div className="position">{address}</div>
-			<div>
-				<button className="btn-re-input">재입력</button>
+			<div className="position">
+				{address}
+				<div className="btn-re-input">재입력</div>
 			</div>
 			<div className="issue-point-category">이슈 카테고리</div>
 			<div>

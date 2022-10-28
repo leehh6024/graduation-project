@@ -7,7 +7,9 @@ export default function ContentsInfo() {
 	return (
 		<div>
 			<Link to="/community">
-				<img className="btn-back" src="/community/btn-back.png" />
+				<BackBtn>
+					<img src="/community/btn-back.png" />
+				</BackBtn>
 			</Link>
 			<ContentsImage>contents image</ContentsImage>
 
@@ -55,6 +57,15 @@ export default function ContentsInfo() {
 	);
 }
 
+const BackBtn = styled.div`
+	position: absolute;
+	z-index: 5;
+	display: flex;
+	width: 1%;
+	left: 3%;
+	top: 6%;
+	cursor: pointer;
+`;
 const ContentsImage = styled.div`
 	width: 100%;
 	height: 45vh;

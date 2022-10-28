@@ -44,7 +44,9 @@ export default function UploadScreen() {
 		<div>
 			<UploadScreenContainer>
 				<Link to="/community">
-					<img className="btn-back" src="/community/btn-back.png" />
+					<BackBtn>
+						<img src="/community/btn-back.png" />
+					</BackBtn>
 				</Link>
 				<UploadTitle>거래 등록</UploadTitle>
 
@@ -115,14 +117,27 @@ const UploadScreenContainer = styled.div`
 	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
 		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
+const BackBtn = styled.div`
+	position: absolute;
+	z-index: 5;
+	display: flex;
+	width: 1%;
+	left: 3%;
+	top: 6%;
+	cursor: pointer;
+`;
 
 const UploadTitle = styled.div`
 	position: absolute;
-	display: inline-block;
+	display: flex;
+	width: 100%;
 	margin: auto;
-	transform: translate(-50%, 150%);
-	left: 50%;
-	top: 3%;
+	top: 6%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
 	font-family: "Pretendard";
 	font-style: normal;
 	font-weight: 700;

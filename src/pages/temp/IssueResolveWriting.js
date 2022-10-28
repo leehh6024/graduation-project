@@ -29,7 +29,9 @@ export default function IssueResolveWriting() {
 	return (
 		<div>
 			<Link to="/issueresolve">
-				<img className="btn-back" src="/community/btn-back.png" />
+				<BackBtn>
+					<img src="/community/btn-back.png" />
+				</BackBtn>
 			</Link>
 			<IssueResolveHeader>이슈 해결하기</IssueResolveHeader>
 
@@ -91,6 +93,15 @@ export default function IssueResolveWriting() {
 	);
 }
 
+const BackBtn = styled.div`
+	position: absolute;
+	z-index: 5;
+	display: flex;
+	width: 1%;
+	left: 3%;
+	top: 6%;
+	cursor: pointer;
+`;
 const IssueResolveHeader = styled.div`
 	position: absolute;
 	display: inline-block;
@@ -157,20 +168,23 @@ const RegisterTrade = styled.div`
 	position: absolute;
 	margin: auto;
 	left: 3%;
-	top: 80%;
+	top: 90%;
+	width: 94%;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	width: 94%;
+
 	border: none;
 	border-radius: 5px;
 	background-color: #6ac47a;
-	color: white;
 	height: 3rem;
+
 	font-family: "Pretendard";
 	font-style: normal;
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 21px;
+	color: white;
 `;

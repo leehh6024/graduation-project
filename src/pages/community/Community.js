@@ -42,7 +42,7 @@ const BackBtn = styled.div`
 	z-index: 5;
 	display: flex;
 	width: 2rem;
-	left: 1%;
-	top: 3%;
+	left: 3%;
+	top: 4%;
 	cursor: pointer;
 `;

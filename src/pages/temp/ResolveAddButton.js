@@ -26,7 +26,6 @@ const Box = styled.div`
 		display: none;
 	}
 `;
-
 export default function ResolveAddButton({ onFileChange }) {
 	return (
 		<Box>
