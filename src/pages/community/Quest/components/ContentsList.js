@@ -31,7 +31,7 @@ export default function ContentsList({ tab }) {
 		const userLocationPostList = data.data;
 		setPostList(userLocationPostList);
 	};
-
+	console.log(postList);
 	return (
 		<>
 			<ContentsListContainer>

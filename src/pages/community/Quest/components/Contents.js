@@ -1,48 +1,43 @@
 import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { geocoder, kakao } from "../../../../common/context/store";
 import { useRef } from "react";
+import { getUserAddress } from "../../../../common/function/getUserAddress";
 
 export default function ContentPreview({ data }) {
 	// const address = useRef("");
 	const [address, setAddress] = useState("");
+	const navigate = useNavigate();
+
+	const getAddress = async (lat, lng) => {
+		const data = await getUserAddress(lat, lng, 4);
+		setAddress(data);
+	};
+
 	useEffect(() => {
-		const coords = new kakao.maps.LatLng(data.location.lat, data.location.lng);
-		geocoder.coord2RegionCode(
-			coords.getLng(),
-			coords.getLat(),
-			(result, status) => {
-				// address.current =
-				setAddress(
-					result[0].region_1depth_name +
-						" " +
-						result[0].region_2depth_name +
-						" " +
-						result[0].region_3depth_name
-				);
-			}
-		);
+		getAddress(data.location.lat, data.location.lng);
 	}, []);
+	const onPreviewClicked = () => {
+		navigate("/contentsinfo", { state: { address, ...data } });
+	};
 
 	return (
-		<div>
-			<ContentsContainer>
-				<ContentsImage>
-					<img src={data.image} alt="image" />
-				</ContentsImage>
-				<ContentsTitle>
-					<div>{data.title}</div>
-				</ContentsTitle>
-				<ContentsAddress>
-					<div>{address}</div>
-				</ContentsAddress>
-				<ContentsBrush>
-					<img src="/brush.png" alt="brush" />
-					<span>{data.price}</span>
-				</ContentsBrush>
-			</ContentsContainer>
-		</div>
+		<ContentsContainer onClick={onPreviewClicked}>
+			<ContentsImage>
+				<img src={data.image} alt="image" />
+			</ContentsImage>
+			<ContentsTitle>
+				<div>{data.title}</div>
+			</ContentsTitle>
+			<ContentsAddress>
+				<div>{address}</div>
+			</ContentsAddress>
+			<ContentsBrush>
+				<img src="/brush.png" alt="brush" />
+				<span>{data.price}</span>
+			</ContentsBrush>
+		</ContentsContainer>
 	);
 }
 

@@ -19,7 +19,6 @@ export const API = {
 			return await TownCleanerAPI.get("/issue");
 		} catch (err) {
 			//console.log(err.response.data.message);
-			alert(err.response.data.message);
 			return { success: false, message: err.response.data.message, data: null };
 		}
 	},
@@ -30,7 +29,6 @@ export const API = {
 			return data;
 		} catch (err) {
 			//console.log(err.response.data.message);
-			alert(err.response.data.message);
 			return { success: false, message: err.response.data.message, data: null };
 		}
 	},
@@ -41,7 +39,6 @@ export const API = {
 			return data;
 		} catch (err) {
 			//console.log(err.response.data.message);
-			alert(err.response.data.message);
 			return { success: false, message: err.response.data.message, data: null };
 		}
 	},
@@ -57,7 +54,6 @@ export const API = {
 			return data;
 		} catch (err) {
 			//console.log(err.response.data.message);
-			alert(err.response.data.message);
 			return { success: false, message: err.response.data.message, data: null };
 		}
 	},

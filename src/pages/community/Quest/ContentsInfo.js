@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function ContentsInfo() {
+	const { state } = useLocation();
+	console.log(state);
 	return (
 		<div>
 			<Link to="/community">
@@ -10,27 +13,27 @@ export default function ContentsInfo() {
 					<img src="/community/btn-back.png" />
 				</BackBtn>
 			</Link>
-			<ContentsImage>contents image</ContentsImage>
+
+			<ContentsImage>
+				<img src={state.image} />
+			</ContentsImage>
 
 			<ContentsBrush>
 				<img src="small-brush.png" />
-				<h5>2,000 빗자루(아직안나옴)</h5>
+				<h5>{state.price} 빗자루</h5>
 			</ContentsBrush>
 
-			<ContentsTitle>아기자기한 화분입니다.</ContentsTitle>
+			<ContentsTitle>{state.title}</ContentsTitle>
 
-			<ContentsAddress>복정동</ContentsAddress>
+			<ContentsAddress>{state.address}</ContentsAddress>
 
-			<ContentsInfos>
-				작고 귀여운 화분입니다! 사용한 기간은 1달 조금 넘었습니다. 작은
-				반려식물이 정말 좋아하는 화분입니다.
-			</ContentsInfos>
+			<ContentsInfos>{state.body}</ContentsInfos>
 
 			<LineBreak />
 
 			<UserProfile>
 				<img src="userprofile.png" />
-				<div>김두열</div>
+				<div>{state.userId}</div>
 			</UserProfile>
 
 			<LineBreak2 />
@@ -68,7 +71,10 @@ const BackBtn = styled.div`
 const ContentsImage = styled.div`
 	width: 100%;
 	height: 45vh;
-	border: 1px solid black;
+	img {
+		width: 100%;
+		height: 45vh;
+	}
 `;
 const ContentsBrush = styled.div`
     width: 100%
@@ -87,6 +93,10 @@ const ContentsBrush = styled.div`
 	font-weight: 700;
 	line-height: 100%;
 	color: #464646;
+
+	h5 {
+		margin-left: 5px;
+	}
 `;
 const ContentsTitle = styled.div`
     width: 100%
@@ -152,7 +162,11 @@ const UserProfile = styled.div`
 	font-size: 12px;
 	font-weight: 700;
 	line-height: 100%;
-	color: #999999;
+	color: #464646;
+
+	img {
+		margin-right: 10px;
+	}
 `;
 const LineBreak2 = styled.div`
 	position: absolute;
