@@ -1,21 +1,28 @@
-import React, { useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { geocoder, kakao } from "../../../../common/context/store";
 import { useRef } from "react";
 
 export default function ContentPreview({ data }) {
-	const address = useRef("");
+	// const address = useRef("");
+	const [address, setAddress] = useState("");
 	useEffect(() => {
 		const coords = new kakao.maps.LatLng(data.location.lat, data.location.lng);
-		geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), (result, status) => {
-			address.current =
-				result[0].region_1depth_name +
-				" " +
-				result[0].region_2depth_name +
-				" " +
-				result[0].region_3depth_name;
-		});
+		geocoder.coord2RegionCode(
+			coords.getLng(),
+			coords.getLat(),
+			(result, status) => {
+				// address.current =
+				setAddress(
+					result[0].region_1depth_name +
+						" " +
+						result[0].region_2depth_name +
+						" " +
+						result[0].region_3depth_name
+				);
+			}
+		);
 	}, []);
 
 	return (
@@ -28,20 +35,13 @@ export default function ContentPreview({ data }) {
 					<div>{data.title}</div>
 				</ContentsTitle>
 				<ContentsAddress>
-					<div>{address.current}</div>
+					<div>{address}</div>
 				</ContentsAddress>
 				<ContentsBrush>
-					<img src="/community/brush.png" alt="brush" />
-					{data.price}
+					<img src="/brush.png" alt="brush" />
+					<span>{data.price}</span>
 				</ContentsBrush>
 			</ContentsContainer>
-			{/* <img className="contents-image" src={data.image} alt="contents" />
-			<div className="contents-address">{address.current}주소</div>
-			<div className="contents-title">{data.title}제목</div>
-			<div className="contents-body">{data.price}가격</div>
-			<div className="contents-brush">
-				<img src="/community/brush.png" alt="brush" />
-			</div> */}
 		</div>
 	);
 }
@@ -49,9 +49,9 @@ export default function ContentPreview({ data }) {
 const ContentsContainer = styled.div`
 	position: relative;
 	width: 100%;
-	height: 14vh;
+	height: 16vh;
 	border-bottom: 1px solid #eeeeee;
-	margin-bottom: 2%;
+	margin-bottom: 6%;
 `;
 const ContentsImage = styled.div`
 	position: absolute;
@@ -60,7 +60,6 @@ const ContentsImage = styled.div`
 		width: 100px;
 		height: 100px;
 	}
-	border: 1px solid #eeeeee;
 `;
 const ContentsAddress = styled.div`
 	position: absolute;
@@ -88,11 +87,37 @@ const ContentsTitle = styled.div`
 `;
 const ContentsBrush = styled.div`
 	position: absolute;
+	width: 10%;
+	height: 100px;
 	right: 3%;
-	img {
-		width: 50px;
-		height: 100px;
-	}
+	padding-top: 24px;
 
+	border: none;
 	background-color: #f5f6f8;
+
+	img {
+		width: 28px;
+		height: 28px;
+
+		margin: auto;
+		margin-bottom: 20%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		vertical-align: bottom;
+	}
+	span {
+		margin: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		vertical-align: bottom;
+
+		font-family: Inter;
+		font-style: bold;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 15px;
+		color: #6ac47a;
+	}
 `;

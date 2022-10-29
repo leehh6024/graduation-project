@@ -65,8 +65,11 @@ export default function IssuePage() {
 		formData.append("lng", issue.location.lng);
 		formData.append("image", image);
 
-		const { data } = await API.createIssue(formData);
-		console.log(data);
+		try {
+			const { data } = await API.createIssue(formData);
+		} catch (err) {
+			alert(err.response.data.message);
+		}
 	};
 
 	const onTitledChange = (e) => setTitle(e.target.value);
@@ -87,15 +90,15 @@ export default function IssuePage() {
 				/>
 			)}
 			{image && (
-				<Link to="/">
-					<button
-						className="btn-submit-issue"
-						type="submit"
-						onClick={createIssue}
-					>
-						이슈 등록하기
-					</button>
-				</Link>
+				// <Link to="/">
+				<button
+					className="btn-submit-issue"
+					type="submit"
+					onClick={createIssue}
+				>
+					이슈 등록하기
+				</button>
+				// </Link>
 			)}
 		</Issue>
 	);

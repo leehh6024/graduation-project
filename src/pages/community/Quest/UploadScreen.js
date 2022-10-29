@@ -106,13 +106,18 @@ export default function UploadScreen() {
 				</BrushContainer>
 
 				<RegisterTrade>
+					{/* 성공적이면 거래등록완료 모달창 | 실패하면  */}
 					<div onClick={onModalOpen}>거래 등록하기</div>
 				</RegisterTrade>
 				{modal && (
 					<>
 						<ModalContainer />
 						<Link to="/community">
-							<Modal onClick={onModalClose}>두열이 ㅂㅅ~</Modal>
+							<Modal onClick={onModalClose}>
+								거래 등록이 <br />
+								완료되었습니다.
+								<ReturnCommunityBtn>글 목록으로 돌아가기</ReturnCommunityBtn>
+							</Modal>
 						</Link>
 					</>
 				)}
@@ -120,6 +125,30 @@ export default function UploadScreen() {
 		</div>
 	);
 }
+
+const ReturnCommunityBtn = styled.div`
+	position: absolute;
+	width: 90%;
+	height: 20%;
+	top: 70%;
+
+	border: none;
+	border-radius: 5px;
+	background-color: #6ac47a;
+
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+
+	font-family: "Pretendard";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 21px;
+	color: white;
+`;
 const ModalContainer = styled.div`
 	position: absolute;
 	width: 100%;
@@ -135,6 +164,9 @@ const Modal = styled.div`
 	position: absolute;
 	width: 60%;
 	height: 20%;
+	left: 50%;
+	top: 50%;
+	padding-bottom: 10%;
 
 	background-color: white;
 	border-radius: 15px;
@@ -142,9 +174,8 @@ const Modal = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-left: 20%;
-	margin-right: 20%;
-	margin-top: 40%;
+	text-align: center;
+	transform: translate(-50%, -55%);
 
 	font-family: "Pretendard";
 	font-style: normal;

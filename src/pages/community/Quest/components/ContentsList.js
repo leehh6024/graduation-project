@@ -32,11 +32,13 @@ export default function ContentsList({ tab }) {
 	};
 
 	return (
-		<ContentsListContainer>
-			{postList.map((post) => (
-				<ContentPreview key={post.id} data={post} />
-			))}
-		</ContentsListContainer>
+		<>
+			<ContentsListContainer>
+				{postList.map((post) => (
+					<ContentPreview key={post.id} data={post} />
+				))}
+			</ContentsListContainer>
+		</>
 	);
 }
 
