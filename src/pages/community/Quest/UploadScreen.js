@@ -22,6 +22,7 @@ const UploadQuestBoard = styled.div`
 
 export default function UploadScreen() {
 	const [files, setFiles] = useState([]);
+	const [modal, setModal] = useState(false);
 
 	const onFileChange = useCallback(
 		(e) => {
@@ -39,7 +40,12 @@ export default function UploadScreen() {
 	const onRemovePicture = useCallback((idx) => {
 		setFiles((files) => files.filter((file, index) => idx !== index));
 	}, []);
-
+	const onModalOpen = () => {
+		setModal(true);
+	};
+	const onModalClose = () => {
+		setModal(false);
+	};
 	return (
 		<div>
 			<UploadScreenContainer>
@@ -99,15 +105,54 @@ export default function UploadScreen() {
 					/>
 				</BrushContainer>
 
-				<Link to="/community">
-					<RegisterTrade>
-						<div>거래 등록하기</div>
-					</RegisterTrade>
-				</Link>
+				<RegisterTrade>
+					<div onClick={onModalOpen}>거래 등록하기</div>
+				</RegisterTrade>
+				{modal && (
+					<>
+						<ModalContainer />
+						<Link to="/community">
+							<Modal onClick={onModalClose}>두열이 ㅂㅅ~</Modal>
+						</Link>
+					</>
+				)}
 			</UploadScreenContainer>
 		</div>
 	);
 }
+const ModalContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	min-height: 100vh;
+
+	background-color: grey;
+	opacity: 0.3;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+`;
+
+const Modal = styled.div`
+	position: absolute;
+	width: 60%;
+	height: 20%;
+
+	background-color: white;
+	border-radius: 15px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-top: 40%;
+
+	font-family: "Pretendard";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+	color: #464646;
+`;
 
 const UploadScreenContainer = styled.div`
 	position: absolute;
@@ -186,17 +231,20 @@ const RegisterTrade = styled.div`
 	position: absolute;
 	margin: auto;
 	left: 3%;
-	top: 80%;
+	top: 90%;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+
 	width: 94%;
+	height: 3rem;
 	border: none;
 	border-radius: 5px;
 	background-color: #6ac47a;
 	color: white;
-	height: 3rem;
+
 	font-family: "Pretendard";
 	font-style: normal;
 	font-weight: 700;
