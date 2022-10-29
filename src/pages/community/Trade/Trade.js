@@ -8,7 +8,7 @@ export default function Trade() {
 			<Link to="/upload">
 				<img className="btn-addQuest" src="/community/btn-addQuest.png" />
 			</Link>
-			<ContentsList />
+			<ContentsList tab="trade" />
 		</div>
 	);
 }

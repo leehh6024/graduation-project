@@ -3,7 +3,6 @@ import { GlobalContextProvider } from "./common/context/store.js";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { BrowserRouter } from "react-router-dom";
 import Router from "./router.js";
-import GlobalContext from "./common/context/store";
 import { BrowserView, MobileView } from "react-device-detect";
 
 const GlobalStyle = createGlobalStyle`

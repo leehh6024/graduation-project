@@ -3,9 +3,9 @@ import axios from "axios";
 export const TownCleanerAPI = axios.create({
 	// baseURL: "http://43.200.121.200",
 	// baseURL: "http://172.30.1.100:3000",
-	// baseURL: "http://localhost:3001",
+	baseURL: "http://localhost:3001",
 	// baseURL: "http://akdfkeks.iptime.org:3001",
-	baseURL: "https://valun.kro.kr",
+	// baseURL: "https://valun.kro.kr",
 	headers: {
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",
@@ -33,6 +33,10 @@ export async function getUserPointIssues(lat, lng) {
 export async function serverLog(data) {
 	return await TownCleanerAPI.get("/log", data);
 }
+
+export async function getPostList(path, data) {
+	return await TownCleanerAPI.get(`society/${path}`, data);
+}
 // axios.interceptors.response.use(
 //   (response) => {
 //     //백엔드에서 리턴 된 로그인, 또는 권한 오류가 발생하는 경우 처리
@@ -56,6 +60,7 @@ export async function serverLog(data) {
 export const API = {
 	getFixedPointIssue,
 	getUserPointIssues,
+	getPostList,
 	createIssue,
 	serverLog,
 };

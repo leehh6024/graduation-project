@@ -1,26 +1,32 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Contents.css";
-import { API } from "../../../../service.js";
 import { Link } from "react-router-dom";
+import { geocoder, kakao } from "../../../../common/context/store";
+import { useRef } from "react";
 
-export default function Contents() {
-	// API에서 받아온 데이터로 address, title, contentsImage, Brush 개수 넣어주야지
-	const [image, setImage] = useState("");
-	const [address, setAddress] = useState("");
-	const [title, setTitle] = useState("");
-	// const [numOfBrush, setNumOfBrush] = useState(0);
+export default function ContentPreview({ data }) {
+	const address = useRef("");
+	useEffect(() => {
+		const coords = new kakao.maps.LatLng(data.location.lat, data.location.lng);
+		geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), (result, status) => {
+			address.current =
+				result[0].region_1depth_name +
+				" " +
+				result[0].region_2depth_name +
+				" " +
+				result[0].region_3depth_name;
+		});
+	}, []);
 
 	return (
 		<div>
-			<Link to="/contentsinfo" className="contents-container">
-				<img className="contents-image" src={image} alt="contents" />
-				<div className="contents-address">{address}주소</div>
-				<div className="contents-title">{title}제목</div>
-				<div className="contents-brush">
-					<img src="/community/brush.png" alt="brush" />
-					{/* {numOfBrush} */}
-				</div>
-			</Link>
+			<img className="contents-image" src={data.image} alt="contents" />
+			<div className="contents-address">{address.current}주소</div>
+			<div className="contents-title">{data.title}제목</div>
+			<div className="contents-body">{data.price}가격</div>
+			<div className="contents-brush">
+				<img src="/community/brush.png" alt="brush" />
+			</div>
 		</div>
 	);
 }

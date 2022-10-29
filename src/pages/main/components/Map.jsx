@@ -1,15 +1,8 @@
-import React, {
-	useState,
-	useEffect,
-	useCallback,
-	useContext,
-	useRef,
-} from "react";
-import GlobalContext from "../../../common/context/store";
+import React, { useState, useEffect, useCallback, useContext, useRef } from "react";
+import GlobalContext, { kakao } from "../../../common/context/store";
 import { API } from "../../../service.js";
 import "./Map.css";
 
-export const kakao = window.kakao;
 var container, options, map;
 
 export default function Location() {
@@ -63,11 +56,7 @@ export default function Location() {
 				image: markerImage,
 			});
 
-			kakao.maps.event.addListener(
-				marker,
-				"click",
-				bottomSheetOpen(issueList[i])
-			);
+			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(issueList[i]));
 		}
 		console.log("7. 마커 표시완료");
 	}, [issueList]);

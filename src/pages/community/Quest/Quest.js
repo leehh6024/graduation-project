@@ -9,7 +9,7 @@ export default function Quest() {
 			<Link to="/upload">
 				<img className="btn-addQuest" src="/community/btn-addQuest.png" />
 			</Link>
-			<ContentsList />
+			<ContentsList tab="quest" />
 		</div>
 	);
 }

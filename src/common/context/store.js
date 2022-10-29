@@ -15,6 +15,9 @@ const initialRef = {
 
 const GlobalContext = React.createContext(null);
 
+export const kakao = window.kakao;
+export const geocoder = new kakao.maps.services.Geocoder();
+
 export function GlobalContextProvider({ children }) {
 	const [state, setState] = useState(initialState);
 	const globalRef = useRef(initialRef);

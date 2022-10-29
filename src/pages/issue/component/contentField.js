@@ -1,16 +1,13 @@
-import { useState, useContext } from "react";
-import { useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
-import GlobalContext from "../../../common/context/store";
-import { kakao } from "../../main/components/Map";
+import GlobalContext, { kakao, geocoder } from "../../../common/context/store";
+
 import "./contentField.css";
 import { setUserLocation } from "../../../common/function/setUserLocation";
 
 const Content = styled.div`
 	background-color: white;
 `;
-
-const geocoder = new kakao.maps.services.Geocoder();
 
 function ContentInputField({ onTitledChange, onBodyChange }) {
 	const { state, setState, globalRef } = useContext(GlobalContext);
@@ -23,19 +20,15 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 		);
 		console.log(coords);
 		console.log(globalRef.current.userLocation);
-		geocoder.coord2RegionCode(
-			coords.getLng(),
-			coords.getLat(),
-			(result, status) => {
-				setAddress(
-					result[0].region_1depth_name +
-						" " +
-						result[0].region_2depth_name +
-						" " +
-						result[0].region_3depth_name
-				);
-			}
-		);
+		geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), (result, status) => {
+			setAddress(
+				result[0].region_1depth_name +
+					" " +
+					result[0].region_2depth_name +
+					" " +
+					result[0].region_3depth_name
+			);
+		});
 	}, [globalRef.current.userLocation]);
 
 	return (

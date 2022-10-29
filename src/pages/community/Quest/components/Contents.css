@@ -1,59 +1,58 @@
 .contents-container {
-    position: relative;;
-    left: 3%;
-    top: 15%;
-    width: 94%;
-    height: 124px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+	position: relative;
+	left: 3%;
+	top: 15%;
+	width: 94%;
+	height: 124px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .contents-image {
-    position: absolute;
-    left: 1%;
-    width: 100px;
-    height: 100px;
-    display: flex;
-        align-items: center;
-        justify-content: center;
+	left: 1%;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .contents-address {
-    position: absolute;
-    left: 35%;
-    top: 15%;
-    font-weight: 700;
-    font-family: "Inter";
-    font-style: "bold";
-    font-size: 14px;
-    color: #878B93;
-    display: flex;
-        align-items: center;
-        justify-content: center;
+	position: absolute;
+	left: 35%;
+	top: 15%;
+	font-weight: 700;
+	font-family: "Inter";
+	font-style: "bold";
+	font-size: 14px;
+	color: #878b93;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .contents-title {
-    position: absolute;
-    left: 35%;
-    top: 42%;
-    font-weight: 700;
-    font-family: "Inter";
-    font-style: "regular";
-    font-size: 16px;
-    color: black;
-    display: flex;
-        align-items: center;
-        justify-content: center;
+	position: absolute;
+	left: 35%;
+	top: 42%;
+	font-weight: 700;
+	font-family: "Inter";
+	font-style: "regular";
+	font-size: 16px;
+	color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .contents-brush {
-    position: absolute;
-    right: 1%;
-    width: 50px;
-    height: 100px;
-    background-color: #f5f6f8;
-    display: flex;
-        align-items: center;
-        justify-content: center;
+	position: absolute;
+	right: 1%;
+	width: 50px;
+	height: 100px;
+	background-color: #f5f6f8;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
