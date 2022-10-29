@@ -1,8 +1,6 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { geocoder, kakao } from "../../../../common/context/store";
-import { useRef } from "react";
 import { getUserAddress } from "../../../../common/function/getUserAddress";
 
 export default function ContentPreview({ data }) {
@@ -56,18 +54,6 @@ const ContentsImage = styled.div`
 		height: 100px;
 	}
 `;
-const ContentsAddress = styled.div`
-	position: absolute;
-	left: 32%;
-	top: 18%;
-	display: flex;
-
-	font-weight: 400;
-	font-family: "Inter";
-	font-style: "regular";
-	font-size: 12px;
-	color: #464646;
-`;
 const ContentsTitle = styled.div`
 	position: absolute;
 	left: 32%;
@@ -78,6 +64,18 @@ const ContentsTitle = styled.div`
 	font-family: "Inter";
 	font-style: "regular";
 	font-size: 16px;
+	color: #464646;
+`;
+const ContentsAddress = styled.div`
+	position: absolute;
+	left: 32%;
+	top: 18%;
+	display: flex;
+
+	font-weight: 400;
+	font-family: "Inter";
+	font-style: "regular";
+	font-size: 12px;
 	color: #464646;
 `;
 const ContentsBrush = styled.div`

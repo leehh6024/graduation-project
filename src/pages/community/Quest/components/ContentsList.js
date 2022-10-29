@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import GlobalContext from "../../../../common/context/store";
 import ContentPreview from "./Contents.js";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { API } from "../../../../service";
 
 export default function ContentsList({ tab }) {
