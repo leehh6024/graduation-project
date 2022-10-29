@@ -4,8 +4,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
 	position: relative;
 	width: 100%;
-	height: 10vh;
-	top: 8%;
+	height: 6vh;
 	display: flex;
 	justify-content: space-between;
 	font-weight: 700;

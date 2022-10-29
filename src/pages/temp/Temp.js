@@ -106,7 +106,7 @@ const BottomAddressContainer = styled.div`
 `;
 const Distance = styled.div`
 	position: absolute;
-	left: 82%;
+	right: 6%;
 	top: 20%;
 `;
 const IssueMore = styled.div`
