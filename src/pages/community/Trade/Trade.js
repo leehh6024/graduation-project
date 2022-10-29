@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import ContentsList from "./components/ContentsList.js";
+import ContentsList from "../Quest/components/ContentsList";
 import "./Trade.css";
 
 export default function Trade() {
 	return (
 		<>
 			<TradePage>
-				<ContentsList />
+				<ContentsList tab="trade" />
 			</TradePage>
 			<Link to="/upload">
 				<img className="btn-addQuest" src="/community/btn-addQuest.png" />

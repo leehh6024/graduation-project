@@ -8,18 +8,14 @@ export default function ContentPreview({ data }) {
 	const address = useRef("");
 	useEffect(() => {
 		const coords = new kakao.maps.LatLng(data.location.lat, data.location.lng);
-		geocoder.coord2RegionCode(
-			coords.getLng(),
-			coords.getLat(),
-			(result, status) => {
-				address.current =
-					result[0].region_1depth_name +
-					" " +
-					result[0].region_2depth_name +
-					" " +
-					result[0].region_3depth_name;
-			}
-		);
+		geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), (result, status) => {
+			address.current =
+				result[0].region_1depth_name +
+				" " +
+				result[0].region_2depth_name +
+				" " +
+				result[0].region_3depth_name;
+		});
 	}, []);
 
 	return (
@@ -28,12 +24,12 @@ export default function ContentPreview({ data }) {
 				<ContentsImage>
 					<img src={data.image} alt="image" />
 				</ContentsImage>
-				<ContentsAddress>
-					<div>{address.current}복정동</div>
-				</ContentsAddress>
 				<ContentsTitle>
-					<div>{data.title}분리수거 도와주실분</div>
+					<div>{data.title}</div>
 				</ContentsTitle>
+				<ContentsAddress>
+					<div>{address.current}</div>
+				</ContentsAddress>
 				<ContentsBrush>
 					<img src="/community/brush.png" alt="brush" />
 					{data.price}
@@ -60,14 +56,14 @@ const ContentsContainer = styled.div`
 const ContentsImage = styled.div`
 	position: absolute;
 	left: 3%;
-	width: 100px;
-	height: 100px;
+	img {
+		width: 100px;
+		height: 100px;
+	}
 	border: 1px solid #eeeeee;
 `;
 const ContentsAddress = styled.div`
 	position: absolute;
-	left: 100%;
-	width: 16%;
 	left: 32%;
 	top: 18%;
 	display: flex;
@@ -80,7 +76,6 @@ const ContentsAddress = styled.div`
 `;
 const ContentsTitle = styled.div`
 	position: absolute;
-	width: 50%;
 	left: 32%;
 	top: 34%;
 	display: flex;
@@ -94,8 +89,10 @@ const ContentsTitle = styled.div`
 const ContentsBrush = styled.div`
 	position: absolute;
 	right: 3%;
-	width: 50px;
-	height: 100px;
+	img {
+		width: 50px;
+		height: 100px;
+	}
 
 	background-color: #f5f6f8;
 `;
