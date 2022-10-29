@@ -25,9 +25,10 @@ export default function ContentsList({ tab }) {
 			// 	lastPost,
 			// },
 		};
-		const { data } = await API.getPostList(tab, postRequestObject);
+		const data = await API.getPostList(tab, postRequestObject);
+		if (!data.success) alert(data.message);
+
 		const userLocationPostList = data.data;
-		console.log(userLocationPostList);
 		setPostList(userLocationPostList);
 	};
 

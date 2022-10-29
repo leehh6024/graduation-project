@@ -20,8 +20,7 @@ const Issue = styled.div`
 	margin: auto;
 	min-height: 100vh;
 	vertical-align: middle;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 export default function IssuePage() {
@@ -65,11 +64,8 @@ export default function IssuePage() {
 		formData.append("lng", issue.location.lng);
 		formData.append("image", image);
 
-		try {
-			const { data } = await API.createIssue(formData);
-		} catch (err) {
-			alert(err.response.data.message);
-		}
+		const data = await API.createIssue(formData);
+		if (!data.success) alert(data.message);
 	};
 
 	const onTitledChange = (e) => setTitle(e.target.value);
@@ -84,18 +80,11 @@ export default function IssuePage() {
 
 			{/* {image && <CategorySelector onCategoryChange={onCategoryChange} />} */}
 			{image && (
-				<ContentInputField
-					onTitledChange={onTitledChange}
-					onBodyChange={onBodyChange}
-				/>
+				<ContentInputField onTitledChange={onTitledChange} onBodyChange={onBodyChange} />
 			)}
 			{image && (
 				// <Link to="/">
-				<button
-					className="btn-submit-issue"
-					type="submit"
-					onClick={createIssue}
-				>
+				<button className="btn-submit-issue" type="submit" onClick={createIssue}>
 					이슈 등록하기
 				</button>
 				// </Link>

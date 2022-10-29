@@ -80,9 +80,10 @@ export default function Location() {
 
 	const getIssueList = useCallback(async (lat, lng) => {
 		console.log("5. 유저 주변의 이슈 리스트를 요청합니다");
-		const { data } = await API.getUserPointIssues(lat, lng);
+		const data = await API.getUserPointIssues(lat, lng);
+		if (!data.success) alert(data.message);
 		// const { data } = await API.getFixedPointIssue(lat, lng);
-		if (!data.success) alert("주변의 이슈가 없습니다.");
+
 		const processedIssuePoint = formatIssueData(data);
 		// console.log(data);
 
