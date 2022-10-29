@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	font-weight: 700;
-	font-size: 20px;
+	font-size: 18px;
 `;
 const TabItem = styled.div`
 	padding: 4px;

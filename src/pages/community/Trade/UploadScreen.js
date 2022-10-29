@@ -5,10 +5,6 @@ import { useContext } from "react";
 export default function UploadScreen() {
 	const { state, setState } = useContext(GlobalContext);
 
-	const closeUploadScreen = () => {
-		setState((prev) => ({ ...prev, uploadScreen: false }));
-	};
-
 	const RegisterSuccess = () => {
 		// 성공적으로 등록한 창 띄워주기 이후에 메인으로 화면전환
 	};
