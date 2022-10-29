@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/valun/static/css/main.cfd78e01.css",
-    "main.js": "/valun/static/js/main.eed4c19c.js",
+    "main.js": "/valun/static/js/main.48efef56.js",
     "index.html": "/valun/index.html",
     "main.cfd78e01.css.map": "/valun/static/css/main.cfd78e01.css.map",
-    "main.eed4c19c.js.map": "/valun/static/js/main.eed4c19c.js.map"
+    "main.48efef56.js.map": "/valun/static/js/main.48efef56.js.map"
   },
   "entrypoints": [
     "static/css/main.cfd78e01.css",
-    "static/js/main.eed4c19c.js"
+    "static/js/main.48efef56.js"
   ]
 }
