@@ -38,3 +38,9 @@ export default function ContentsList({ tab }) {
 		</>
 	);
 }
+
+const ContentsListContainer = styled.div`
+	width: 100%;
+	height: 100%;
+	overflow: scroll;
+`;

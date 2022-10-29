@@ -1,14 +1,26 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { Link } from "react-router-dom";
-import ContentsList from "../Quest/components/ContentsList.js";
+import ContentsList from "./components/ContentsList.js";
+import "./Trade.css";
 
 export default function Trade() {
 	return (
-		<div>
+		<>
+			<TradePage>
+				<ContentsList />
+			</TradePage>
 			<Link to="/upload">
 				<img className="btn-addQuest" src="/community/btn-addQuest.png" />
 			</Link>
 			<ContentsList tab="trade" />
-		</div>
+		</>
 	);
 }
+const TradePage = styled.div`
+	position: absolute;
+	top: 15%;
+
+	width: 100%;
+	height: 85vh;
+`;
