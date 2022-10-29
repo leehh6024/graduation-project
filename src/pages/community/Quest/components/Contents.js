@@ -33,13 +33,7 @@ export default function ContentPreview({ data }) {
 			</ContentsAddress>
 			<ContentsBrush>
 				<img src="/brush.png" alt="brush" />
-				<span>
-					
-					{data.price if(data.price.length > 4) 
-						data.price + "만"
-					}
-				
-				</span>
+				<span>{data.price}</span>
 			</ContentsBrush>
 		</ContentsContainer>
 	);
