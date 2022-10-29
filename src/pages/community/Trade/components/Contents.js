@@ -103,7 +103,6 @@ const ContentsBrush = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		vertical-align: bottom;
 
 		font-family: Inter;
 		font-style: bold;

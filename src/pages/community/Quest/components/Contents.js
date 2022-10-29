@@ -33,7 +33,13 @@ export default function ContentPreview({ data }) {
 			</ContentsAddress>
 			<ContentsBrush>
 				<img src="/brush.png" alt="brush" />
-				<span>{data.price}</span>
+				<span>
+					
+					{data.price if(data.price.length > 4) 
+						data.price + "만"
+					}
+				
+				</span>
 			</ContentsBrush>
 		</ContentsContainer>
 	);
@@ -45,6 +51,7 @@ const ContentsContainer = styled.div`
 	height: 16vh;
 	border-bottom: 1px solid #eeeeee;
 	margin-bottom: 6%;
+	cursor: pointer;
 `;
 const ContentsImage = styled.div`
 	position: absolute;
@@ -104,7 +111,6 @@ const ContentsBrush = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		vertical-align: bottom;
 
 		font-family: Inter;
 		font-style: bold;
