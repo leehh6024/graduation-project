@@ -222,7 +222,7 @@ const CloseUserTab = styled.div`
 	position: absolute;
 	z-index: 5;
 	width: 100%;
-	height: 914px;
+	height: 100%;
 	left: 270px;
 	top: 0px;
 	background: rgba(0, 0, 0, 0.25);
