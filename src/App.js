@@ -72,23 +72,12 @@ const GlobalStyle = createGlobalStyle`
 export default function App() {
 	return (
 		<>
-			<BrowserView>
-				<GlobalContextProvider>
-					<BrowserRouter>
-						<GlobalStyle />
-						<Router />
-					</BrowserRouter>
-				</GlobalContextProvider>
-			</BrowserView>
-
-			<MobileView>
-				<GlobalContextProvider>
-					<BrowserRouter>
-						<GlobalStyle />
-						<Router />
-					</BrowserRouter>
-				</GlobalContextProvider>
-			</MobileView>
+			<GlobalContextProvider>
+				<BrowserRouter>
+					<GlobalStyle />
+					<Router />
+				</BrowserRouter>
+			</GlobalContextProvider>
 		</>
 	);
 }
