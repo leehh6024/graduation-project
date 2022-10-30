@@ -15,7 +15,6 @@ const BackBtn = styled.div`
 
 export default function IssueInfo() {
 	const { state, setState } = useContext(GlobalContext);
-	const eachdata = state.selected;
 
 	return (
 		<>
@@ -66,11 +65,10 @@ function Image(props) {
 const IssueInfoImage = styled.div`
 	width: 100%;
 	height: 40%;
-	border: 1px solid black;
 	position: absolute;
 `;
 const Brush = styled.div`
-	 width: 100%
+	width: 100%
 	height: 100%;
 	position: absolute;
 	top: 42%;
@@ -86,6 +84,10 @@ const Brush = styled.div`
 	font-weight: 700;
 	line-height: 100%;
 	color: #464646;
+
+	img {
+		margin-right: 6px;
+	}
 `;
 const IssueInfoTitle = styled.div`
 	width: 100%
@@ -160,6 +162,10 @@ const UserProfile = styled.div`
 	font-weight: 700;
 	line-height: 100%;
 	color: #464646;
+
+	img {
+		margin-right: 6px;
+	}
 `;
 const MoreContents = styled.div`
 	position: absolute;
@@ -211,7 +217,7 @@ const Comment = styled.div`
 `;
 const Resolve = styled.div`
 	position: absolute;
-	width: 12rem;
+	width: 52%;
 	height: 52px;
 	left: 44%;
 	top: 90%;

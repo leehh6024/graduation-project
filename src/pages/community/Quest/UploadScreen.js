@@ -112,13 +112,14 @@ export default function UploadScreen() {
 				{modal && (
 					<>
 						<ModalContainer />
-						<Link to="/community">
-							<Modal onClick={onModalClose}>
-								거래 등록이 <br />
-								완료되었습니다.
+
+						<Modal onClick={onModalClose}>
+							거래 등록이 <br />
+							완료되었습니다.
+							<Link to="/community">
 								<ReturnCommunityBtn>글 목록으로 돌아가기</ReturnCommunityBtn>
-							</Modal>
-						</Link>
+							</Link>
+						</Modal>
 					</>
 				)}
 			</UploadScreenContainer>
@@ -131,6 +132,7 @@ const ReturnCommunityBtn = styled.div`
 	width: 90%;
 	height: 20%;
 	top: 70%;
+	right: 5%;
 
 	border: none;
 	border-radius: 5px;
@@ -155,9 +157,7 @@ const ModalContainer = styled.div`
 	min-height: 100vh;
 
 	background-color: grey;
-	opacity: 0.3;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	opacity: 0.4;
 `;
 
 const Modal = styled.div`
@@ -166,6 +166,7 @@ const Modal = styled.div`
 	height: 20%;
 	left: 50%;
 	top: 50%;
+	padding-top: 3%;
 	padding-bottom: 10%;
 
 	background-color: white;

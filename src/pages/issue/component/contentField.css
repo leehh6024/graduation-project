@@ -1,7 +1,7 @@
 .issue-title {
     position: absolute;
     left: 4%;
-    top: 45%;
+    top: 44%;
     width: 100%;
 
     display: flex;
@@ -18,7 +18,7 @@
 .input-title {
     position: absolute;
     left: 4%;
-    top: 48%;
+    top: 47%;
     width: 100%;
     border: none;
 
@@ -30,21 +30,20 @@
     font-family: Pretendard;
     font-weight: 700;
     font-style: normal;
-    color: #999999;
-    opacity: 0.8;
+    color: #464646;
 }
 .line {
     position: absolute;
-    width: 88%;
+    width: 92%;
     height: 0px;
     left: 4%;
-    top: 51%;
+    top: 50%;
     border: 1px solid #f5f5f5;
 }
 .issue-position {
     position: absolute;
     left: 4%;
-    top: 54%;
+    top: 53%;
     width: 100%;
 
     display: flex;
@@ -61,7 +60,7 @@
 .position {
     position: absolute;
     left: 4%;
-    top: 57%;
+    top: 56%;
     width: 100%;
 
     display: flex;
@@ -93,7 +92,7 @@
 .issue-point-category {
     position: absolute;
     left: 4%;
-    top: 61%;
+    top: 60%;
     width: 100%;
 
     display: flex;
@@ -109,7 +108,7 @@
 }
 .line2 {
     position: absolute;
-    width: 88%;
+    width: 92%;
     height: 0px;
     left: 4%;
     top: 70%;
@@ -136,7 +135,7 @@ textarea {
     position: absolute;
     left: 4%;
     top: 75%;
-    width: 92%;
+    width: 90%;
     height: 12%;
 
     display: flex;
@@ -153,8 +152,8 @@ textarea {
 .btn-submit-issue {
     position: absolute;
     left: 4%;
-    top: 90%;
-    width: 92%;
+    top: 92%;
+    width: 90%;
     height: 6%;
     
     font-size: 16px;

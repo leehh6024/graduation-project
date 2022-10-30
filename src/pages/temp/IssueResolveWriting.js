@@ -84,7 +84,7 @@ export default function IssueResolveWriting() {
 				/>
 			</IssueResolveContainer>
 
-			<Link to="/issueresolve">
+			<Link to="/">
 				<RegisterTrade>
 					<div>1,200 빗자루 획득하기</div>
 				</RegisterTrade>
@@ -168,7 +168,7 @@ const RegisterTrade = styled.div`
 	position: absolute;
 	margin: auto;
 	left: 3%;
-	top: 90%;
+	top: 92%;
 	width: 94%;
 
 	display: flex;

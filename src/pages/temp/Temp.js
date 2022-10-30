@@ -1,26 +1,23 @@
 import GlobalContext from "../../common/context/store";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export default function Temp() {
 	const { state, setState } = useContext(GlobalContext);
-
+	console.log(state);
 	return (
 		<>
 			<BottomSheetContainer>
 				<BottomSheetTitle>{state.selected[0].title}</BottomSheetTitle>
 
 				<BottomSheetClass>
-					{/* map함수로 재구현필요~ */}
 					<IssueClass>{state.selected[0].class}</IssueClass>
 					<IssueClass>혼합 건설폐기물</IssueClass>
 					<IssueClass>클래스데이터 받아와야함</IssueClass>
 				</BottomSheetClass>
 
-				<BottomAddressContainer>
-					<div>(주소데이터받아와야함)경기도 성남시 수정구 복정로</div>
-				</BottomAddressContainer>
+				<BottomAddressContainer></BottomAddressContainer>
 				<Distance>
 					<img src="distance.png" />
 				</Distance>
