@@ -120,7 +120,7 @@ const UserTabContainer = styled.div`
 	top: 0px;
 	background: white;
 
-	animation: ${moveright} 1s 0.000001s;
+	animation: ${moveright} 1s 0.01s;
 `;
 
 const CloseUserTab = styled.div`
@@ -128,11 +128,22 @@ const CloseUserTab = styled.div`
 	z-index: 5;
 	width: 100%;
 	height: 100%;
-	left: 270px;
-	top: 0px;
 	background: rgba(0, 0, 0, 0.25);
 
-	animation: ${moveleft} 1s 0.000001s;
+	animation: ${moveright} 1s 0.01s;
+
+	margin: auto;
+	display: flex;
+	align-items: top;
+	justify-content: right;
+	text-align: center;
+
+	color: #999999;
+	font-family: "Pretendard";
+	font-style: bold;
+	font-weight: 400;
+	font-size: 0.8rem;
+	line-height: 14px;
 `;
 
 const UserProfileImage = styled.div`

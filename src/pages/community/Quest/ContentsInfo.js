@@ -48,7 +48,7 @@ export default function ContentsInfo() {
 				<img src="bookmark.png" />
 			</Bookmark>
 			<Link to="/community">
-				<Resolve>거래하기</Resolve>
+				<Resolve>해결 및 거래하기</Resolve>
 			</Link>
 			<Comment>
 				<img src="comment.png" />
