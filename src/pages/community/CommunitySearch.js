@@ -16,7 +16,7 @@ export default function CommunitySearch() {
 			{state.usertab && <UserTab />}
 			<CommunitySearchAddress>
 				<StyledUserTabBtn onClick={openUserTab} />
-				복정동
+				<div>복정동</div>
 			</CommunitySearchAddress>
 			<CommunitySearchButton>
 				<img src="/community/btn-search.png" />
@@ -37,9 +37,8 @@ const CommunitySearchContainer = styled.div`
 const CommunitySearchAddress = styled.div`
 	position: absolute;
 	left: 2%;
-	top: 2.5%;
-	width: 22%;
-	padding-left: 2%;
+	top: 2.7%;
+	width: 30%;
 
 	display: flex;
 	margin: auto;
@@ -51,12 +50,6 @@ const CommunitySearchAddress = styled.div`
 	font-style: "bold";
 	font-size: 18px;
 	color: #464646;
-
-	img {
-		width: 20px;
-		height: 20px;
-		margin-right: 12%;
-	}
 `;
 const CommunitySearchButton = styled.div`
 	position: absolute;
@@ -74,5 +67,6 @@ const CommunitySearchButton = styled.div`
 const StyledUserTabBtn = styled(UserTabBtn)`
 	position: absolute;
 	left: 3%;
-	width: 18px;
+	width: 20px;
+	margin-right: 6%;
 `;

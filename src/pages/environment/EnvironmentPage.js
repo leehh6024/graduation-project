@@ -6,9 +6,9 @@ import GlobalContext from "../../common/context/store.js";
 import { ReactComponent as UserTabBtn } from "../../assets/Hamburger.svg";
 import UserTab from "../main/components/UserTab.jsx";
 import Tab from "./Tab.js";
-import InfoList from "./EnvironmentDepartment/InfoList.js";
-// import KoreaEnvironmentCorporation from "./KoreaEnvironmentCorporation/KoreaEnvironmentCorporation.js";
-// import EnvironmentInfoSystem from "./EnvironmentInfoSystem/EnvironmentInfoSystem.js";
+import DepartmentInfoList from "./EnvironmentDepartment/DepartmentInfoList.js";
+import KoreaInfoList from "./KoreaEnvironmentCorporation/KoreaInfoList.js";
+import SystemInfoList from "./EnvironmentInfoSystem/SystemInfoList.js";
 
 export default function EnvironmentPage() {
 	// only T, Q
@@ -30,9 +30,10 @@ export default function EnvironmentPage() {
 				</EnvironmentHeader>
 
 				<Tab activeTab={activeTab} setActiveTab={setActiveTab} />
-				{/* {activeTab == "Q" ? <Quest /> : <Trade />} */}
 
-				<InfoList />
+				{activeTab == "D" ? <DepartmentInfoList /> : null}
+				{activeTab == "K" ? <KoreaInfoList /> : null}
+				{activeTab == "S" ? <SystemInfoList /> : null}
 			</EnvironmentPageContainer>
 		</>
 	);
@@ -54,6 +55,8 @@ const EnvironmentHeader = styled.div`
 	position: absolute;
 	width: 100%;
 	top: 6%;
+	padding-bottom: 4%;
+	border-bottom: 2px solid #eeeeee;
 
 	display: flex;
 	justify-content: center;

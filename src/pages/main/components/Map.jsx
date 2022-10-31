@@ -138,6 +138,6 @@ const StyleSetUserLocationCenterBtn = styled(SetUserLocationCenterBtn)`
 	left: 3%;
 	top: 60%;
 	margin: auto;
-	width: 12%;
-	height: 12%;
+	width: 10%;
+	height: 10%;
 `;

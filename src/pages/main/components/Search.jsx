@@ -44,8 +44,7 @@ const SearchContainer = styled.div`
 
 const SearchInput = styled.input`
 	position: absolute;
-	left: 50px;
-	top: 4px;
+	margin-left: 12%;
 	width: 84%;
 	height: 40px;
 	border: none;

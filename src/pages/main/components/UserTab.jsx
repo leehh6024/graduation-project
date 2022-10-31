@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Category from "./Navigation/Category.jsx";
 import styled, { keyframes } from "styled-components";
 import GlobalContext from "../../../common/context/store";
@@ -13,6 +13,20 @@ import { ReactComponent as Settings } from "../../../assets/toolbar/Settings.svg
 export default function UserTab() {
 	const { state, setState } = useContext(GlobalContext);
 
+	const [animate, setAnimate] = useState(false);
+	const [visible, setVisible] = useState(state.usertab);
+
+	useEffect(() => {
+		// open 값이 true -> false 가 되는 것을 감지 (즉, 모달창을 닫을 때)
+		if (visible && !state.usertab) {
+			setAnimate(true);
+			setTimeout(() => setAnimate(false), 250);
+		}
+		setAnimate(state.usertab);
+	}, [visible, state.usertab]);
+
+	if (!animate && !visible) return null;
+
 	function closeUserTab() {
 		setState((prev) => ({ ...prev, usertab: false }));
 	}
@@ -21,73 +35,143 @@ export default function UserTab() {
 		<div>
 			{state && (
 				<>
-					<UserTabContainer>
-						<UserProfileImage>
-							<UserProfile />
-						</UserProfileImage>
+					{visible ? (
+						<UserTabContainer>
+							<UserProfileImage>
+								<UserProfile />
+							</UserProfileImage>
 
-						<UserToolbar>
-							<button
-								style={{
-									background: "white",
-									border: "none",
-									width: "34px",
-									height: "43px",
-									position: "absolute",
-									left: "30px",
-								}}
-							>
-								<MyIssue />
-							</button>
-							<button
-								style={{
-									background: "white",
-									border: "none",
-									width: "26px",
-									height: "43px",
-									position: "absolute",
-									left: "84px",
-								}}
-							>
-								<MyPost />
-							</button>
-							<button
-								style={{
-									background: "white",
-									border: "none",
-									width: "45px",
-									height: "43px",
-									position: "absolute",
-									left: "130px",
-								}}
-							>
-								<MyBookmark />
-							</button>
-							<button
-								style={{
-									background: "white",
-									border: "none",
-									width: "45px",
-									height: "43px",
-									position: "absolute",
-									left: "195px",
-								}}
-							>
-								<Settings />
-							</button>
-						</UserToolbar>
+							<UserToolbar>
+								<button
+									style={{
+										background: "white",
+										border: "none",
+										width: "34px",
+										height: "43px",
+										position: "absolute",
+										left: "30px",
+									}}
+								>
+									<MyIssue />
+								</button>
+								<button
+									style={{
+										background: "white",
+										border: "none",
+										width: "26px",
+										height: "43px",
+										position: "absolute",
+										left: "84px",
+									}}
+								>
+									<MyPost />
+								</button>
+								<button
+									style={{
+										background: "white",
+										border: "none",
+										width: "45px",
+										height: "43px",
+										position: "absolute",
+										left: "130px",
+									}}
+								>
+									<MyBookmark />
+								</button>
+								<button
+									style={{
+										background: "white",
+										border: "none",
+										width: "45px",
+										height: "43px",
+										position: "absolute",
+										left: "195px",
+									}}
+								>
+									<Settings />
+								</button>
+							</UserToolbar>
 
-						<hr
-							style={{
-								position: "absolute",
-								width: "270px",
-								top: "235px",
-								border: "1px solid #f5f5f5",
-							}}
-						/>
+							<hr
+								style={{
+									position: "absolute",
+									width: "270px",
+									top: "235px",
+									border: "1px solid #f5f5f5",
+								}}
+							/>
 
-						<Category />
-					</UserTabContainer>
+							<Category />
+						</UserTabContainer>
+					) : (
+						<UserTabContainerClose>
+							<UserProfileImage>
+								<UserProfile />
+							</UserProfileImage>
+
+							<UserToolbar>
+								<button
+									style={{
+										background: "white",
+										border: "none",
+										width: "34px",
+										height: "43px",
+										position: "absolute",
+										left: "30px",
+									}}
+								>
+									<MyIssue />
+								</button>
+								<button
+									style={{
+										background: "white",
+										border: "none",
+										width: "26px",
+										height: "43px",
+										position: "absolute",
+										left: "84px",
+									}}
+								>
+									<MyPost />
+								</button>
+								<button
+									style={{
+										background: "white",
+										border: "none",
+										width: "45px",
+										height: "43px",
+										position: "absolute",
+										left: "130px",
+									}}
+								>
+									<MyBookmark />
+								</button>
+								<button
+									style={{
+										background: "white",
+										border: "none",
+										width: "45px",
+										height: "43px",
+										position: "absolute",
+										left: "195px",
+									}}
+								>
+									<Settings />
+								</button>
+							</UserToolbar>
+
+							<hr
+								style={{
+									position: "absolute",
+									width: "270px",
+									top: "235px",
+									border: "1px solid #f5f5f5",
+								}}
+							/>
+
+							<Category />
+						</UserTabContainerClose>
+					)}
 					<CloseUserTab onClick={closeUserTab} />
 				</>
 			)}
@@ -105,10 +189,10 @@ const moveright = keyframes`
 `;
 const moveleft = keyframes`
 	0% {
-		left: 100%;
+		left: 0%;
 	}
 	100% {
-		left: 0%;
+		left: -100%;
 	}
 `;
 const UserTabContainer = styled.div`
@@ -121,6 +205,17 @@ const UserTabContainer = styled.div`
 	background: white;
 
 	animation: ${moveright} 0.4s;
+`;
+const UserTabContainerClose = styled.div`
+	position: absolute;
+	z-index: 7;
+	width: 270px;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	background: white;
+
+	animation: ${moveleft} 0.4s;
 `;
 
 const CloseUserTab = styled.div`

@@ -2,7 +2,7 @@ import Recat from "react";
 import styled from "styled-components";
 import Info from "./Info.js";
 
-export default function InfoList() {
+export default function DepartmentInfoList() {
 	return (
 		<>
 			<InfoListContainer>
