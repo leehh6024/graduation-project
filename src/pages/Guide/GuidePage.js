@@ -30,7 +30,7 @@ export default function GuidePage() {
 }
 const GuideInfoContainer = styled.div`
 	position: absolute;
-	top: 10%;
+	top: 12%;
 	width: 100%;
 	height: 100%;
 
@@ -45,7 +45,7 @@ const GuideInfoContainer = styled.div`
 `;
 const StyledGuideImg = styled(GuideImg)`
 	position: absolute;
-	top: 10px;
+	top: 15px;
 	width: 100%;
 	overflow: scroll;
 `;
@@ -67,6 +67,8 @@ const GuideHeader = styled.div`
 	position: absolute;
 	width: 100%;
 	top: 6%;
+	padding-bottom: 15px;
+	border-bottom: 3px solid #eeeeee;
 
 	display: flex;
 	justify-content: center;
