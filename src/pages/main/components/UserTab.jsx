@@ -4,26 +4,13 @@ import styled from "styled-components";
 import GlobalContext from "../../../common/context/store";
 import { useContext } from "react";
 
-export default function UserTab() {
-	const toolbars = [
-		{
-			id: 1,
-			src: "/toolbar/myissue.png",
-		},
-		{
-			id: 2,
-			src: "/toolbar/new-writting.png",
-		},
-		{
-			id: 3,
-			src: "/toolbar/bookmark.png",
-		},
-		{
-			id: 4,
-			src: "/toolbar/settings.png",
-		},
-	];
+import { ReactComponent as UserProfile } from "../../../assets/User_Profile.svg";
+import { ReactComponent as MyIssue } from "../../../assets/toolbar/My_Issue.svg";
+import { ReactComponent as MyPost } from "../../../assets/toolbar/My_Post.svg";
+import { ReactComponent as MyBookmark } from "../../../assets/toolbar/My_Bookmark.svg";
+import { ReactComponent as Settings } from "../../../assets/toolbar/Settings.svg";
 
+export default function UserTab() {
 	const { state, setState } = useContext(GlobalContext);
 
 	function closeUserTab() {
@@ -36,8 +23,7 @@ export default function UserTab() {
 				<>
 					<UserTabContainer>
 						<UserProfileImage>
-							<img src="userprofile.png" />
-							조현성
+							<UserProfile />
 						</UserProfileImage>
 
 						<UserToolbar>
@@ -51,31 +37,7 @@ export default function UserTab() {
 									left: "30px",
 								}}
 							>
-								<img
-									src={toolbars[0].src}
-									style={{
-										width: "20px",
-										height: "20px",
-										position: "absolute",
-										left: "7px",
-										top: "0",
-									}}
-								/>
-								<div
-									style={{
-										width: "34px",
-										height: "15px",
-										fontFamily: "Inter",
-										fontStyle: "normal",
-										fontWeight: "400",
-										fontSize: "12px",
-										position: "absolute",
-										left: "0",
-										top: "28px",
-									}}
-								>
-									내제보
-								</div>
+								<MyIssue />
 							</button>
 							<button
 								style={{
@@ -87,32 +49,7 @@ export default function UserTab() {
 									left: "84px",
 								}}
 							>
-								<img
-									src={toolbars[1].src}
-									style={{
-										width: "20px",
-										height: "20px",
-										position: "absolute",
-										left: "3px",
-										top: "0px",
-									}}
-								/>
-								<div
-									style={{
-										width: "26px",
-										height: "15px",
-										fontFamily: "Inter",
-										fontStyle: "normal",
-										fontWeight: "400",
-										fontSize: "12px",
-										lineHeight: "15px",
-										position: "absolute",
-										left: "0px",
-										top: "28px",
-									}}
-								>
-									내 글
-								</div>
+								<MyPost />
 							</button>
 							<button
 								style={{
@@ -124,32 +61,7 @@ export default function UserTab() {
 									left: "130px",
 								}}
 							>
-								<img
-									src={toolbars[2].src}
-									style={{
-										width: "20px",
-										height: "20px",
-										position: "absolute",
-										top: "0px",
-										left: "12.5px",
-									}}
-								/>
-								<div
-									style={{
-										width: "45px",
-										height: "15px",
-										fontFamily: "Inter",
-										fontStyle: "normal",
-										fontWeight: "400",
-										fontSize: "12px",
-										lineHeight: "15px",
-										position: "absolute",
-										top: "28px",
-										left: "0px",
-									}}
-								>
-									즐겨찾기
-								</div>
+								<MyBookmark />
 							</button>
 							<button
 								style={{
@@ -161,32 +73,7 @@ export default function UserTab() {
 									left: "195px",
 								}}
 							>
-								<img
-									src={toolbars[3].src}
-									style={{
-										width: "20px",
-										height: "20px",
-										position: "absolute",
-										left: "12.5px",
-										top: "0px",
-									}}
-								/>
-								<div
-									style={{
-										width: "45px",
-										height: "15px",
-										fontFamily: "Inter",
-										fontStyle: "normal",
-										fontWeight: "400",
-										fontSize: "12px",
-										lineHeight: "15px",
-										position: "absolute",
-										left: "0px",
-										top: "28px",
-									}}
-								>
-									환경설정
-								</div>
+								<Settings />
 							</button>
 						</UserToolbar>
 

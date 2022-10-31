@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import GlobalContext from "../../common/context/store.js";
 import UserTab from "../main/components/UserTab.jsx";
+import { ReactComponent as UserTabBtn } from "../../assets/Hamburger.svg";
 
 export default function CommunitySearch() {
 	const { state, setState } = useContext(GlobalContext);
@@ -14,7 +15,7 @@ export default function CommunitySearch() {
 			<CommunitySearchContainer />
 			{state.usertab && <UserTab />}
 			<CommunitySearchAddress>
-				<img src="/community/hamburger.png" onClick={openUserTab}></img>
+				<StyledUserTabBtn onClick={openUserTab} />
 				복정동
 			</CommunitySearchAddress>
 			<CommunitySearchButton>
@@ -38,6 +39,7 @@ const CommunitySearchAddress = styled.div`
 	left: 2%;
 	top: 2.5%;
 	width: 22%;
+	padding-left: 2%;
 
 	display: flex;
 	margin: auto;
@@ -68,4 +70,9 @@ const CommunitySearchButton = styled.div`
 		height: 20px;
 		margin-right: 6%;
 	}
+`;
+const StyledUserTabBtn = styled(UserTabBtn)`
+	position: absolute;
+	left: 3%;
+	width: 18px;
 `;

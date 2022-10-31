@@ -92,6 +92,7 @@ export default function UploadScreen() {
 					<input
 						className="input-trade-info"
 						type="text"
+						maxLength="1000"
 						placeholder="퀘스트에 대한 정보를 입력해 주세요. 개인정보 유출에 유의해 주세요. (1000자)"
 					/>
 				</TradeInfoContainer>
@@ -100,7 +101,7 @@ export default function UploadScreen() {
 					<h3 className="brush">빗자루 개수 입력</h3>
 					<input
 						className="input-brush"
-						type="text"
+						type="number"
 						placeholder="빗자루 개수 입력 (최소 100개 이상)"
 					/>
 				</BrushContainer>
