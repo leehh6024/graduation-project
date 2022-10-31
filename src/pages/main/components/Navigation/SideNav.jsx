@@ -22,7 +22,7 @@ function SideNav() {
 				</Nav.Item>
 				<Nav.Separator />
 				<Nav.Item>
-					<Nav.Link to="/">안내 가이드 {">"}</Nav.Link>
+					<Nav.Link to="/guidepage">안내 가이드 {">"}</Nav.Link>
 				</Nav.Item>
 			</Nav.List>
 		</Nav>

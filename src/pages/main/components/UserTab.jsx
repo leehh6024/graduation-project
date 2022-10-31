@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Category from "./Navigation/Category.jsx";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import GlobalContext from "../../../common/context/store";
 import { useContext } from "react";
 
@@ -95,6 +95,22 @@ export default function UserTab() {
 	);
 }
 
+const moveright = keyframes`
+	0% {
+		left: -100%;
+	}
+	100% {
+		left: 0%;
+	}
+`;
+const moveleft = keyframes`
+	0% {
+		left: 100%;
+	}
+	100% {
+		left: 0%;
+	}
+`;
 const UserTabContainer = styled.div`
 	position: absolute;
 	z-index: 7;
@@ -103,6 +119,8 @@ const UserTabContainer = styled.div`
 	left: 0px;
 	top: 0px;
 	background: white;
+
+	animation: ${moveright} 1s 0.000001s;
 `;
 
 const CloseUserTab = styled.div`
@@ -113,6 +131,8 @@ const CloseUserTab = styled.div`
 	left: 270px;
 	top: 0px;
 	background: rgba(0, 0, 0, 0.25);
+
+	animation: ${moveleft} 1s 0.000001s;
 `;
 
 const UserProfileImage = styled.div`
