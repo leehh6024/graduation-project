@@ -120,7 +120,7 @@ const UserTabContainer = styled.div`
 	top: 0px;
 	background: white;
 
-	animation: ${moveright} 1s 0.01s;
+	animation: ${moveright} 0.8s;
 `;
 
 const CloseUserTab = styled.div`
@@ -130,7 +130,7 @@ const CloseUserTab = styled.div`
 	height: 100%;
 	background: rgba(0, 0, 0, 0.25);
 
-	animation: ${moveright} 1s 0.01s;
+	animation: ${moveright} 0.5s;
 
 	margin: auto;
 	display: flex;
