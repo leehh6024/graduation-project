@@ -21,8 +21,6 @@ const Container = styled.div`
 	height: 100%;
 	margin: auto;
 	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 function Controller() {

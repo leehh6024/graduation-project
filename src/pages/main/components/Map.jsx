@@ -1,8 +1,16 @@
-import React, { useState, useEffect, useCallback, useContext, useRef } from "react";
+import React, {
+	useState,
+	useEffect,
+	useCallback,
+	useContext,
+	useRef,
+} from "react";
+
 import GlobalContext, { kakao } from "../../../common/context/store";
 import { API } from "../../../service.js";
 import "./Map.css";
-
+import { ReactComponent as SetUserLocationCenterBtn } from "../../../assets/Set_User_Location_Center_Btn.svg";
+import styled from "styled-components";
 var container, options, map;
 
 export default function Location() {
@@ -56,7 +64,11 @@ export default function Location() {
 				image: markerImage,
 			});
 
-			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(issueList[i]));
+			kakao.maps.event.addListener(
+				marker,
+				"click",
+				bottomSheetOpen(issueList[i])
+			);
 		}
 		console.log("7. 마커 표시완료");
 	}, [issueList]);
@@ -112,7 +124,20 @@ export default function Location() {
 		<>
 			<div>
 				<div id="map"></div>
+				<div>
+					<StyleSetUserLocationCenterBtn onClick={setUserLatLngbyGeolocation} />
+				</div>
 			</div>
 		</>
 	);
 }
+
+const StyleSetUserLocationCenterBtn = styled(SetUserLocationCenterBtn)`
+	z-index: 5;
+	position: absolute;
+	left: 3%;
+	top: 60%;
+	margin: auto;
+	width: 12%;
+	height: 12%;
+`;

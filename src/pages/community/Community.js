@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import CommunitySearch from "./CommunitySearch.js";
 import Tab from "./Tab.js";
