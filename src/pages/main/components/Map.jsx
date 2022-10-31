@@ -45,7 +45,7 @@ export default function Location() {
 		const imageSize = new kakao.maps.Size(36, 36);
 
 		for (let i = 0; i < issueList.length; i++) {
-			const imageSrc = `/marker/locate${issueList[i].class}.png`;
+			const imageSrc = `/marker/locate${issueList[i].category}.png`;
 
 			const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
@@ -96,10 +96,10 @@ export default function Location() {
 		const processedLocation = issuePointList.map((issuePoint) => {
 			return {
 				title: issuePoint.title,
-				class: issuePoint.class,
+				category: issuePoint.category,
 				latlng: new kakao.maps.LatLng(
-					Number(issuePoint.issueLocation.lat),
-					Number(issuePoint.issueLocation.lng)
+					Number(issuePoint.issueLoc.lat),
+					Number(issuePoint.issueLoc.lng)
 				),
 				body: issuePoint.body,
 				img: issuePoint.imgUrl,
