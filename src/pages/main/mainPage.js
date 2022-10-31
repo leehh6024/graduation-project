@@ -10,7 +10,6 @@ import Map from "./components/Map.jsx";
 import Search from "./components/Search.jsx";
 import Temp from "../../pages/temp/Temp.js";
 import IssuePointSmallImage from "./components/IssuePointSmallImage.js";
-import SetUserLocationCenter from "./components/SetUserLocationCenter.js";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -40,7 +39,6 @@ export default function Main() {
 					<Temp />
 				</BottomSheet>
 				<IssuePointSmallImage />
-				{/* <SetUserLocationCenter /> */}
 			</div>
 		</>
 	);

@@ -120,7 +120,7 @@ const UserTabContainer = styled.div`
 	top: 0px;
 	background: white;
 
-	animation: ${moveright} 0.8s;
+	animation: ${moveright} 0.4s;
 `;
 
 const CloseUserTab = styled.div`
@@ -130,20 +130,10 @@ const CloseUserTab = styled.div`
 	height: 100%;
 	background: rgba(0, 0, 0, 0.25);
 
-	animation: ${moveright} 0.5s;
-
 	margin: auto;
 	display: flex;
 	align-items: top;
 	justify-content: right;
-	text-align: center;
-
-	color: #999999;
-	font-family: "Pretendard";
-	font-style: bold;
-	font-weight: 400;
-	font-size: 0.8rem;
-	line-height: 14px;
 `;
 
 const UserProfileImage = styled.div`
