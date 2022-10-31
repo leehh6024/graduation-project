@@ -2,7 +2,6 @@ import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 import "./contentField.css";
 import GlobalContext, { kakao, geocoder } from "../../../common/context/store";
-import CategorySelector from "./CategorySelector";
 
 const Content = styled.div`
 	background-color: white;
@@ -53,7 +52,6 @@ export default function ContentInputField({ onTitledChange, onBodyChange }) {
 				<div className="btn-re-input">재입력</div>
 			</div>
 			<div className="issue-point-category">이슈 카테고리</div>
-			<CategorySelector />
 			<div>
 				<hr className="line2"></hr>
 				<div className="content">무엇이 불편하셨나요?</div>

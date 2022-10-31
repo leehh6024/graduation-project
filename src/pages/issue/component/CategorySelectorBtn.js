@@ -44,7 +44,7 @@ export default function CategorySelectorBtn({ activeTab, setActiveTab }) {
 }
 
 const SelectCategoryBtn = styled.div`
-	background-color: ${(props) => (props.isActive ? "#6AC47A" : "#999999")};
+	background-color: ${(props) => (props.isActive ? "#6AC47A" : "#bbbbbb")};
 	opacity: ${(props) => props.activeTab && 1};
 
 	position: relative;
@@ -66,4 +66,5 @@ const SelectCategoryBtn = styled.div`
 	font-size: 12px;
 	line-height: 16px;
 	color: white;
+	cursor: pointer;
 `;

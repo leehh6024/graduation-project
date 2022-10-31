@@ -2,6 +2,7 @@ import GlobalContext from "../../common/context/store";
 import { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const BackBtn = styled.div`
 	position: absolute;
@@ -29,10 +30,17 @@ export default function IssueInfo() {
 			</IssueInfoImage>
 			<Brush>
 				<img src="small-brush.png" />
-				1,000빗자루
+				1,000 빗자루
 			</Brush>
 			<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
-			<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
+			<IssueClass>
+				{state.selected[0].category == 0 && "생활 폐기물"}
+				{state.selected[0].category == 1 && "불연성 건설폐기물"}
+				{state.selected[0].category == 2 && "가연성 건설폐기물"}
+				{state.selected[0].category == 3 && "혼합 건설폐기물"}
+				{state.selected[0].category == 4 && "사업장 일반폐기물"}
+				{state.selected[0].category > 4 && "폐기물 분류 없음"}
+			</IssueClass>
 			<LineBreak2 />
 			<IssueContents>{state.selected[0].body}</IssueContents>
 			<LineBreak />
@@ -103,19 +111,25 @@ const IssueInfoTitle = styled.div`
 	line-height: 100%;
 	color: #464646;
 `;
-const IssueInfoClass = styled.div`
-	 width: 100%
-    height: 100%;
+const IssueClass = styled.div`
 	position: absolute;
-	top: 57%;
+	top: 56%;
 	left: 3%;
+	width: 25%;
+	height: 4%;
+
+	border-radius: 12px;
+	background-color: #6ac47a;
+
+	display: grid;
+	align-items: center;
+	justify-content: center;
 
 	font-family: "Pretendard";
-	font-style: Bold;
+	font-style: regular;
+	font-weight: 400;
 	font-size: 12px;
-	font-weight: 700;
-	line-height: 100%;
-	color: #999999;
+	color: white;
 `;
 const LineBreak2 = styled.div`
 	position: absolute;
@@ -232,6 +246,6 @@ const Resolve = styled.div`
 	font-family: "Pretendard";
 	font-style: normal;
 	font-weight: 700;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 21px;
 `;

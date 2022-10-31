@@ -7,6 +7,7 @@ import "./component/contentField.css";
 import Preview from "./component/imagePreview";
 import ImageUploadButton from "./component/imageUploadButton";
 import ContentInputField from "./component/contentField";
+import CategorySelector from "./component/CategorySelector.js";
 
 export default function IssuePage() {
 	const { state, setState, globalRef } = useContext(GlobalContext);
@@ -72,7 +73,7 @@ export default function IssuePage() {
 
 				{!image && <ImageUploadButton onUpload={onImageUpload} />}
 
-				{/* {image && <CategorySelector onCategoryChange={onCategoryChange} />} */}
+				{image && <CategorySelector onCategoryChange={onCategoryChange} />}
 				{image && (
 					<ContentInputField
 						onTitledChange={onTitledChange}

@@ -1,30 +1,53 @@
 import GlobalContext from "../../common/context/store";
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getUserAddress } from "../../common/function/getUserAddress";
 
-export default function Temp() {
+export default function Temp({ data }) {
 	const { state, setState } = useContext(GlobalContext);
 	console.log(state);
+	const [address, setAddress] = useState("");
+	const navigate = useNavigate();
+
+	// const getAddress = async (lat, lng) => {
+	// 	const data = await getUserAddress(lat, lng, 4);
+	// 	setAddress(data);
+	// };
+
+	// useEffect(() => {
+	// 	getAddress(state.selected[0].latlng.La, state.selected[0].latlng.Ma);
+	// }, []);
+	const onMoreIssue = () => {
+		navigate("/issueinfo", { states: { address, ...data } });
+	};
 	return (
 		<>
 			<BottomSheetContainer>
-				<BottomSheetTitle>{state.selected[0].title}</BottomSheetTitle>
+				<BottomSheetTitle>
+					{state.selected[0].title
+						? state.selected[0].title
+						: "이슈에 대한 제목이 없어요."}
+				</BottomSheetTitle>
 
 				<BottomSheetClass>
-					<IssueClass>{state.selected[0].class}</IssueClass>
-					<IssueClass>혼합 건설폐기물</IssueClass>
-					<IssueClass>클래스데이터 받아와야함</IssueClass>
+					<IssueClass>
+						{state.selected[0].category == 0 && "생활 폐기물"}
+						{state.selected[0].category == 1 && "불연성 건설폐기물"}
+						{state.selected[0].category == 2 && "가연성 건설폐기물"}
+						{state.selected[0].category == 3 && "혼합 건설폐기물"}
+						{state.selected[0].category == 4 && "사업장 일반폐기물"}
+						{state.selected[0].category > 4 && "폐기물 분류 없음"}
+					</IssueClass>
 				</BottomSheetClass>
 
-				<BottomAddressContainer></BottomAddressContainer>
+				{/* <BottomAddressContainer>{address}</BottomAddressContainer> */}
+
 				<Distance>
 					<img src="distance.png" />
 				</Distance>
 			</BottomSheetContainer>
-			<Link to="issueinfo">
-				<IssueMore>이슈 자세히 보기</IssueMore>
-			</Link>
+			<IssueMore onClick={onMoreIssue}>이슈 자세히 보기</IssueMore>
 		</>
 	);
 }
