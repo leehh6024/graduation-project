@@ -1,15 +1,14 @@
 import { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
-import GlobalContext, { kakao, geocoder } from "../../../common/context/store";
-
 import "./contentField.css";
-import { setUserLocation } from "../../../common/function/setUserLocation";
+import GlobalContext, { kakao, geocoder } from "../../../common/context/store";
+import CategorySelector from "./CategorySelector";
 
 const Content = styled.div`
 	background-color: white;
 `;
 
-function ContentInputField({ onTitledChange, onBodyChange }) {
+export default function ContentInputField({ onTitledChange, onBodyChange }) {
 	const { state, setState, globalRef } = useContext(GlobalContext);
 	const [address, setAddress] = useState("");
 
@@ -20,15 +19,19 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 		);
 		console.log(coords);
 		console.log(globalRef.current.userLocation);
-		geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), (result, status) => {
-			setAddress(
-				result[0].region_1depth_name +
-					" " +
-					result[0].region_2depth_name +
-					" " +
-					result[0].region_3depth_name
-			);
-		});
+		geocoder.coord2RegionCode(
+			coords.getLng(),
+			coords.getLat(),
+			(result, status) => {
+				setAddress(
+					result[0].region_1depth_name +
+						" " +
+						result[0].region_2depth_name +
+						" " +
+						result[0].region_3depth_name
+				);
+			}
+		);
 	}, [globalRef.current.userLocation]);
 
 	return (
@@ -38,8 +41,9 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 				<input
 					className="input-title"
 					type="text"
+					maxLength="50"
 					onChange={onTitledChange}
-					placeholder="제목을 입력해주세요"
+					placeholder="제목을 입력해주세요."
 				></input>
 			</div>
 			<hr className="line"></hr>
@@ -49,6 +53,7 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 				<div className="btn-re-input">재입력</div>
 			</div>
 			<div className="issue-point-category">이슈 카테고리</div>
+			<CategorySelector />
 			<div>
 				<hr className="line2"></hr>
 				<div className="content">무엇이 불편하셨나요?</div>
@@ -61,5 +66,3 @@ function ContentInputField({ onTitledChange, onBodyChange }) {
 		</Content>
 	);
 }
-
-export default ContentInputField;

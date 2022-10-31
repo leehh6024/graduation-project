@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import "./component/contentField.css";
 import Preview from "./component/imagePreview";
 import ImageUploadButton from "./component/imageUploadButton";
-import CategorySelector from "./component/classSelectList";
 import ContentInputField from "./component/contentField";
-import { editableInputTypes } from "@testing-library/user-event/dist/utils";
 
 export default function IssuePage() {
 	const { state, setState, globalRef } = useContext(GlobalContext);
