@@ -263,7 +263,7 @@ const Comment = styled.div`
 `;
 const Resolve = styled.div`
 	position: absolute;
-	width: 12rem;
+	width: 50%;
 	height: 52px;
 	left: 44%;
 	top: 90%;
