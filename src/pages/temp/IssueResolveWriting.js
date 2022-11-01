@@ -5,6 +5,7 @@ import "./IssueResolveWriting.css";
 import { Link } from "react-router-dom";
 import ResolveAddButton from "./ResolveAddButton.js";
 import ResolveImage from "./ResolveImage.js";
+import IssueCategorySelector from "./IssueCategorySelector.js";
 
 export default function IssueResolveWriting() {
 	const { state, setState } = useContext(GlobalContext);
@@ -70,12 +71,7 @@ export default function IssueResolveWriting() {
 
 			<IssueCategoryContainer>
 				<h3 className="issue-category">이슈 카테고리</h3>
-				{/* 인풋태그말고 => 버튼형태로 클래스별 카테고리 나열할것 */}
-				<input
-					className="input-trade-name"
-					type="text"
-					placeholder="이슈 유형을 입력해주세요"
-				/>
+				<IssueCategorySelector />
 			</IssueCategoryContainer>
 
 			<IssueResolveContainer>
@@ -83,13 +79,14 @@ export default function IssueResolveWriting() {
 				<input
 					className="input-resolve-info"
 					type="text"
+					maxLength="1000"
 					placeholder="이슈를 해결할 때 사용한 밥법을 입력해 주세요."
 				/>
 			</IssueResolveContainer>
 
 			<Link to="/">
 				<RegisterTrade>
-					<div>1,200 빗자루 획득하기</div>
+					<div>이슈 해결하고 빗자루 획득하기</div>
 				</RegisterTrade>
 			</Link>
 		</div>
@@ -153,11 +150,15 @@ const IssueResolveBoard = styled.div`
 `;
 const IssueCategoryContainer = styled.div`
 	position: absolute;
-	display: block;
-	margin: auto;
 	left: 3%;
 	top: 41%;
 	width: 94%;
+	height: 8%;
+
+	display: flex;
+	margin: auto;
+	justify-content: left;
+	align-items: left;
 `;
 const IssueResolveContainer = styled.div`
 	position: absolute;
