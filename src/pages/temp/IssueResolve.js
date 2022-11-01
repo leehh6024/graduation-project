@@ -40,7 +40,7 @@ const BackBtn = styled.div`
 function IssueResolve({ onUpload }) {
 	return (
 		<>
-			<Link to="/issueinfo">
+			<Link to="/">
 				<BackBtn>
 					<img src="/community/btn-back.png"></img>
 				</BackBtn>

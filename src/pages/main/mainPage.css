@@ -1,16 +1,16 @@
 .btn-issue {
 	position: absolute;
 	z-index: 4;
-	width: 96px;
-	height: 96px;
+	width: 84px;
+	height: 84px;
 	left: 50%;
 	bottom: 0%;
-	transform: translate(-50%, -100%);
+	transform: translate(-50%, -120%);
 	border-radius: 50px;
-	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+	box-shadow: 1px 1px 0px 0px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 404px) {
+@media (max-width: 414px) {
 	.btn-issue {
 		position: absolute;
 			z-index: 4;
@@ -24,7 +24,7 @@
 	}
 }
 
-@media (max-height: 700px) {
+@media (max-height: 600px) {
 	.btn-issue {
 		position: absolute;
 		z-index: 4;
@@ -76,7 +76,7 @@
 [data-rsbs-overlay],
 [data-rsbs-backdrop],
 [data-rsbs-root]:after {
-	z-index: 5;
+	z-index: 4;
 	overscroll-behavior: none;
 	touch-action: none;
 	position: fixed;
@@ -113,6 +113,7 @@
 	flex-shrink: 0;
 	cursor: ns-resize;
 	padding: 16px;
+	
 }
 /* [data-rsbs-header] {
 	text-align: center;
@@ -154,6 +155,10 @@
 	overflow: auto;
 	overscroll-behavior: contain;
 	-webkit-overflow-scrolling: touch;
+
+		box-shadow: 0px 0px 0px 0px #0000001A;
+		
+			box-shadow: -1px -3px 10px 5px #0000001A;
 }
 [data-rsbs-scroll]:focus {
 	outline: none;
@@ -166,7 +171,7 @@
 	overflow: hidden;
 }
 [data-rsbs-footer] {
-	box-shadow: 0 -1px 0 rgba(46, 59, 66, calc(var(--rsbs-content-opacity) * 0.125)),
+	box-shadow: 0 -3px 0 rgba(46, 59, 66, calc(var(--rsbs-content-opacity) * 0.125)),
 		0 2px 0 var(--rsbs-bg);
 	overflow: hidden;
 	z-index: 1;

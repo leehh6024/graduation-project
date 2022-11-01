@@ -1,6 +1,5 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import CommunitySearch from "./CommunitySearch.js";
 import Tab from "./Tab.js";
@@ -14,11 +13,6 @@ export default function Community() {
 	return (
 		<CommunityContainer>
 			<CommunitySearch />
-			<Link to="/">
-				<BackBtn>
-					<img src="/community/btn-back.png" />
-				</BackBtn>
-			</Link>
 			<Tab activeTab={activeTab} setActiveTab={setActiveTab} />
 			{activeTab == "Q" ? <Quest /> : <Trade />}
 		</CommunityContainer>
@@ -28,17 +22,7 @@ export default function Community() {
 const CommunityContainer = styled.div`
 	width: 100%;
 	height: 100%;
-
 	display: flex;
 
 	background-color: white;
-`;
-const BackBtn = styled.div`
-	position: absolute;
-	z-index: 5;
-	display: flex;
-	width: 2rem;
-	left: 3%;
-	top: 2%;
-	cursor: pointer;
 `;

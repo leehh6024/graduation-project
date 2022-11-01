@@ -13,6 +13,7 @@ import Community from "./pages/community/Community.js";
 import ContentsInfo from "./pages/community/Quest/ContentsInfo.js";
 import UploadScreen from "./pages/community/Quest/UploadScreen.js";
 import EnvironmentPage from "./pages/environment/EnvironmentPage.js";
+import GuidePage from "./pages/Guide/GuidePage.js";
 
 const Container = styled.div`
 	position: relative;
@@ -21,8 +22,6 @@ const Container = styled.div`
 	height: 100%;
 	margin: auto;
 	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 function Controller() {
@@ -50,6 +49,7 @@ function Controller() {
 				<Route path="/contentsinfo" element={<ContentsInfo />} />
 				<Route path="/upload" element={<UploadScreen />} />
 				<Route path="/environmentpage" element={<EnvironmentPage />} />
+				<Route path="/guidepage" element={<GuidePage />} />
 			</Routes>
 		</Container>
 	);

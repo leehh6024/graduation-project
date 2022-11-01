@@ -49,7 +49,6 @@ function ImageUploadButton({ onUpload }) {
 			<Box className="Box">
 				<img
 					src="/photo.png"
-					alt="ss"
 					style={{
 						width: "210px",
 						height: "210px",

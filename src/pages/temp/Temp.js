@@ -1,33 +1,54 @@
 import GlobalContext from "../../common/context/store";
-import { useContext, useEffect, useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { getUserAddress } from "../../common/function/getUserAddress";
 
-export default function Temp() {
+export default function Temp({ data }) {
 	const { state, setState } = useContext(GlobalContext);
+	// console.log(state);
 
+	const [address, setAddress] = useState("");
+	const navigate = useNavigate();
+
+	const getAddress = async (lat, lng) => {
+		const data = await getUserAddress(lat, lng, 4);
+		setAddress(data);
+	};
+
+	useEffect(() => {
+		getAddress(state.selected[0].location.lat, state.selected[0].location.lng);
+	}, []);
+	const onMoreIssue = () => {
+		navigate("/issueinfo", { state: { address } });
+	};
 	return (
 		<>
 			<BottomSheetContainer>
-				<BottomSheetTitle>{state.selected[0].title}</BottomSheetTitle>
+				<BottomSheetTitle>
+					{state.selected[0].title
+						? state.selected[0].title
+						: "이슈에 대한 제목이 없어요."}
+				</BottomSheetTitle>
 
 				<BottomSheetClass>
-					{/* map함수로 재구현필요~ */}
-					<IssueClass>{state.selected[0].class}</IssueClass>
-					<IssueClass>혼합 건설폐기물</IssueClass>
-					<IssueClass>클래스데이터 받아와야함</IssueClass>
+					<IssueClass>
+						{state.selected[0].category == 1 && "생활 폐기물"}
+						{state.selected[0].category == 2 && "불연성 건설폐기물"}
+						{state.selected[0].category == 3 && "가연성 건설폐기물"}
+						{state.selected[0].category == 4 && "혼합 건설폐기물"}
+						{state.selected[0].category == 5 && "사업장 일반폐기물"}
+						{state.selected[0].category == 0 && "폐기물 분류 없음"}
+					</IssueClass>
 				</BottomSheetClass>
 
-				<BottomAddressContainer>
-					<div>(주소데이터받아와야함)경기도 성남시 수정구 복정로</div>
-				</BottomAddressContainer>
+				<BottomAddressContainer>{address}</BottomAddressContainer>
+				<OptionContainer>1분 전</OptionContainer>
 				<Distance>
 					<img src="distance.png" />
 				</Distance>
 			</BottomSheetContainer>
-			<Link to="issueinfo">
-				<IssueMore>이슈 자세히 보기</IssueMore>
-			</Link>
+			<IssueMore onClick={onMoreIssue}>이슈 자세히 보기</IssueMore>
 		</>
 	);
 }
@@ -71,7 +92,7 @@ const BottomSheetClass = styled.div`
 const IssueClass = styled.div`
 	position: relative;
 	width: auto;
-	height: 70%;
+	height: 60%;
 	padding-left: 2%;
 	padding-right: 2%;
 
@@ -94,6 +115,21 @@ const BottomAddressContainer = styled.div`
 	width: 100%;
 	left: 4%;
 	top: 46%;
+
+	display: flex;
+	align-items: center;
+	justify-content: left;
+
+	color: #464646;
+	font-family: "Pretendard";
+	font-weight: 700;
+	font-size: 12px;
+`;
+const OptionContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	left: 4%;
+	top: 58%;
 
 	display: flex;
 	align-items: center;

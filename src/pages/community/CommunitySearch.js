@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import GlobalContext from "../../common/context/store.js";
+import UserTab from "../main/components/UserTab.jsx";
+import { ReactComponent as UserTabBtn } from "../../assets/Hamburger.svg";
 
 export default function CommunitySearch() {
+	const { state, setState } = useContext(GlobalContext);
+	function openUserTab() {
+		setState((prev) => ({ ...prev, usertab: true }));
+		console.log(state.usertab);
+	}
 	return (
 		<div>
 			<CommunitySearchContainer />
-			<CommunitySearchAddress>복정동</CommunitySearchAddress>
+			{state.usertab && <UserTab />}
+			<CommunitySearchAddress>
+				<StyledUserTabBtn onClick={openUserTab} />
+				<div>복정동</div>
+			</CommunitySearchAddress>
 			<CommunitySearchButton>
 				<img src="/community/btn-search.png" />
 			</CommunitySearchButton>
@@ -24,9 +36,12 @@ const CommunitySearchContainer = styled.div`
 
 const CommunitySearchAddress = styled.div`
 	position: absolute;
-	left: 10%;
-	top: 2.5%;
+	left: 2%;
+	top: 2.7%;
+	width: 30%;
+
 	display: flex;
+	margin: auto;
 	justify-content: center;
 	align-items: center;
 
@@ -39,8 +54,19 @@ const CommunitySearchAddress = styled.div`
 const CommunitySearchButton = styled.div`
 	position: absolute;
 	right: 6%;
-	top: 2.5%;
+	top: 3%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	img {
+		width: 20px;
+		height: 20px;
+		margin-right: 6%;
+	}
+`;
+const StyledUserTabBtn = styled(UserTabBtn)`
+	position: absolute;
+	left: 3%;
+	width: 20px;
+	margin-right: 6%;
 `;

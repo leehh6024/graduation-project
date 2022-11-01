@@ -2,6 +2,7 @@ import GlobalContext from "../../common/context/store";
 import { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const BackBtn = styled.div`
 	position: absolute;
@@ -14,9 +15,8 @@ const BackBtn = styled.div`
 `;
 
 export default function IssueInfo() {
-	const { state, setState } = useContext(GlobalContext);
-	const eachdata = state.selected;
-
+	const { state: globalState, setState } = useContext(GlobalContext);
+	const { state } = useLocation();
 	return (
 		<>
 			<Link to="/">
@@ -25,23 +25,37 @@ export default function IssueInfo() {
 				</BackBtn>
 			</Link>
 			<IssueInfoImage>
-				<img src={state.selected[0].img} width="100%" height="100%"></img>
+				<img src={globalState.selected[0].img} width="100%" height="100%"></img>
 				{/* <Image src={state.selected[0].img}></Image> */}
 			</IssueInfoImage>
 			<Brush>
 				<img src="small-brush.png" />
-				1,000빗자루
+				2,000 빗자루
 			</Brush>
-			<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
-			<IssueInfoClass>{state.selected[0].class}</IssueInfoClass>
+			<IssueInfoTitle>
+				{globalState.selected[0].title
+					? globalState.selected[0].title
+					: "이슈에 대한 제목이 없어요."}
+			</IssueInfoTitle>
+
+			<IssueAddress>{state.address}</IssueAddress>
+
+			<IssueClass>
+				{globalState.selected[0].category == 1 && "생활 폐기물"}
+				{globalState.selected[0].category == 2 && "불연성 건설폐기물"}
+				{globalState.selected[0].category == 3 && "가연성 건설폐기물"}
+				{globalState.selected[0].category == 4 && "혼합 건설폐기물"}
+				{globalState.selected[0].category == 5 && "사업장 일반폐기물"}
+				{globalState.selected[0].category == 0 && "폐기물 분류 없음"}
+			</IssueClass>
 			<LineBreak2 />
-			<IssueContents>{state.selected[0].body}</IssueContents>
+			<IssueContents>{globalState.selected[0].body}</IssueContents>
 			<LineBreak />
 			<UserProfile>
 				<img src="userprofile.png" />
 				<div>조현성</div>
 			</UserProfile>
-			<MoreContents>조현성이 등록한 다른 이슈보기 {">"}</MoreContents>
+			<MoreContents>조현성님이 등록한 다른 이슈보기 {">"}</MoreContents>
 			<BookMark>
 				<img src="bookmark.png" />
 			</BookMark>
@@ -66,11 +80,10 @@ function Image(props) {
 const IssueInfoImage = styled.div`
 	width: 100%;
 	height: 40%;
-	border: 1px solid black;
 	position: absolute;
 `;
 const Brush = styled.div`
-	 width: 100%
+	width: 100%
 	height: 100%;
 	position: absolute;
 	top: 42%;
@@ -86,6 +99,10 @@ const Brush = styled.div`
 	font-weight: 700;
 	line-height: 100%;
 	color: #464646;
+
+	img {
+		margin-right: 6px;
+	}
 `;
 const IssueInfoTitle = styled.div`
 	width: 100%
@@ -101,19 +118,39 @@ const IssueInfoTitle = styled.div`
 	line-height: 100%;
 	color: #464646;
 `;
-const IssueInfoClass = styled.div`
-	 width: 100%
-    height: 100%;
+const IssueAddress = styled.div`
+	width: 100px
+    height: 100px;
 	position: absolute;
-	top: 57%;
+	top: 52%;
 	left: 3%;
 
 	font-family: "Pretendard";
 	font-style: Bold;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 700;
 	line-height: 100%;
 	color: #999999;
+`;
+const IssueClass = styled.div`
+	position: absolute;
+	top: 56%;
+	left: 3%;
+	width: 25%;
+	height: 3.5%;
+
+	border-radius: 12px;
+	background-color: #6ac47a;
+
+	display: grid;
+	align-items: center;
+	justify-content: center;
+
+	font-family: "Pretendard";
+	font-style: regular;
+	font-weight: 400;
+	font-size: 12px;
+	color: white;
 `;
 const LineBreak2 = styled.div`
 	position: absolute;
@@ -160,6 +197,10 @@ const UserProfile = styled.div`
 	font-weight: 700;
 	line-height: 100%;
 	color: #464646;
+
+	img {
+		margin-right: 6px;
+	}
 `;
 const MoreContents = styled.div`
 	position: absolute;
@@ -211,7 +252,7 @@ const Comment = styled.div`
 `;
 const Resolve = styled.div`
 	position: absolute;
-	width: 12rem;
+	width: 52%;
 	height: 52px;
 	left: 44%;
 	top: 90%;
@@ -226,6 +267,6 @@ const Resolve = styled.div`
 	font-family: "Pretendard";
 	font-style: normal;
 	font-weight: 700;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 21px;
 `;

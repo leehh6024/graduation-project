@@ -53,6 +53,7 @@ const ContentsImage = styled.div`
 	img {
 		width: 100px;
 		height: 100px;
+		border-radius: 5px;
 	}
 `;
 const ContentsTitle = styled.div`
@@ -60,6 +61,7 @@ const ContentsTitle = styled.div`
 	left: 32%;
 	top: 34%;
 	display: flex;
+	width: 50%;
 
 	font-weight: 700;
 	font-family: "Inter";
@@ -101,6 +103,9 @@ const ContentsBrush = styled.div`
 		vertical-align: bottom;
 	}
 	span {
+		width: 100%;
+		height: 50%;
+
 		margin: auto;
 		display: flex;
 		align-items: center;

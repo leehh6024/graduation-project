@@ -55,9 +55,12 @@ const ContentsImage = styled.div`
 `;
 const ContentsTitle = styled.div`
 	position: absolute;
+	width: 100px;
 	left: 32%;
 	top: 34%;
 	display: flex;
+
+	border: 1px solid black;
 
 	font-weight: 700;
 	font-family: "Inter";
