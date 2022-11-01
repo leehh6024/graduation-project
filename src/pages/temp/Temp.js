@@ -43,7 +43,7 @@ export default function Temp({ data }) {
 				</BottomSheetClass>
 
 				<BottomAddressContainer>{address}</BottomAddressContainer>
-
+				<OptionContainer>17시간 전</OptionContainer>
 				<Distance>
 					<img src="distance.png" />
 				</Distance>
@@ -115,6 +115,21 @@ const BottomAddressContainer = styled.div`
 	width: 100%;
 	left: 4%;
 	top: 46%;
+
+	display: flex;
+	align-items: center;
+	justify-content: left;
+
+	color: #464646;
+	font-family: "Pretendard";
+	font-weight: 700;
+	font-size: 12px;
+`;
+const OptionContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	left: 4%;
+	top: 58%;
 
 	display: flex;
 	align-items: center;

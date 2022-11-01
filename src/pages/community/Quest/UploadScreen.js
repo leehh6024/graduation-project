@@ -8,12 +8,12 @@ import UploadImage from "./UploadImage.js";
 
 const UploadQuestBoard = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 0.4fr 0.4fr 0.4fr 0.4fr;
 	row-gap: 1rem;
 
 	margin-top: 20px;
 	margin-left: 0px;
-	margin-right: 30px;
+	margin-right: 20px;
 
 	label {
 		cursor: pointer;
@@ -27,8 +27,8 @@ export default function UploadScreen() {
 	const onFileChange = useCallback(
 		(e) => {
 			if (e.target.files && e.target.files[0]) {
-				if (files.length === 2) {
-					alert("사진은 최대 2개까지 등록할 수 있어요");
+				if (files.length === 3) {
+					alert("사진은 최대 3개까지 등록할 수 있어요");
 					return;
 				}
 
@@ -192,8 +192,6 @@ const UploadScreenContainer = styled.div`
 	width: 100%;
 	background-color: white;
 	min-height: 100vh;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 const BackBtn = styled.div`
 	position: absolute;
@@ -239,7 +237,7 @@ const TradeTitleContainer = styled.div`
 	margin: auto;
 	left: 3%;
 	top: 34%;
-	width: 94%;
+	width: 96%;
 `;
 
 const TradeInfoContainer = styled.div`
@@ -248,7 +246,7 @@ const TradeInfoContainer = styled.div`
 	margin: auto;
 	left: 3%;
 	top: 47%;
-	width: 94%;
+	width: 96%;
 `;
 
 const BrushContainer = styled.div`

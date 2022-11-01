@@ -14,8 +14,8 @@ export default function IssueResolveWriting() {
 	const onFileChange = useCallback(
 		(e) => {
 			if (e.target.files && e.target.files[0]) {
-				if (files.length === 2) {
-					alert("사진은 최대 2개까지 등록할 수 있어요");
+				if (files.length === 3) {
+					alert("사진은 최대 3개까지 등록할 수 있어요");
 					return;
 				}
 
@@ -137,12 +137,11 @@ const IssueResolveImageContainer = styled.div`
 `;
 const IssueResolveBoard = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 0.4fr 0.4fr 0.4fr 0.4fr;
 	row-gap: 1rem;
+	width: 94%;
 
 	margin-top: 20px;
-	margin-left: 0px;
-	margin-right: 30px;
 
 	label {
 		cursor: pointer;
