@@ -113,6 +113,7 @@
 	flex-shrink: 0;
 	cursor: ns-resize;
 	padding: 16px;
+	
 }
 /* [data-rsbs-header] {
 	text-align: center;
@@ -154,6 +155,10 @@
 	overflow: auto;
 	overscroll-behavior: contain;
 	-webkit-overflow-scrolling: touch;
+
+		box-shadow: 0px 0px 0px 0px #0000001A;
+		
+			box-shadow: -1px -3px 10px 5px #0000001A;
 }
 [data-rsbs-scroll]:focus {
 	outline: none;
@@ -166,7 +171,7 @@
 	overflow: hidden;
 }
 [data-rsbs-footer] {
-	box-shadow: 0 -1px 0 rgba(46, 59, 66, calc(var(--rsbs-content-opacity) * 0.125)),
+	box-shadow: 0 -3px 0 rgba(46, 59, 66, calc(var(--rsbs-content-opacity) * 0.125)),
 		0 2px 0 var(--rsbs-bg);
 	overflow: hidden;
 	z-index: 1;

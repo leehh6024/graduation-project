@@ -10,6 +10,7 @@ import IssueCategorySelector from "./IssueCategorySelector.js";
 export default function IssueResolveWriting() {
 	const { state, setState } = useContext(GlobalContext);
 	const [files, setFiles] = useState([]);
+	const [modal, setModal] = useState(false);
 
 	const onFileChange = useCallback(
 		(e) => {
@@ -27,6 +28,13 @@ export default function IssueResolveWriting() {
 	const onRemovePicture = useCallback((idx) => {
 		setFiles((files) => files.filter((file, index) => idx !== index));
 	}, []);
+
+	const onModalOpen = () => {
+		setModal(true);
+	};
+	const onModalClose = () => {
+		setModal(false);
+	};
 
 	return (
 		<div>
@@ -84,15 +92,84 @@ export default function IssueResolveWriting() {
 				/>
 			</IssueResolveContainer>
 
-			<Link to="/">
-				<RegisterTrade>
-					<div>이슈 해결하고 빗자루 획득하기</div>
-				</RegisterTrade>
-			</Link>
+			<RegisterTrade>
+				<div onClick={onModalOpen}>이슈 해결하고 빗자루 획득하기</div>
+			</RegisterTrade>
+			{modal && (
+				<>
+					<ModalContainer />
+
+					<Modal onClick={onModalClose}>
+						이슈 해결 등록이 <br />
+						완료되었습니다.
+						<Link to="/">
+							<ReturnCommunityBtn>메인화면으로 돌아가기</ReturnCommunityBtn>
+						</Link>
+					</Modal>
+				</>
+			)}
 		</div>
 	);
 }
 
+const ReturnCommunityBtn = styled.div`
+	position: absolute;
+	width: 90%;
+	height: 20%;
+	top: 70%;
+	right: 5%;
+
+	border: none;
+	border-radius: 5px;
+	background-color: #6ac47a;
+
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+
+	font-family: "Pretendard";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 21px;
+	color: white;
+`;
+const ModalContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	min-height: 100vh;
+
+	background-color: grey;
+	opacity: 0.4;
+`;
+
+const Modal = styled.div`
+	position: absolute;
+	width: 60%;
+	height: 20%;
+	left: 50%;
+	top: 50%;
+	padding-top: 3%;
+	padding-bottom: 10%;
+
+	background-color: white;
+	border-radius: 15px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	transform: translate(-50%, -55%);
+
+	font-family: "Pretendard";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+	color: #464646;
+`;
 const BackBtn = styled.div`
 	position: absolute;
 	z-index: 5;

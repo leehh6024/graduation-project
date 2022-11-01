@@ -42,4 +42,5 @@ const IssueImage = styled.div`
 	width: 44%;
 	height: 18%;
 	border: 2px solid white;
+	box-shadow: -10px -3px 10px 10px #0000001a;
 `;

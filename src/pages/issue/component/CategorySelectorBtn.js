@@ -5,36 +5,36 @@ export default function CategorySelectorBtn({ activeTab, setActiveTab }) {
 	return (
 		<>
 			<SelectCategoryBtn
-				isActive={activeTab === "0"}
-				onClick={() => setActiveTab("0")}
+				isActive={activeTab === "1"}
+				onClick={() => setActiveTab("1")}
 			>
 				생활 <br />
 				폐기물
 			</SelectCategoryBtn>
 			<SelectCategoryBtn
-				isActive={activeTab === "1"}
-				onClick={() => setActiveTab("1")}
-			>
-				불연성 <br />
-				건설폐기물
-			</SelectCategoryBtn>
-			<SelectCategoryBtn
 				isActive={activeTab === "2"}
 				onClick={() => setActiveTab("2")}
 			>
-				가연성 <br />
+				불연성 <br />
 				건설폐기물
 			</SelectCategoryBtn>
 			<SelectCategoryBtn
 				isActive={activeTab === "3"}
 				onClick={() => setActiveTab("3")}
 			>
-				혼합 <br />
+				가연성 <br />
 				건설폐기물
 			</SelectCategoryBtn>
 			<SelectCategoryBtn
 				isActive={activeTab === "4"}
 				onClick={() => setActiveTab("4")}
+			>
+				혼합 <br />
+				건설폐기물
+			</SelectCategoryBtn>
+			<SelectCategoryBtn
+				isActive={activeTab === "5"}
+				onClick={() => setActiveTab("5")}
 			>
 				사업장 <br />
 				일반폐기물

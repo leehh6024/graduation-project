@@ -41,12 +41,12 @@ export default function IssueInfo() {
 			<IssueAddress>{state.address}</IssueAddress>
 
 			<IssueClass>
-				{globalState.selected[0].category == 0 && "생활 폐기물"}
-				{globalState.selected[0].category == 1 && "불연성 건설폐기물"}
-				{globalState.selected[0].category == 2 && "가연성 건설폐기물"}
-				{globalState.selected[0].category == 3 && "혼합 건설폐기물"}
-				{globalState.selected[0].category == 4 && "사업장 일반폐기물"}
-				{globalState.selected[0].category > 4 && "폐기물 분류 없음"}
+				{globalState.selected[0].category == 1 && "생활 폐기물"}
+				{globalState.selected[0].category == 2 && "불연성 건설폐기물"}
+				{globalState.selected[0].category == 3 && "가연성 건설폐기물"}
+				{globalState.selected[0].category == 4 && "혼합 건설폐기물"}
+				{globalState.selected[0].category == 5 && "사업장 일반폐기물"}
+				{globalState.selected[0].category > 5 && "폐기물 분류 없음"}
 			</IssueClass>
 			<LineBreak2 />
 			<IssueContents>{globalState.selected[0].body}</IssueContents>
