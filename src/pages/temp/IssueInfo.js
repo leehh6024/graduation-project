@@ -46,7 +46,7 @@ export default function IssueInfo() {
 				{globalState.selected[0].category == 3 && "가연성 건설폐기물"}
 				{globalState.selected[0].category == 4 && "혼합 건설폐기물"}
 				{globalState.selected[0].category == 5 && "사업장 일반폐기물"}
-				{globalState.selected[0].category > 5 && "폐기물 분류 없음"}
+				{globalState.selected[0].category == 0 && "폐기물 분류 없음"}
 			</IssueClass>
 			<LineBreak2 />
 			<IssueContents>{globalState.selected[0].body}</IssueContents>
@@ -55,7 +55,7 @@ export default function IssueInfo() {
 				<img src="userprofile.png" />
 				<div>조현성</div>
 			</UserProfile>
-			<MoreContents>조현성이 등록한 다른 이슈보기 {">"}</MoreContents>
+			<MoreContents>조현성님이 등록한 다른 이슈보기 {">"}</MoreContents>
 			<BookMark>
 				<img src="bookmark.png" />
 			</BookMark>
