@@ -49,7 +49,7 @@ const SelectCategoryBtn = styled.div`
 
 	position: relative;
 	width: 100%;
-	height: auto;
+	height: 30px;
 	padding-left: 1%;
 	padding-right: 1%;
 
@@ -65,7 +65,7 @@ const SelectCategoryBtn = styled.div`
 	font-style: regular;
 	font-weight: 600;
 	font-size: 12px;
-	line-height: 16px;
+	line-height: 14px;
 	color: white;
 	cursor: pointer;
 `;

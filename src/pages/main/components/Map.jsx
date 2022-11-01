@@ -22,7 +22,7 @@ export default function Location() {
 	useEffect(() => {
 		container = document.getElementById("map");
 		options = {
-			center: new kakao.maps.LatLng(37.454448442968726, 127.130440332797),
+			center: new kakao.maps.LatLng(37.453065999, 127.127247499),
 			level: 2,
 		};
 		map = new kakao.maps.Map(container, options);
@@ -33,8 +33,8 @@ export default function Location() {
 	const setUserLatLngbyGeolocation = useCallback(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				userLocation.current.lat = 37.454448442968726;
-				userLocation.current.lng = 127.130440332797;
+				userLocation.current.lat = 37.453065999;
+				userLocation.current.lng = 127.127247499;
 				// userLocation.current.lat = position.coords.latitude;
 				// userLocation.current.lng = position.coords.longitude;
 				console.log(

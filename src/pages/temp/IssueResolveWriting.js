@@ -228,7 +228,7 @@ const IssueCategoryContainer = styled.div`
 	position: absolute;
 	left: 3%;
 	top: 41%;
-	width: 94%;
+	width: 100%;
 	height: 8%;
 
 	display: flex;
