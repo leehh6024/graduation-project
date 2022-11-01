@@ -33,8 +33,10 @@ export default function Location() {
 	const setUserLatLngbyGeolocation = useCallback(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				userLocation.current.lat = position.coords.latitude;
-				userLocation.current.lng = position.coords.longitude;
+				userLocation.current.lat = 37.454448442968726;
+				userLocation.current.lng = 127.130440332797;
+				// userLocation.current.lat = position.coords.latitude;
+				// userLocation.current.lng = position.coords.longitude;
 				console.log(
 					`2. 유저의 위치를 획득하였습니다 | lat : ${userLocation.current.lat}, lng : ${userLocation.current.lng}` +
 						` | 정확도 : ${position.coords.accuracy}`
@@ -125,7 +127,12 @@ export default function Location() {
 			<div>
 				<div id="map"></div>
 				<div>
-					<StyleSetUserLocationCenterBtn onClick={setUserLatLngbyGeolocation} />
+					{/* 나중에 onCLick 함수 원래대로 돌려놓기 */}
+					<StyleSetUserLocationCenterBtn
+						onClick={() =>
+							setUserCenter(userLocation.current.lat, userLocation.current.lng)
+						}
+					/>
 				</div>
 			</div>
 		</>
