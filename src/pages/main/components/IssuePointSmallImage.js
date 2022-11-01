@@ -22,21 +22,22 @@ const move = keyframes`
 	0% {
 		top: 52%;
 		left: 100%;
+		opacity: 0;
 	}
 	100% {
 		left: 52%;
 		top: 52%;
+		opacity: 1;
 	}
 `;
 
 const IssueImage = styled.div`
+	animation: ${move} 0.6s;
 	z-index: 4;
 	position: absolute;
 	left: 52%;
 	top: 52%;
 	margin: auto;
-
-	animation: ${move} 1s 0.000001s;
 
 	width: 44%;
 	height: 18%;

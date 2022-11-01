@@ -91,7 +91,7 @@ const BottomSheetClass = styled.div`
 const IssueClass = styled.div`
 	position: relative;
 	width: auto;
-	height: 70%;
+	height: 60%;
 	padding-left: 2%;
 	padding-right: 2%;
 

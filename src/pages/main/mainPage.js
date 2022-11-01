@@ -27,7 +27,7 @@ export default function Main() {
 				<Map />
 				<Link to="/issue">
 					{/* <StyledIssueUploadBtn width="96" height="96" /> */}
-					<img className="btn-issue" src="/issue-button.png" alt="issue"></img>
+					<img className="btn-issue" src="/issue-button.png" />
 				</Link>
 				<BottomSheet
 					open={state.sheet}

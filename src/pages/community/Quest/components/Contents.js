@@ -52,6 +52,7 @@ const ContentsImage = styled.div`
 	img {
 		width: 100px;
 		height: 100px;
+		border-radius: 5px;
 	}
 `;
 const ContentsTitle = styled.div`

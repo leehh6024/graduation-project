@@ -32,7 +32,11 @@ export default function IssueInfo() {
 				<img src="small-brush.png" />
 				1,000 빗자루
 			</Brush>
-			<IssueInfoTitle>{state.selected[0].title}</IssueInfoTitle>
+			<IssueInfoTitle>
+				{state.selected[0].title
+					? state.selected[0].title
+					: "이슈에 대한 제목이 없어요."}
+			</IssueInfoTitle>
 			<IssueClass>
 				{state.selected[0].category == 0 && "생활 폐기물"}
 				{state.selected[0].category == 1 && "불연성 건설폐기물"}
@@ -116,7 +120,7 @@ const IssueClass = styled.div`
 	top: 56%;
 	left: 3%;
 	width: 25%;
-	height: 4%;
+	height: 3.5%;
 
 	border-radius: 12px;
 	background-color: #6ac47a;
