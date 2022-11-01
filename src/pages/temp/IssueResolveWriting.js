@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import styled from "styled-components";
 import GlobalContext from "../../common/context/store";
 import "./IssueResolveWriting.css";
@@ -7,6 +7,7 @@ import ResolveAddButton from "./ResolveAddButton.js";
 import ResolveImage from "./ResolveImage.js";
 
 export default function IssueResolveWriting() {
+	const { state, setState } = useContext(GlobalContext);
 	const [files, setFiles] = useState([]);
 
 	const onFileChange = useCallback(
@@ -38,7 +39,9 @@ export default function IssueResolveWriting() {
 			<IssueResolveTitle>
 				<div className="issue-resolve-title">이슈 제목</div>
 				<div className="issue-resolve-title-content">
-					이슈의 본문 타이틀이 와야합니다.
+					{state.selected[0].title
+						? state.selected[0].title
+						: "이슈에 대한 제목이 없어요."}
 				</div>
 			</IssueResolveTitle>
 

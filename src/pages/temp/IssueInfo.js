@@ -15,8 +15,8 @@ const BackBtn = styled.div`
 `;
 
 export default function IssueInfo() {
-	const { state, setState } = useContext(GlobalContext);
-
+	const { state: globalState, setState } = useContext(GlobalContext);
+	const { state } = useLocation();
 	return (
 		<>
 			<Link to="/">
@@ -25,28 +25,31 @@ export default function IssueInfo() {
 				</BackBtn>
 			</Link>
 			<IssueInfoImage>
-				<img src={state.selected[0].img} width="100%" height="100%"></img>
+				<img src={globalState.selected[0].img} width="100%" height="100%"></img>
 				{/* <Image src={state.selected[0].img}></Image> */}
 			</IssueInfoImage>
 			<Brush>
 				<img src="small-brush.png" />
-				1,000 빗자루
+				2,000 빗자루
 			</Brush>
 			<IssueInfoTitle>
-				{state.selected[0].title
-					? state.selected[0].title
+				{globalState.selected[0].title
+					? globalState.selected[0].title
 					: "이슈에 대한 제목이 없어요."}
 			</IssueInfoTitle>
+
+			<IssueAddress>{state.address}</IssueAddress>
+
 			<IssueClass>
-				{state.selected[0].category == 0 && "생활 폐기물"}
-				{state.selected[0].category == 1 && "불연성 건설폐기물"}
-				{state.selected[0].category == 2 && "가연성 건설폐기물"}
-				{state.selected[0].category == 3 && "혼합 건설폐기물"}
-				{state.selected[0].category == 4 && "사업장 일반폐기물"}
-				{state.selected[0].category > 4 && "폐기물 분류 없음"}
+				{globalState.selected[0].category == 0 && "생활 폐기물"}
+				{globalState.selected[0].category == 1 && "불연성 건설폐기물"}
+				{globalState.selected[0].category == 2 && "가연성 건설폐기물"}
+				{globalState.selected[0].category == 3 && "혼합 건설폐기물"}
+				{globalState.selected[0].category == 4 && "사업장 일반폐기물"}
+				{globalState.selected[0].category > 4 && "폐기물 분류 없음"}
 			</IssueClass>
 			<LineBreak2 />
-			<IssueContents>{state.selected[0].body}</IssueContents>
+			<IssueContents>{globalState.selected[0].body}</IssueContents>
 			<LineBreak />
 			<UserProfile>
 				<img src="userprofile.png" />
@@ -114,6 +117,20 @@ const IssueInfoTitle = styled.div`
 	font-weight: 700;
 	line-height: 100%;
 	color: #464646;
+`;
+const IssueAddress = styled.div`
+	width: 100px
+    height: 100px;
+	position: absolute;
+	top: 52%;
+	left: 3%;
+
+	font-family: "Pretendard";
+	font-style: Bold;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 100%;
+	color: #999999;
 `;
 const IssueClass = styled.div`
 	position: absolute;

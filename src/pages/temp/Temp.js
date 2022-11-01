@@ -6,20 +6,21 @@ import { getUserAddress } from "../../common/function/getUserAddress";
 
 export default function Temp({ data }) {
 	const { state, setState } = useContext(GlobalContext);
-	console.log(state);
+	// console.log(state);
+
 	const [address, setAddress] = useState("");
 	const navigate = useNavigate();
 
-	// const getAddress = async (lat, lng) => {
-	// 	const data = await getUserAddress(lat, lng, 4);
-	// 	setAddress(data);
-	// };
+	const getAddress = async (lat, lng) => {
+		const data = await getUserAddress(lat, lng, 4);
+		setAddress(data);
+	};
 
-	// useEffect(() => {
-	// 	getAddress(state.selected[0].latlng.La, state.selected[0].latlng.Ma);
-	// }, []);
+	useEffect(() => {
+		getAddress(state.selected[0].location.lat, state.selected[0].location.lng);
+	}, []);
 	const onMoreIssue = () => {
-		navigate("/issueinfo", { states: { address, ...data } });
+		navigate("/issueinfo", { state: { address } });
 	};
 	return (
 		<>
@@ -41,7 +42,7 @@ export default function Temp({ data }) {
 					</IssueClass>
 				</BottomSheetClass>
 
-				{/* <BottomAddressContainer>{address}</BottomAddressContainer> */}
+				<BottomAddressContainer>{address}</BottomAddressContainer>
 
 				<Distance>
 					<img src="distance.png" />

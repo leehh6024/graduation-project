@@ -115,6 +115,7 @@ export default function Location() {
 					Number(issuePoint.issueLoc.lat),
 					Number(issuePoint.issueLoc.lng)
 				),
+				location: issuePoint.issueLoc,
 				body: issuePoint.body,
 				img: issuePoint.imgUrl,
 			};
