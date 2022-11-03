@@ -43,6 +43,13 @@ const GuideInfoContainer = styled.div`
 
 	background-color: white;
 	vertical-align: middle;
+
+	img {
+		position: absolute;
+		top: 10px;
+		width: 100%;
+		height: auto;
+	}
 `;
 const StyledGuideImg = styled(GuideImg)`
 	position: absolute;

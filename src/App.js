@@ -1,9 +1,9 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import { GlobalContextProvider } from "./common/context/store.js";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { HashRouter as BrowserRouter } from "react-router-dom";
 import Router from "./router.js";
-import { BrowserView, MobileView } from "react-device-detect";
+// import { BrowserView, MobileView } from "react-device-detect";
 
 const GlobalStyle = createGlobalStyle`
   //height: calc(constant(safe-area-inset-top) - constant(safe-area-inset-bottom));
