@@ -13,7 +13,7 @@ import Community from "./pages/community/Community.js";
 import ContentsInfo from "./pages/community/Quest/ContentsInfo.js";
 import UploadScreen from "./pages/community/Quest/UploadScreen.js";
 import EnvironmentPage from "./pages/environment/EnvironmentPage.js";
-import GuidePage from "./pages/Guide/GuidePage.js";
+import GuidePage from "./pages/guide/GuidePage.js";
 
 const Container = styled.div`
 	position: relative;
