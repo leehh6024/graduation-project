@@ -14,7 +14,7 @@ import ContentsInfo from "./pages/community/Quest/ContentsInfo.js";
 import UploadScreen from "./pages/community/Quest/UploadScreen.js";
 import EnvironmentPage from "./pages/environment/EnvironmentPage.js";
 import Category from "./pages/main/components/Navigation/Category";
-// import GuidePage from "./pages/guide/GuidePage.js";
+import GuidePage from "./pages/guide/GuidePage.js";
 import SideNav from "./pages/main/components/Navigation/SideNav.jsx";
 import UserTab from "./pages/main/components/UserTab";
 
@@ -57,7 +57,7 @@ function Controller() {
 				<Route path="/contentsinfo" element={<ContentsInfo />} />
 				<Route path="/upload" element={<UploadScreen />} />
 				<Route path="/environmentpage" element={<EnvironmentPage />} />
-				{/* <Route path="/guidepage" element={<GuidePage />} /> */}
+				<Route path="/guidepage" element={<GuidePage />} />
 			</Routes>
 		</Container>
 	);

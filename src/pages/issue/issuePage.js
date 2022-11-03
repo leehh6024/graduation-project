@@ -13,7 +13,7 @@ import CategorySelector from "./component/CategorySelector.js";
 export default function IssuePage() {
 	const { state, setState, globalRef } = useContext(GlobalContext);
 	const [image, setImage] = useState("");
-	const [title, setTitle] = useRef("");
+	const [title, setTitle] = useState("");
 	const [body, setBody] = useState("");
 	const [category, setCategory] = useState(0);
 	const [imagePreview, setImagePreview] = useState(null);

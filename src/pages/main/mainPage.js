@@ -38,9 +38,7 @@ export default function Main() {
 			>
 				<Temp />
 			</BottomSheet>
-			<Link to="/issueinfo">
-				<IssuePointSmallImage />
-			</Link>
+			<IssuePointSmallImage />
 		</MainContainer>
 	);
 }

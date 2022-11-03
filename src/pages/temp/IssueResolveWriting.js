@@ -50,7 +50,7 @@ export default function IssueResolveWriting() {
 				<div className="issue-resolve-title-content">
 					{state.selected[0].title
 						? state.selected[0].title
-						: "이슈에 대한 제목이 없어요."}
+						: "제목이 없는 이슈에요"}
 				</div>
 			</IssueResolveTitle>
 

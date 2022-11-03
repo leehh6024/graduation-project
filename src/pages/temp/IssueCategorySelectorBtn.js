@@ -14,25 +14,25 @@ export default function IssueCategorySelectorBtn({ activeTab, setActiveTab }) {
 				isActive={activeTab === "2"}
 				onClick={() => setActiveTab("2")}
 			>
-				불연성 건설폐기물
+				사업장 일반폐기물
 			</SelectCategoryBtn>
 			<SelectCategoryBtn
 				isActive={activeTab === "3"}
 				onClick={() => setActiveTab("3")}
 			>
-				가연성 건설폐기물
+				혼합 건설폐기물
 			</SelectCategoryBtn>
 			<SelectCategoryBtn
 				isActive={activeTab === "4"}
 				onClick={() => setActiveTab("4")}
 			>
-				혼합 건설폐기물
+				불연성 건설폐기물
 			</SelectCategoryBtn>
 			<SelectCategoryBtn
 				isActive={activeTab === "5"}
 				onClick={() => setActiveTab("5")}
 			>
-				사업장 일반폐기물
+				가연성 건설폐기물
 			</SelectCategoryBtn>
 		</>
 	);

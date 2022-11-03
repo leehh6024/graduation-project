@@ -28,16 +28,16 @@ export default function Temp({ data }) {
 				<BottomSheetTitle>
 					{state.selected[0].title
 						? state.selected[0].title
-						: "이슈에 대한 제목이 없어요."}
+						: "제목이 없는 이슈에요"}
 				</BottomSheetTitle>
 
 				<BottomSheetClass>
 					<IssueClass>
 						{state.selected[0].category == 1 && "생활 폐기물"}
-						{state.selected[0].category == 2 && "불연성 건설폐기물"}
-						{state.selected[0].category == 3 && "가연성 건설폐기물"}
-						{state.selected[0].category == 4 && "혼합 건설폐기물"}
-						{state.selected[0].category == 5 && "사업장 일반폐기물"}
+						{state.selected[0].category == 2 && "사업장 일반폐기물"}
+						{state.selected[0].category == 3 && "혼합 건설폐기물"}
+						{state.selected[0].category == 4 && "불연성 건설폐기물"}
+						{state.selected[0].category == 5 && "가연성 건설폐기물"}
 						{state.selected[0].category == 100 && "폐기물 분류 없음"}
 					</IssueClass>
 				</BottomSheetClass>

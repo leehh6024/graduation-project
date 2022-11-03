@@ -35,18 +35,18 @@ export default function IssueInfo() {
 			<IssueInfoTitle>
 				{globalState.selected[0].title
 					? globalState.selected[0].title
-					: "이슈에 대한 제목이 없어요."}
+					: "제목이 없는 이슈에요"}
 			</IssueInfoTitle>
 
 			<IssueAddress>{state.address}</IssueAddress>
 
 			<IssueClass>
 				{globalState.selected[0].category == 1 && "생활 폐기물"}
-				{globalState.selected[0].category == 2 && "불연성 건설폐기물"}
-				{globalState.selected[0].category == 3 && "가연성 건설폐기물"}
-				{globalState.selected[0].category == 4 && "혼합 건설폐기물"}
-				{globalState.selected[0].category == 5 && "사업장 일반폐기물"}
-				{globalState.selected[0].category == 0 && "폐기물 분류 없음"}
+				{globalState.selected[0].category == 2 && "사업장 일반폐기물"}
+				{globalState.selected[0].category == 3 && "혼합 건설폐기물"}
+				{globalState.selected[0].category == 4 && "불연성 건설폐기물"}
+				{globalState.selected[0].category == 5 && "가연성 건설폐기물"}
+				{globalState.selected[0].category == 100 && "폐기물 분류 없음"}
 			</IssueClass>
 			<LineBreak2 />
 			<IssueContents>{globalState.selected[0].body}</IssueContents>
