@@ -21,8 +21,10 @@ const SelectCategoryContainer = styled.div`
 	top: 61.5%;
 	width: 80%;
 	height: 10%;
+
 	display: grid;
 	grid-template-columns: 0.4fr 0.4fr 0.4fr;
+	row-gap: 0.4rem;
 
 	flex-direction: row;
 	align-items: center;

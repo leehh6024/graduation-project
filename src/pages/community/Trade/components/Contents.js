@@ -41,9 +41,10 @@ export default function Contents() {
 const ContentsContainer = styled.div`
 	position: relative;
 	width: 100%;
-	height: 14vh;
+	height: 120px;
 	border-bottom: 1px solid #eeeeee;
-	margin-bottom: 2%;
+	padding-top: 10px;
+	padding-bottom: 10px;
 `;
 const ContentsImage = styled.div`
 	position: absolute;
@@ -51,6 +52,7 @@ const ContentsImage = styled.div`
 	img {
 		width: 100px;
 		height: 100px;
+		border-radius: 5px;
 	}
 `;
 const ContentsTitle = styled.div`

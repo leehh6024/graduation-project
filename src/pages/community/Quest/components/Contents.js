@@ -42,9 +42,10 @@ export default function ContentPreview({ data }) {
 const ContentsContainer = styled.div`
 	position: relative;
 	width: 100%;
-	height: 16vh;
+	height: 120px;
 	border-bottom: 1px solid #eeeeee;
-	margin-bottom: 2%;
+	padding-top: 10px;
+	padding-bottom: 10px;
 `;
 const ContentsImage = styled.div`
 	position: absolute;

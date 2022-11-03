@@ -193,9 +193,6 @@ const UserProfile = styled.div`
 	position: absolute;
 	top: 76%;
 	left: 4%;
-
-	border-bottom: 2px 
-	
 	display: flex;
 	justify-content: center;
 	align-items: center;

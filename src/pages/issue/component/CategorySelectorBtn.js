@@ -52,6 +52,7 @@ const SelectCategoryBtn = styled.div`
 	border-radius: 12px;
 
 	display: grid;
+	row-gap: 0.5rem;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
@@ -60,6 +61,5 @@ const SelectCategoryBtn = styled.div`
 	font-style: regular;
 	font-weight: 700;
 	font-size: 11px;
-	line-height: 16px;
 	cursor: pointer;
 `;
