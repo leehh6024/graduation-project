@@ -22,7 +22,7 @@ export default function GuidePage() {
 					안내 가이드
 				</GuideHeader>
 				<GuideInfoContainer>
-					<img src="guide_image.png" />
+					<img src="/main/sideTab/guide_info.png" />
 					{/* <StyledGuideImg /> */}
 				</GuideInfoContainer>
 			</GuidePageContainer>
