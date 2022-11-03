@@ -18,11 +18,13 @@ export default function CategorySelector({ onCategoryChange }) {
 const SelectCategoryContainer = styled.div`
 	position: absolute;
 	left: 4%;
-	top: 62%;
-	width: 92%;
-	height: 8%;
+	top: 61.5%;
+	width: 80%;
+	height: 10%;
+	display: grid;
+	grid-template-columns: 0.4fr 0.4fr 0.4fr;
+	row-gap: 0.4rem;
 
-	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: left;

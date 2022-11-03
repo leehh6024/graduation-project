@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GlobalContextProvider } from "./common/context/store.js";
 import { createGlobalStyle } from "styled-components";
 import { HashRouter as BrowserRouter } from "react-router-dom";

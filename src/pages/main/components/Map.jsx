@@ -14,6 +14,13 @@ import styled from "styled-components";
 var container, options, map;
 
 export default function Location() {
+	function setScreenSize() {
+		let vh = window.innerHeight * 0.01;
+		document.documentElement.style.setProperty("--vh", `${vh}px`);
+	}
+	useEffect(() => {
+		setScreenSize();
+	});
 	const { state, setState, globalRef } = useContext(GlobalContext);
 	const [issueList, setIssueList] = useState([]);
 	const userLocation = useRef({ lat: 0, lng: 0 });

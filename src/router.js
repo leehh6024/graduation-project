@@ -18,7 +18,7 @@ import GuidePage from "./pages/guide/GuidePage.js";
 const Container = styled.div`
 	position: relative;
 	width: 100%;
-	min-height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
 	height: 100%;
 	margin: auto;
 	background-color: white;

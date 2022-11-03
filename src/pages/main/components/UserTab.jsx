@@ -42,54 +42,10 @@ export default function UserTab() {
 							</UserProfileImage>
 
 							<UserToolbar>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "34px",
-										height: "43px",
-										position: "absolute",
-										left: "30px",
-									}}
-								>
-									<MyIssue />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "26px",
-										height: "43px",
-										position: "absolute",
-										left: "84px",
-									}}
-								>
-									<MyPost />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "45px",
-										height: "43px",
-										position: "absolute",
-										left: "130px",
-									}}
-								>
-									<MyBookmark />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "45px",
-										height: "43px",
-										position: "absolute",
-										left: "195px",
-									}}
-								>
-									<Settings />
-								</button>
+								<MyIssue />
+								<MyPost />
+								<MyBookmark />
+								<Settings />
 							</UserToolbar>
 
 							<hr
@@ -110,56 +66,11 @@ export default function UserTab() {
 							</UserProfileImage>
 
 							<UserToolbar>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "34px",
-										height: "43px",
-										position: "absolute",
-										left: "30px",
-									}}
-								>
-									<MyIssue />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "26px",
-										height: "43px",
-										position: "absolute",
-										left: "84px",
-									}}
-								>
-									<MyPost />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "45px",
-										height: "43px",
-										position: "absolute",
-										left: "130px",
-									}}
-								>
-									<MyBookmark />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "45px",
-										height: "43px",
-										position: "absolute",
-										left: "195px",
-									}}
-								>
-									<Settings />
-								</button>
+								<MyIssue />
+								<MyPost />
+								<MyBookmark />
+								<Settings />
 							</UserToolbar>
-
 							<hr
 								style={{
 									position: "absolute",
@@ -168,7 +79,6 @@ export default function UserTab() {
 									border: "1px solid #f5f5f5",
 								}}
 							/>
-
 							<Category />
 						</UserTabContainerClose>
 					)}
@@ -200,8 +110,6 @@ const UserTabContainer = styled.div`
 	z-index: 7;
 	width: 270px;
 	height: 100%;
-	left: 0px;
-	top: 0px;
 	background: white;
 
 	animation: ${moveright} 0.4s;
@@ -234,13 +142,13 @@ const CloseUserTab = styled.div`
 const UserProfileImage = styled.div`
 	position: absolute;
 	z-index: 7;
-	width: 18%;
+	width: 22%;
 	height: 10%;
-	transform: translate(220%, 80%);
+	transform: translate(170%, 80%);
 	background: white;
 
 	margin: auto;
-	display: block;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
@@ -255,9 +163,17 @@ const UserProfileImage = styled.div`
 const UserToolbar = styled.div`
 	position: absolute;
 	z-index: 7;
-	width: 260px;
+	width: 100%;
 	height: 43px;
-	left: 0px;
 	top: 162px;
-	background: white;
+	padding-top: 10px;
+	padding-left: 25px;
+	padding-right: 15px;
+
+	grid-template-columns: 0.4fr 0.35fr 0.4fr 0.4fr;
+
+	margin: auto;
+	display: grid;
+	align-items: center;
+	justify-content: center;
 `;
