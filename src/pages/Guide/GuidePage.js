@@ -45,9 +45,10 @@ const GuideInfoContainer = styled.div`
 `;
 const StyledGuideImg = styled(GuideImg)`
 	position: absolute;
-	top: 15px;
-	width: 100%;
+	top: 10px;
 	overflow: scroll;
+	width: 100%;
+	height: 310%;
 `;
 const GuidePageContainer = styled.div`
 	position: absolute;
