@@ -11,8 +11,7 @@ export default function CommunitySearch() {
 		console.log(state.usertab);
 	}
 	return (
-		<div>
-			<CommunitySearchContainer />
+		<CommunitySearchContainer>
 			{state.usertab && <UserTab />}
 			<CommunitySearchAddress>
 				<StyledUserTabBtn onClick={openUserTab} />
@@ -21,23 +20,21 @@ export default function CommunitySearch() {
 			<CommunitySearchButton>
 				<img src="/community/btn-search.png" />
 			</CommunitySearchButton>
-		</div>
+		</CommunitySearchContainer>
 	);
 }
-
 const CommunitySearchContainer = styled.div`
 	position: absolute;
 	width: 100%;
-	height: 6%;
-	top: 1%;
+	height: 40px;
+	top: 10px;
 
 	border-bottom: 2px solid #e5e5e5;
 `;
-
 const CommunitySearchAddress = styled.div`
 	position: absolute;
+	top: 15%;
 	left: 2%;
-	top: 2.7%;
 	width: 30%;
 
 	display: flex;
@@ -54,7 +51,7 @@ const CommunitySearchAddress = styled.div`
 const CommunitySearchButton = styled.div`
 	position: absolute;
 	right: 6%;
-	top: 3%;
+	top: 15%;
 	display: flex;
 	justify-content: center;
 	align-items: center;

@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 export default function ContentsInfo() {
 	const { state } = useLocation();
-	console.log(state);
+
 	return (
 		<div>
 			<Link to="/community">
@@ -58,7 +58,6 @@ export default function ContentsInfo() {
 		</div>
 	);
 }
-
 const BackBtn = styled.div`
 	position: absolute;
 	z-index: 5;

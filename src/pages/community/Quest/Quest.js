@@ -19,8 +19,5 @@ export default function Quest() {
 
 const QuestPage = styled.div`
 	position: absolute;
-	top: 15%;
-
 	width: 100%;
-	height: 85vh;
 `;

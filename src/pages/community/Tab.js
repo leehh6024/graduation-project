@@ -4,8 +4,8 @@ import styled from "styled-components";
 const Wrapper = styled.div`
 	position: absolute;
 	width: 100%;
-	height: 5vh;
-	top: 8%;
+	height: 40px;
+	margin-top: 50px;
 
 	display: flex;
 	justify-content: space-between;

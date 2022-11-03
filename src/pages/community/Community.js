@@ -20,9 +20,8 @@ export default function Community() {
 }
 
 const CommunityContainer = styled.div`
+	position: absolute;
 	width: 100%;
-	height: 100%;
-	display: flex;
-
+	height: calc(var(--vh, 1vh) * 100);
 	background-color: white;
 `;
