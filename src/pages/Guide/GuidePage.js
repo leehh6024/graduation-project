@@ -22,7 +22,8 @@ export default function GuidePage() {
 					안내 가이드
 				</GuideHeader>
 				<GuideInfoContainer>
-					<StyledGuideImg />
+					<img src="guide_image.png" />
+					{/* <StyledGuideImg /> */}
 				</GuideInfoContainer>
 			</GuidePageContainer>
 		</>
