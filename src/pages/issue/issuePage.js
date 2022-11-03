@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { API } from "../../service.js";
 import { Link } from "react-router-dom";
 import "./component/contentField.css";
+
 import Preview from "./component/imagePreview";
 import ImageUploadButton from "./component/imageUploadButton";
 import ContentInputField from "./component/contentField";
