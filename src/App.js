@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { GlobalContextProvider } from "./common/context/store.js";
 import { createGlobalStyle, ThemeProvider } from "styled-components";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter as BrowserRouter } from "react-router-dom";
 import Router from "./router.js";
 import { BrowserView, MobileView } from "react-device-detect";
 
