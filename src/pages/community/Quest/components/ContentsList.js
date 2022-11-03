@@ -44,7 +44,7 @@ export default function ContentsList({ tab }) {
 
 const ContentsListContainer = styled.div`
 	position: absolute;
-	top: 100px;
+	top: 105px;
 	width: 100%;
 	overflow: scroll;
 `;

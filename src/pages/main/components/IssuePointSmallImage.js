@@ -9,11 +9,9 @@ export default function IssuePointSmallImage() {
 	return (
 		<>
 			{state.sheet && (
-				<Link to="/issueinfo">
-					<IssueImage>
-						<img src={state.selected[0].img} width="100%" height="100%" />
-					</IssueImage>
-				</Link>
+				<IssueImage>
+					<img src={state.selected[0].img} width="100%" height="100%" />
+				</IssueImage>
 			)}
 		</>
 	);

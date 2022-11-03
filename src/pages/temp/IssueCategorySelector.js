@@ -17,11 +17,12 @@ export default function IssueCategorySelector({ onCategoryChange }) {
 }
 const SelectCategoryContainer = styled.div`
 	position: absolute;
-	top: 62%;
-	width: 92%;
-	height: 8%;
+	width: 80%;
 
-	display: flex;
+	display: grid;
+	grid-template-columns: 0.4fr 0.4fr 0.4fr;
+	row-gap: 0.5rem;
+
 	flex-direction: row;
 	align-items: center;
 	justify-content: left;

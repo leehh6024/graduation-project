@@ -44,7 +44,7 @@ const ContentsContainer = styled.div`
 	width: 100%;
 	height: 16vh;
 	border-bottom: 1px solid #eeeeee;
-	margin-bottom: 6%;
+	margin-bottom: 2%;
 `;
 const ContentsImage = styled.div`
 	position: absolute;

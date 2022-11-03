@@ -39,7 +39,7 @@ const BackBtn = styled.div`
 `;
 function IssueResolve({ onUpload }) {
 	return (
-		<>
+		<IssueResolveContainer>
 			<Link to="/">
 				<BackBtn>
 					<img src="/community/btn-back.png"></img>
@@ -63,8 +63,15 @@ function IssueResolve({ onUpload }) {
 			<div className="issue-resolve-text">
 				이슈를 해결한 사진을 등록해 주세요
 			</div>
-		</>
+		</IssueResolveContainer>
 	);
 }
+
+const IssueResolveContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	height: calc(var(--vh, 1vh) * 100);
+	background-color: white;
+`;
 
 export default IssueResolve;
