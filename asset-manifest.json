@@ -1,13 +1,21 @@
 {
   "files": {
-    "main.css": "/valun/static/css/main.cfd78e01.css",
-    "main.js": "/valun/static/js/main.b31ac230.js",
-    "index.html": "/valun/index.html",
-    "main.cfd78e01.css.map": "/valun/static/css/main.cfd78e01.css.map",
-    "main.b31ac230.js.map": "/valun/static/js/main.b31ac230.js.map"
+    "main.css": "/new_valun/static/css/main.be64c173.css",
+    "main.js": "/new_valun/static/js/main.e9256308.js",
+    "static/media/Guide_Information.svg": "/new_valun/static/media/Guide_Information.dea9064fc1a3f8ccb63f91ca7422ff59.svg",
+    "static/media/Set_User_Location_Center_Btn.svg": "/new_valun/static/media/Set_User_Location_Center_Btn.df723f47a750a7eaa0f43efa6168a8d7.svg",
+    "static/media/Settings.svg": "/new_valun/static/media/Settings.cff6564b3fac8dbe0a258d96aa41e302.svg",
+    "static/media/My_Issue.svg": "/new_valun/static/media/My_Issue.46e96889bc9003cd055bbf12816748bc.svg",
+    "static/media/My_Bookmark.svg": "/new_valun/static/media/My_Bookmark.76f5f607310df957cce17bb83b00957f.svg",
+    "static/media/User_Profile.svg": "/new_valun/static/media/User_Profile.9c7d526f08a8d6ef8bf1f96ce860035c.svg",
+    "static/media/My_Post.svg": "/new_valun/static/media/My_Post.393c867f56856c7bebbbb96be210a938.svg",
+    "index.html": "/new_valun/index.html",
+    "static/media/Hamburger.svg": "/new_valun/static/media/Hamburger.0145e863b1de380d5a711f519662188a.svg",
+    "main.be64c173.css.map": "/new_valun/static/css/main.be64c173.css.map",
+    "main.e9256308.js.map": "/new_valun/static/js/main.e9256308.js.map"
   },
   "entrypoints": [
-    "static/css/main.cfd78e01.css",
-    "static/js/main.b31ac230.js"
+    "static/css/main.be64c173.css",
+    "static/js/main.e9256308.js"
   ]
 }
