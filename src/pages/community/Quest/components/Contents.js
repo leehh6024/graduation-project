@@ -42,7 +42,7 @@ export default function ContentPreview({ data }) {
 const ContentsContainer = styled.div`
 	position: relative;
 	width: 100%;
-	height: 18vh;
+	height: 16vh;
 	border-bottom: 1px solid #eeeeee;
 	margin-bottom: 6%;
 `;
