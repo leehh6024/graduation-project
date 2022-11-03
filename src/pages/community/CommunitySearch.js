@@ -12,7 +12,6 @@ export default function CommunitySearch() {
 	}
 	return (
 		<CommunitySearchContainer>
-			{state.usertab && <UserTab />}
 			<CommunitySearchAddress>
 				<StyledUserTabBtn onClick={openUserTab} />
 				<div>복정동</div>

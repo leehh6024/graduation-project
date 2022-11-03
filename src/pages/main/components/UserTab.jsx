@@ -128,7 +128,7 @@ const UserTabContainerClose = styled.div`
 
 const CloseUserTab = styled.div`
 	position: absolute;
-	z-index: 5;
+	z-index: 6;
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.25);
