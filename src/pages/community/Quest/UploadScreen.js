@@ -1,8 +1,10 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useContext } from "react";
 import styled from "styled-components";
 import GlobalContext from "../../../common/context/store";
 import "./UploadScreen.css";
+import { API } from "../../../service.js";
 import { Link } from "react-router-dom";
+
 import UploadAddButton from "./UploadAddButton.js";
 import UploadImage from "./UploadImage.js";
 
@@ -21,8 +23,42 @@ const UploadQuestBoard = styled.div`
 `;
 
 export default function UploadScreen() {
+	const { state, setState, globalRef } = useContext(GlobalContext);
+
 	const [files, setFiles] = useState([]);
 	const [modal, setModal] = useState(false);
+
+	const [image, setImage] = useState("");
+	const [title, setTitle] = useState("");
+	const [body, setBody] = useState("");
+	const [price, setPrice] = useState(0);
+
+	const createPostQuest = async () => {
+		const formData = new FormData();
+
+		const postQuest = {
+			title,
+			body,
+			price,
+			location: {
+				lat: Number(globalRef.current.userLocation.lat),
+				lng: Number(globalRef.current.userLocation.lng),
+			},
+		};
+		formData.append("title", postQuest.title);
+		formData.append("body", postQuest.body);
+		formData.append("price", postQuest.price);
+		formData.append("lat", postQuest.location.lat);
+		formData.append("lng", postQuest.location.lng);
+		formData.append("image", image);
+
+		const data = await API.createPostQuest(formData);
+		if (!data.success) alert(data.message);
+	};
+
+	const onTitledChange = (e) => setTitle(e.target.value);
+	const onBodyChange = (e) => setBody(e.target.value);
+	const onPriceChange = (e) => setPrice(e.target.value);
 
 	const onFileChange = useCallback(
 		(e) => {
@@ -31,7 +67,7 @@ export default function UploadScreen() {
 					alert("사진은 최대 3개까지 등록할 수 있어요");
 					return;
 				}
-
+				setImage(e.target.files[0]);
 				setFiles((files) => [...files, e.target.files[0]]);
 			}
 		},
@@ -84,6 +120,7 @@ export default function UploadScreen() {
 						className="input-trade-name"
 						type="text"
 						placeholder="상품명을 입력해주세요"
+						onChange={onTitledChange}
 					/>
 				</TradeTitleContainer>
 
@@ -94,6 +131,7 @@ export default function UploadScreen() {
 						type="text"
 						maxLength="1000"
 						placeholder="퀘스트에 대한 정보를 입력해 주세요. 개인정보 유출에 유의해 주세요. (1000자)"
+						onChange={onBodyChange}
 					/>
 				</TradeInfoContainer>
 
@@ -103,12 +141,20 @@ export default function UploadScreen() {
 						className="input-brush"
 						type="number"
 						placeholder="빗자루 개수 입력 (최소 100개 이상)"
+						onChange={onPriceChange}
 					/>
 				</BrushContainer>
 
 				<RegisterTrade>
 					{/* 성공적이면 거래등록완료 모달창 | 실패하면  */}
-					<div onClick={onModalOpen}>거래 등록하기</div>
+					<div
+						onClick={() => {
+							createPostQuest();
+							onModalOpen();
+						}}
+					>
+						거래 등록하기
+					</div>
 				</RegisterTrade>
 				{modal && (
 					<>
