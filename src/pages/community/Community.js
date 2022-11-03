@@ -34,7 +34,7 @@ const CommunityContainer = styled.div`
 `;
 
 const AddPostButton = styled.div`
-	position: absolute;
+	position: fixed;
 	z-index: 4;
 	width: 56px;
 	height: 56px;

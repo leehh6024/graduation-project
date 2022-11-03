@@ -50,7 +50,7 @@ export default function UserTab() {
 						<hr
 							style={{
 								position: "absolute",
-								width: "270px",
+								width: "100%",
 								top: "235px",
 								border: "1px solid #f5f5f5",
 							}}
@@ -89,7 +89,7 @@ const moveright = keyframes`
 const UserTabContainer = styled.div`
 	position: absolute;
 	z-index: 100;
-	width: 270px;
+	width: 75%;
 	height: 100%;
 	background: white;
 
