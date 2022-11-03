@@ -15,7 +15,7 @@ function SideNav() {
 					<Nav.Link to="/community">커뮤니티 {">"}</Nav.Link>
 				</Nav.Item>
 				<Nav.Item>
-					<Nav.Link to="/">주변 이슈 {">"}</Nav.Link>
+					<Nav.Link to="/">주변이슈 {">"}</Nav.Link>
 				</Nav.Item>
 				<Nav.Item>
 					<Nav.Link to="/environmentpage">환경정보 {">"}</Nav.Link>
