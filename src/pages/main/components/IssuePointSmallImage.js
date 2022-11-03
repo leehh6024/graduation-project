@@ -37,7 +37,6 @@ const IssueImage = styled.div`
 	position: absolute;
 	left: 52%;
 	top: 52%;
-	margin: auto;
 
 	width: 44%;
 	height: 18%;
