@@ -17,13 +17,12 @@ export default function EnvironmentPage() {
 	const { state, setState } = useContext(GlobalContext);
 	function openUserTab() {
 		setState((prev) => ({ ...prev, usertab: true }));
-		console.log(state.usertab);
 	}
 
 	return (
 		<>
-			{state.usertab && <UserTab />}
 			<EnvironmentPageContainer>
+				{state.usertab && <UserTab />}
 				<EnvironmentHeader>
 					<StyledUserTabBtn onClick={openUserTab} />
 					환경정보
@@ -38,18 +37,11 @@ export default function EnvironmentPage() {
 		</>
 	);
 }
-
 const EnvironmentPageContainer = styled.div`
 	position: absolute;
 	width: 100%;
-	height: 85%;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
+	height: calc(var(--vh, 1vh) * 100);
 	background-color: white;
-	vertical-align: middle;
 `;
 const EnvironmentHeader = styled.div`
 	position: absolute;

@@ -89,7 +89,7 @@ export default function UploadScreen() {
 
 				<TradeInfoContainer>
 					<h3 className="trade-info">거래 설명</h3>
-					<input
+					<textarea
 						className="input-trade-info"
 						type="text"
 						maxLength="1000"
@@ -190,8 +190,8 @@ const Modal = styled.div`
 const UploadScreenContainer = styled.div`
 	position: absolute;
 	width: 100%;
+	height: calc(var(--vh, 1vh) * 100);
 	background-color: white;
-	min-height: 100vh;
 `;
 const BackBtn = styled.div`
 	position: absolute;
@@ -236,8 +236,17 @@ const TradeTitleContainer = styled.div`
 	display: block;
 	margin: auto;
 	left: 3%;
-	top: 34%;
+	top: 36%;
 	width: 96%;
+
+	input {
+		font-family: "Pretendard";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 16px;
+		color: #464646;
+	}
 `;
 
 const TradeInfoContainer = styled.div`
@@ -245,8 +254,20 @@ const TradeInfoContainer = styled.div`
 	display: block;
 	margin: auto;
 	left: 3%;
-	top: 47%;
+	top: 50%;
 	width: 96%;
+
+	textarea {
+		left: 0%;
+		margin-top: 1%;
+		background-color: white;
+		font-family: "Pretendard";
+		font-style: normal;
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 16px;
+		color: #464646;
+	}
 `;
 
 const BrushContainer = styled.div`
@@ -254,7 +275,7 @@ const BrushContainer = styled.div`
 	display: block;
 	margin: auto;
 	left: 3%;
-	top: 64%;
+	top: 70%;
 	width: 94%;
 `;
 

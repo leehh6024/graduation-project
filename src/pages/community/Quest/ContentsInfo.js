@@ -1,63 +1,92 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 export default function ContentsInfo() {
 	const { state } = useLocation();
+	const [modal, setModal] = useState(false);
+
+	const onModalOpen = () => {
+		setModal(true);
+	};
+	const onModalClose = () => {
+		setModal(false);
+	};
 
 	return (
-		<div>
-			<Link to="/community">
-				<BackBtn>
-					<img src="/community/btn-back.png" />
-				</BackBtn>
-			</Link>
+		<>
+			<ContentsInfoContainer>
+				<Link to="/community">
+					<BackBtn>
+						<img src="/community/btn-back.png" />
+					</BackBtn>
+				</Link>
 
-			<ContentsImage>
-				<img src={state.image} />
-			</ContentsImage>
+				<ContentsImage>
+					<img src={state.image} />
+				</ContentsImage>
 
-			<ContentsBrush>
-				<img src="small-brush.png" />
-				<h5>{state.price} 빗자루</h5>
-			</ContentsBrush>
+				<ContentsBrush>
+					<img src="small-brush.png" />
+					<h5>{state.price} 빗자루</h5>
+				</ContentsBrush>
 
-			<ContentsTitle>{state.title}</ContentsTitle>
+				<ContentsTitle>{state.title}</ContentsTitle>
 
-			<ContentsAddress>{state.address}</ContentsAddress>
+				<ContentsAddress>{state.address}</ContentsAddress>
 
-			<ContentsInfos>{state.body}</ContentsInfos>
+				<ContentsInfos>{state.body}</ContentsInfos>
 
-			<LineBreak />
+				<LineBreak />
 
-			<UserProfile>
-				<img src="userprofile.png" />
-				<div>{state.userId}</div>
-			</UserProfile>
+				<UserProfile>
+					<img src="userprofile.png" />
+					<div>{state.userId}</div>
+				</UserProfile>
 
-			<LineBreak2 />
+				<LineBreak2 />
 
-			<MoreContents>거래중인 상품 보기 {">"}</MoreContents>
-			<LineBreak3 />
+				<MoreContents>거래중인 상품 보기 {">"}</MoreContents>
+				<LineBreak3 />
 
-			<ReportContents>신고하기 {">"}</ReportContents>
-			<LineBreak4 />
+				<ReportContents>신고하기 {">"}</ReportContents>
+				<LineBreak4 />
 
-			<Bookmark>
-				<img src="bookmark.png" />
-			</Bookmark>
-			<Link to="/community">
-				<Resolve>해결 및 거래하기</Resolve>
-			</Link>
-			<Comment>
-				<img src="comment.png" />
-			</Comment>
-
-			<Link to="/community"></Link>
-		</div>
+				<Bookmark>
+					<img src="bookmark.png" />
+				</Bookmark>
+				<Resolve onClick={onModalOpen}>해결 및 거래하기</Resolve>
+				<Comment>
+					<img src="comment.png" />
+				</Comment>
+			</ContentsInfoContainer>
+			{modal && (
+				<>
+					<ModalContainer />
+					<Modal>
+						{state.userId} 님에게 메세지가
+						<br />
+						전송되었습니다.
+						<Link to="/community">
+							<ReturnCommunityBtn onClick={onModalClose}>
+								퀘스트 및 거래 더 보기
+							</ReturnCommunityBtn>
+						</Link>
+					</Modal>
+				</>
+			)}
+		</>
 	);
 }
+
+const ContentsInfoContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	height: calc(var(--vh, 1vh) * 100);
+	background-color: white;
+`;
+
 const BackBtn = styled.div`
 	position: absolute;
 	z-index: 5;
@@ -68,40 +97,37 @@ const BackBtn = styled.div`
 	cursor: pointer;
 `;
 const ContentsImage = styled.div`
-	width: 100%;
-	height: 45vh;
 	img {
 		width: 100%;
-		height: 45vh;
+		height: 35vh;
 	}
 `;
 const ContentsBrush = styled.div`
     width: 100%
 	height: 100%;
 	position: absolute;
-	top: 46%;
+	top: 43%;
 	left: 3%;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	font-family: "Pretendard";
-	font-style: Bold;
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 100%;
-	color: #464646;
-
 	h5 {
 		margin-left: 5px;
+		font-family: "Pretendard";
+		font-style: Bold;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 100%;
+		color: #464646;
 	}
 `;
 const ContentsTitle = styled.div`
     width: 100%
     height: 100%;
 	position: absolute;
-	top: 52%;
+	top: 50%;
 	left: 3%;
 
 	font-family: "Pretendard";
@@ -115,7 +141,7 @@ const ContentsAddress = styled.div`
     width: 100%
     height: 100%;
 	position: absolute;
-	top: 55%;
+	top: 53.5%;
 	left: 3%;
 
 	font-family: "Pretendard";
@@ -129,7 +155,7 @@ const ContentsInfos = styled.div`
     width: 100%
     height: 100%;
 	position: absolute;
-	top: 59%;
+	top: 57.5%;
 	left: 3%;
 
 	font-family: "Pretendard";
@@ -143,14 +169,14 @@ const LineBreak = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 0px;
-	top: 65%;
+	top: 64%;
 	border: 2px solid #f5f5f5;
 `;
 const UserProfile = styled.div`
     width: 100%
     height: 100%;
 	position: absolute;
-	top: 68%;
+	top: 66%;
 	left: 4%;
 	
 	display: flex;
@@ -172,14 +198,14 @@ const LineBreak2 = styled.div`
 	width: 90%;
 	height: 0px;
 	left: 4%;
-	top: 75%;
+	top: 73%;
 	border: 1px solid #f5f5f5;
 `;
 const MoreContents = styled.div`
 	position: absolute;
 	margin: auto;
 	left: 6%;
-	top: 75%;
+	top: 73%;
 	width: 94%;
 	height: 3rem;
 
@@ -201,14 +227,14 @@ const LineBreak3 = styled.div`
 	width: 90%;
 	height: 0px;
 	left: 4%;
-	top: 81%;
+	top: 80%;
 	border: 1px solid #f5f5f5;
 `;
 const ReportContents = styled.div`
 	position: absolute;
 	margin: auto;
 	left: 6%;
-	top: 81%;
+	top: 80%;
 	width: 94%;
 	height: 3rem;
 
@@ -279,4 +305,61 @@ const Resolve = styled.div`
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 21px;
+`;
+const ReturnCommunityBtn = styled.div`
+	position: absolute;
+	width: 90%;
+	height: 25%;
+	top: 65%;
+	right: 5%;
+
+	border: none;
+	border-radius: 5px;
+	background-color: #6ac47a;
+
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+
+	font-family: "Pretendard";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 15px;
+	line-height: 21px;
+	color: white;
+`;
+const ModalContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	height: calc(var(--vh, 1vh) * 100);
+
+	display: flex;
+	background-color: grey;
+	opacity: 0.4;
+`;
+
+const Modal = styled.div`
+	position: absolute;
+	width: 60%;
+	left: 50%;
+	transform: translate(-50%, 200%);
+	padding-top: 4%;
+	padding-bottom: 16%;
+
+	background-color: white;
+	border-radius: 15px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	font-family: "Pretendard";
+	font-style: normal;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 21px;
+	color: #464646;
 `;

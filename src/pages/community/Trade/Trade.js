@@ -18,8 +18,5 @@ export default function Trade() {
 }
 const TradePage = styled.div`
 	position: absolute;
-	top: 15%;
-
 	width: 100%;
-	height: 85vh;
 `;
