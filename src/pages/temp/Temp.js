@@ -80,7 +80,7 @@ const BottomSheetClass = styled.div`
 	width: 96%;
 	height: 20%;
 	left: 4%;
-	top: 22%;
+	top: 20%;
 
 	// border: 1px solid black;
 
@@ -91,7 +91,7 @@ const BottomSheetClass = styled.div`
 const IssueClass = styled.div`
 	position: relative;
 	width: auto;
-	top: 26%;
+	top: 24%;
 	height: 72%;
 	padding-left: 2%;
 	padding-right: 2%;
@@ -114,7 +114,7 @@ const BottomAddressContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	left: 4%;
-	top: 52%;
+	top: 48%;
 
 	display: flex;
 	align-items: center;
@@ -129,7 +129,7 @@ const OptionContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	left: 4%;
-	top: 66%;
+	top: 60%;
 
 	display: flex;
 	align-items: center;
