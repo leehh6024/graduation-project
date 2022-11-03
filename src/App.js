@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { GlobalContextProvider } from "./common/context/store.js";
 import { createGlobalStyle } from "styled-components";
 import { HashRouter as BrowserRouter } from "react-router-dom";
 import Router from "./router.js";
-import { BrowserView, MobileView } from "react-device-detect";
 
 const GlobalStyle = createGlobalStyle`
   //height: calc(constant(safe-area-inset-top) - constant(safe-area-inset-bottom));
@@ -72,23 +71,12 @@ const GlobalStyle = createGlobalStyle`
 export default function App() {
 	return (
 		<>
-			<BrowserView>
-				<GlobalContextProvider>
-					<BrowserRouter>
-						<GlobalStyle />
-						<Router />
-					</BrowserRouter>
-				</GlobalContextProvider>
-			</BrowserView>
-
-			<MobileView>
-				<GlobalContextProvider>
-					<BrowserRouter>
-						<GlobalStyle />
-						<Router />
-					</BrowserRouter>
-				</GlobalContextProvider>
-			</MobileView>
+			<GlobalContextProvider>
+				<BrowserRouter>
+					<GlobalStyle />
+					<Router />
+				</BrowserRouter>
+			</GlobalContextProvider>
 		</>
 	);
 }

@@ -1,10 +1,4 @@
-import React, {
-	useState,
-	useEffect,
-	useCallback,
-	useContext,
-	useRef,
-} from "react";
+import React, { useState, useEffect, useCallback, useContext, useRef } from "react";
 
 import GlobalContext, { kakao } from "../../../common/context/store";
 import { API } from "../../../service.js";
@@ -14,13 +8,6 @@ import styled from "styled-components";
 var container, options, map;
 
 export default function Location() {
-	function setScreenSize() {
-		let vh = window.innerHeight * 0.01;
-		document.documentElement.style.setProperty("--vh", `${vh}px`);
-	}
-	useEffect(() => {
-		setScreenSize();
-	});
 	const { state, setState, globalRef } = useContext(GlobalContext);
 	const [issueList, setIssueList] = useState([]);
 	const userLocation = useRef({ lat: 0, lng: 0 });
@@ -73,11 +60,7 @@ export default function Location() {
 				image: markerImage,
 			});
 
-			kakao.maps.event.addListener(
-				marker,
-				"click",
-				bottomSheetOpen(issueList[i])
-			);
+			kakao.maps.event.addListener(marker, "click", bottomSheetOpen(issueList[i]));
 		}
 		console.log("7. 마커 표시완료");
 	}, [issueList]);
@@ -131,19 +114,17 @@ export default function Location() {
 	}, []);
 
 	return (
-		<>
+		<MapContainer>
+			<div id="map"></div>
 			<div>
-				<div id="map"></div>
-				<div>
-					{/* 나중에 onCLick 함수 원래대로 돌려놓기 */}
-					<StyleSetUserLocationCenterBtn
-						onClick={() =>
-							setUserCenter(userLocation.current.lat, userLocation.current.lng)
-						}
-					/>
-				</div>
+				{/* 나중에 onCLick 함수 원래대로 돌려놓기 */}
+				<StyleSetUserLocationCenterBtn
+					onClick={() =>
+						setUserCenter(userLocation.current.lat, userLocation.current.lng)
+					}
+				/>
 			</div>
-		</>
+		</MapContainer>
 	);
 }
 
@@ -155,4 +136,10 @@ const StyleSetUserLocationCenterBtn = styled(SetUserLocationCenterBtn)`
 	margin: auto;
 	width: 12%;
 	height: 11%;
+`;
+
+const MapContainer = styled.div`
+	position: relative;
+	left: 0px;
+	top: 0px;
 `;

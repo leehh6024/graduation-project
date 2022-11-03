@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import GlobalContext from "../../common/context/store.js";
-import UserTab from "../main/components/UserTab.jsx";
-import { ReactComponent as UserTabBtn } from "../../assets/Hamburger.svg";
+import GlobalContext from "../../../common/context/store.js";
+import UserTab from "../../main/components/UserTab";
+import { ReactComponent as UserTabBtn } from "../../../assets/Hamburger.svg";
 
 export default function CommunitySearch() {
 	const { state, setState } = useContext(GlobalContext);

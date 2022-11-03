@@ -22,7 +22,6 @@ export default function EnvironmentPage() {
 	return (
 		<>
 			<EnvironmentPageContainer>
-				{state.usertab && <UserTab />}
 				<EnvironmentHeader>
 					<StyledUserTabBtn onClick={openUserTab} />
 					환경정보

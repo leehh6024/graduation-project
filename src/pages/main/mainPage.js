@@ -10,6 +10,7 @@ import Map from "./components/Map.jsx";
 import Search from "./components/Search.jsx";
 import Temp from "../../pages/temp/Temp.js";
 import IssuePointSmallImage from "./components/IssuePointSmallImage.js";
+import styled from "styled-components";
 
 export default function Main() {
 	const { state, setState } = useContext(GlobalContext);
@@ -21,39 +22,30 @@ export default function Main() {
 	}
 
 	return (
-		<>
-			<div className="mainpage">
-				<Search />
-				<Map />
-				<Link to="/issue">
-					{/* <StyledIssueUploadBtn width="96" height="96" /> */}
-					<img className="btn-issue" src="/issue-button.png" />
-				</Link>
-				<BottomSheet
-					open={state.sheet}
-					onDismiss={onDismiss}
-					snapPoints={({ maxHeight }) => [0.28 * maxHeight]}
-					blocking={false}
-					expandOnContentDrag={true}
-				>
-					<Temp />
-				</BottomSheet>
-				<Link to="/issueinfo">
-					<IssuePointSmallImage />
-				</Link>
-			</div>
-		</>
+		<MainContainer>
+			<Search />
+			<Map />
+			<Link to="/issue">
+				{/* <StyledIssueUploadBtn width="96" height="96" /> */}
+				<img className="btn-issue" src="/issue-button.png" />
+			</Link>
+			<BottomSheet
+				open={state.sheet}
+				onDismiss={onDismiss}
+				snapPoints={({ maxHeight }) => [0.28 * maxHeight]}
+				blocking={false}
+				expandOnContentDrag={true}
+			>
+				<Temp />
+			</BottomSheet>
+			<Link to="/issueinfo">
+				<IssuePointSmallImage />
+			</Link>
+		</MainContainer>
 	);
 }
 
-// const StyledIssueUploadBtn = styled(IssueUploadBtn)`
-// 	position: absolute;
-// 	z-index: 4;
-// 	width: 96px;
-// 	height: 96px;
-// 	left: 50%;
-// 	bottom: 0%;
-// 	transform: translate(-50%, -100%);
-// 	border-radius: 50px;
-// 	box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-// `;
+const MainContainer = styled.div`
+	top: 0px;
+	left: 0px;
+`;

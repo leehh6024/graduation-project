@@ -33,61 +33,42 @@ export default function UserTab() {
 
 	return (
 		<div>
-			{state && (
+			{state.usertab && (
 				<>
-					{visible ? (
-						<UserTabContainer>
-							<UserProfileImage>
-								<UserProfile />
-							</UserProfileImage>
+					<UserTabContainer>
+						<UserProfileImage>
+							<UserProfile />
+						</UserProfileImage>
 
-							<UserToolbar>
-								<MyIssue />
-								<MyPost />
-								<MyBookmark />
-								<Settings />
-							</UserToolbar>
+						<UserToolbar>
+							<MyIssue />
+							<MyPost />
+							<MyBookmark />
+							<Settings />
+						</UserToolbar>
 
-							<hr
-								style={{
-									position: "absolute",
-									width: "270px",
-									top: "235px",
-									border: "1px solid #f5f5f5",
-								}}
-							/>
+						<hr
+							style={{
+								position: "absolute",
+								width: "270px",
+								top: "235px",
+								border: "1px solid #f5f5f5",
+							}}
+						/>
 
-							<Category />
-						</UserTabContainer>
-					) : (
-						<UserTabContainerClose>
-							<UserProfileImage>
-								<UserProfile />
-							</UserProfileImage>
-
-							<UserToolbar>
-								<MyIssue />
-								<MyPost />
-								<MyBookmark />
-								<Settings />
-							</UserToolbar>
-							<hr
-								style={{
-									position: "absolute",
-									width: "270px",
-									top: "235px",
-									border: "1px solid #f5f5f5",
-								}}
-							/>
-							<Category />
-						</UserTabContainerClose>
-					)}
+						<Category />
+					</UserTabContainer>
 					<CloseUserTab onClick={closeUserTab} />
 				</>
 			)}
 		</div>
 	);
 }
+
+const NavContainer = styled.div`
+	position: absolute;
+	z-index: 0;
+`;
 
 const moveright = keyframes`
 	0% {
@@ -97,17 +78,17 @@ const moveright = keyframes`
 		left: 0%;
 	}
 `;
-const moveleft = keyframes`
-	0% {
-		left: 0%;
-	}
-	100% {
-		left: -100%;
-	}
-`;
+// const moveleft = keyframes`
+// 	0% {
+// 		left: 0%;
+// 	}
+// 	100% {
+// 		left: -100%;
+// 	}
+// `;
 const UserTabContainer = styled.div`
 	position: absolute;
-	z-index: 7;
+	z-index: 100;
 	width: 270px;
 	height: 100%;
 	background: white;
@@ -122,13 +103,12 @@ const UserTabContainerClose = styled.div`
 	left: 0px;
 	top: 0px;
 	background: white;
-
-	animation: ${moveleft} 0.4s;
 `;
+// animation: ${moveleft} 0.4s;
 
 const CloseUserTab = styled.div`
 	position: absolute;
-	z-index: 6;
+	z-index: 90;
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.25);

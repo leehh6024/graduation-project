@@ -2,17 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import ContentsList from "./components/ContentsList.js";
-import "./Quest.css";
 
-export default function Quest() {
+export default function QuestTab() {
 	return (
 		<>
 			<QuestPage>
 				<ContentsList tab="quest" />
 			</QuestPage>
-			<Link to="/upload">
-				<img className="btn-addQuest" src="/community/btn-addQuest.png" />
-			</Link>
 		</>
 	);
 }

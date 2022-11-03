@@ -10,7 +10,6 @@ export default function GuidePage() {
 
 	return (
 		<GuidePageContainer>
-			{state.usertab && <UserTab />}
 			<GuideList />
 		</GuidePageContainer>
 	);

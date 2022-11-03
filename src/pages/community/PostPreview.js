@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { getUserAddress } from "../../../../common/function/getUserAddress";
+import { getUserAddress } from "../../common/function/getUserAddress";
 
-export default function Contents() {
+export default function PostPreview({ data }) {
 	const [address, setAddress] = useState("");
 	const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ export default function Contents() {
 	};
 
 	return (
-		<ContentsContainer onClick={onPreviewClicked}>
+		<PostPreviewContainer onClick={onPreviewClicked}>
 			<ContentsImage>
 				<img src={data.image} alt="image" />
 			</ContentsImage>
@@ -34,34 +34,30 @@ export default function Contents() {
 				<img src="/brush.png" alt="brush" />
 				<span>{data.price}</span>
 			</ContentsBrush>
-		</ContentsContainer>
+		</PostPreviewContainer>
 	);
 }
 
-const ContentsContainer = styled.div`
-	position: relative;
+const PostPreviewContainer = styled.div`
+	position  : relative;
 	width: 100%;
-	height: 14vh;
+	height: 120px;
 	border-bottom: 1px solid #eeeeee;
-	margin-bottom: 2%;
+	padding 10px;
+	
 `;
 const ContentsImage = styled.div`
 	position: absolute;
-	left: 3%;
 	img {
 		width: 100px;
 		height: 100px;
+		border-radius: 5px;
 	}
 `;
 const ContentsTitle = styled.div`
 	position: absolute;
-	width: 100px;
-	left: 32%;
-	top: 34%;
-	display: flex;
-
-	border: 1px solid black;
-
+	left: 120px;
+	top: 50%;
 	font-weight: 700;
 	font-family: "Inter";
 	font-style: "regular";
@@ -70,8 +66,8 @@ const ContentsTitle = styled.div`
 `;
 const ContentsAddress = styled.div`
 	position: absolute;
-	left: 32%;
-	top: 18%;
+	left: 120px;
+	top: 30px;
 	display: flex;
 
 	font-weight: 400;
@@ -82,10 +78,13 @@ const ContentsAddress = styled.div`
 `;
 const ContentsBrush = styled.div`
 	position: absolute;
-	width: 10%;
-	height: 100px;
-	right: 3%;
+	width: 50px;
+	height: 80px;
+	top: 50%;
+	transform: translate(-30%, -50%);
+	right: 0px;
 	padding-top: 24px;
+	border-radius: 10px;
 
 	border: none;
 	background-color: #f5f6f8;
@@ -93,15 +92,17 @@ const ContentsBrush = styled.div`
 	img {
 		width: 28px;
 		height: 28px;
-
 		margin: auto;
-		margin-bottom: 20%;
+
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		vertical-align: bottom;
 	}
 	span {
+		width: 100%;
+		height: 50%;
+
 		margin: auto;
 		display: flex;
 		align-items: center;
