@@ -72,6 +72,20 @@ export const API = {
 		}
 	},
 
+	createPostTrade: async (inputData) => {
+		try {
+			const { data } = await TownCleanerAPI.post("/society/trade", inputData, {
+				headers: {
+					"Content-Type": "multipart/form-data",
+					"Access-Control-Allow-Origin": "*",
+				},
+			});
+			return data;
+		} catch (err) {
+			return { success: false, message: err.response.data.message, data: null };
+		}
+	},
+
 	serverLog: async () => {},
 };
 export async function serverLog(data) {

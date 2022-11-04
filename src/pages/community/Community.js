@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import GlobalContext from "../../common/context/store.js";
 import UserTab from "../main/components/UserTab.jsx";
 import CommunitySearch from "./components/CommunitySearch";
@@ -12,17 +13,19 @@ export default function Community() {
 	// only T, Q
 	const [activeTab, setActiveTab] = useState("Q");
 	const { state, setState } = useContext(GlobalContext);
+	const navigate = useNavigate();
 
+	const onUploadClicked = () => {
+		navigate("/upload", { state: { activeTab } });
+	};
 	return (
 		<CommunityContainer>
 			<CommunitySearch />
 			<Tab activeTab={activeTab} setActiveTab={setActiveTab} />
 			{activeTab == "Q" ? <QuestTab /> : <TradeTab />}
-			<Link to="/upload">
-				<AddPostButton>
-					<img className="btn-addQuest" src="/community/btn-addQuest.png" />
-				</AddPostButton>
-			</Link>
+			<AddPostButton onClick={onUploadClicked}>
+				<img className="btn-addQuest" src="/community/btn-addQuest.png" />
+			</AddPostButton>
 		</CommunityContainer>
 	);
 }

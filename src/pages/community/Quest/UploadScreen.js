@@ -4,6 +4,7 @@ import GlobalContext from "../../../common/context/store";
 import "./UploadScreen.css";
 import { API } from "../../../service.js";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import UploadAddButton from "./UploadAddButton.js";
 import UploadImage from "./UploadImage.js";
@@ -23,7 +24,8 @@ const UploadQuestBoard = styled.div`
 `;
 
 export default function UploadScreen() {
-	const { state, setState, globalRef } = useContext(GlobalContext);
+	const { globalRef } = useContext(GlobalContext);
+	const { state } = useLocation();
 
 	const [files, setFiles] = useState([]);
 	const [modal, setModal] = useState(false);
@@ -52,8 +54,13 @@ export default function UploadScreen() {
 		formData.append("lng", postQuest.location.lng);
 		formData.append("image", image);
 
-		const data = await API.createPostQuest(formData);
-		if (!data.success) alert(data.message);
+		if (state.activeTab == "Q") {
+			const data = await API.createPostQuest(formData);
+			if (!data.success) alert(data.message);
+		} else {
+			const data = await API.createPostTrade(formData);
+			if (!data.success) alert(data.message);
+		}
 	};
 
 	const onTitledChange = (e) => setTitle(e.target.value);
