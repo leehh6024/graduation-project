@@ -31,12 +31,7 @@ export default function ResolveAddButton({ onFileChange }) {
 		<Box>
 			<img src="/community/btn-upload-image.png" alt="plus-icon" />
 			<label htmlFor="riding-picture" />
-			<input
-				id="riding-picture"
-				type="file"
-				accept="image/jpg, image/png, image/jpeg"
-				onChange={onFileChange}
-			/>
+			<input id="riding-picture" type="file" onChange={onFileChange} />
 		</Box>
 	);
 }
