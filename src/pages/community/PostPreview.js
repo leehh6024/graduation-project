@@ -56,6 +56,8 @@ const ContentsImage = styled.div`
 `;
 const ContentsTitle = styled.div`
 	position: absolute;
+	width: 45%;
+	height: 47px;
 	left: 120px;
 	top: 50%;
 	font-weight: 700;
@@ -63,6 +65,7 @@ const ContentsTitle = styled.div`
 	font-style: "regular";
 	font-size: 16px;
 	color: #464646;
+	overflow: hidden;
 `;
 const ContentsAddress = styled.div`
 	position: absolute;
