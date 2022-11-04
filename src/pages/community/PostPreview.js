@@ -83,7 +83,8 @@ const ContentsBrush = styled.div`
 	top: 50%;
 	transform: translate(-30%, -50%);
 	right: 0px;
-	padding-top: 24px;
+	padding-top: 16px;
+
 	border-radius: 10px;
 
 	border: none;

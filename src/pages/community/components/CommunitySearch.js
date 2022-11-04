@@ -28,7 +28,7 @@ const CommunitySearchContainer = styled.div`
 	height: 40px;
 	top: 10px;
 
-	border-bottom: 2px solid #e5e5e5;
+	border-bottom: 3px solid #eeeeee;
 `;
 const CommunitySearchAddress = styled.div`
 	position: absolute;
@@ -44,7 +44,7 @@ const CommunitySearchAddress = styled.div`
 	font-weight: 700;
 	font-family: "Inter";
 	font-style: "bold";
-	font-size: 18px;
+	font-size: 16px;
 	color: #464646;
 `;
 const CommunitySearchButton = styled.div`

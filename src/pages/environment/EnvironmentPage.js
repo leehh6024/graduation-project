@@ -47,7 +47,7 @@ const EnvironmentHeader = styled.div`
 	width: 100%;
 	top: 6%;
 	padding-bottom: 4%;
-	border-bottom: 2px solid #eeeeee;
+	border-bottom: 3px solid #eeeeee;
 
 	display: flex;
 	justify-content: center;
