@@ -43,7 +43,7 @@ export default function Temp({ data }) {
 				</BottomSheetClass>
 
 				<BottomAddressContainer>{address}</BottomAddressContainer>
-				<OptionContainer>1분 전</OptionContainer>
+				<OptionContainer>2분 전</OptionContainer>
 				<Distance>
 					<img src="distance.png" />
 				</Distance>
