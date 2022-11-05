@@ -22,7 +22,6 @@ export const API = {
 			return { success: false, message: err.response.data.message, data: null };
 		}
 	},
-
 	getUserPointIssues: async (lat, lng) => {
 		try {
 			const { data } = await TownCleanerAPI.post("/issue", { lat, lng });
@@ -32,17 +31,15 @@ export const API = {
 			return { success: false, message: err.response.data.message, data: null };
 		}
 	},
-
 	getPostList: async (path, inputData) => {
 		try {
-			const { data } = await TownCleanerAPI.get(`society/${path}`, inputData);
+			const { data } = await TownCleanerAPI.get(`/society/${path}`, inputData);
 			return data;
 		} catch (err) {
 			//console.log(err.response.data.message);
 			return { success: false, message: err.response.data.message, data: null };
 		}
 	},
-
 	createIssue: async (inputData) => {
 		try {
 			const { data } = await TownCleanerAPI.post("/issue/create", inputData, {
@@ -57,7 +54,32 @@ export const API = {
 			return { success: false, message: err.response.data.message, data: null };
 		}
 	},
-
+	createPostQuest: async (inputData) => {
+		try {
+			const { data } = await TownCleanerAPI.post("/society/quest", inputData, {
+				headers: {
+					"Content-Type": "multipart/form-data",
+					"Access-Control-Allow-Origin": "*",
+				},
+			});
+			return data;
+		} catch (err) {
+			return { success: false, message: err.response.data.message, data: null };
+		}
+	},
+	createPostTrade: async (inputData) => {
+		try {
+			const { data } = await TownCleanerAPI.post("/society/trade", inputData, {
+				headers: {
+					"Content-Type": "multipart/form-data",
+					"Access-Control-Allow-Origin": "*",
+				},
+			});
+			return data;
+		} catch (err) {
+			return { success: false, message: err.response.data.message, data: null };
+		}
+	},
 	serverLog: async () => {},
 };
 export async function serverLog(data) {

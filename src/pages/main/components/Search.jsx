@@ -23,7 +23,6 @@ export default function Search() {
 					placeholder="검색어를 입력해주세요."
 				></SearchInput>
 			</SearchContainer>
-			{state.usertab && <UserTab />}
 		</>
 	);
 }
@@ -31,7 +30,7 @@ const SearchContainer = styled.div`
 	width: 92%;
 	height: 48px;
 	position: absolute;
-	z-index: 5;
+	z-index: 50;
 	left: 4%;
 	top: 4%;
 	display: grid;
@@ -45,8 +44,8 @@ const SearchContainer = styled.div`
 const SearchInput = styled.input`
 	position: absolute;
 	margin-left: 12%;
-	width: 84%;
-	height: 40px;
+	width: 80%;
+	height: 30px;
 	border: none;
 
 	font-size: 16px;

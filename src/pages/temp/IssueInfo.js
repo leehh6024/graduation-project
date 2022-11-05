@@ -18,7 +18,7 @@ export default function IssueInfo() {
 	const { state: globalState, setState } = useContext(GlobalContext);
 	const { state } = useLocation();
 	return (
-		<>
+		<IssueInfoContainer>
 			<Link to="/">
 				<BackBtn>
 					<img src="/community/btn-back.png" />
@@ -35,18 +35,18 @@ export default function IssueInfo() {
 			<IssueInfoTitle>
 				{globalState.selected[0].title
 					? globalState.selected[0].title
-					: "이슈에 대한 제목이 없어요."}
+					: "제목이 없는 이슈에요"}
 			</IssueInfoTitle>
 
 			<IssueAddress>{state.address}</IssueAddress>
 
 			<IssueClass>
 				{globalState.selected[0].category == 1 && "생활 폐기물"}
-				{globalState.selected[0].category == 2 && "불연성 건설폐기물"}
-				{globalState.selected[0].category == 3 && "가연성 건설폐기물"}
-				{globalState.selected[0].category == 4 && "혼합 건설폐기물"}
-				{globalState.selected[0].category == 5 && "사업장 일반폐기물"}
-				{globalState.selected[0].category == 0 && "폐기물 분류 없음"}
+				{globalState.selected[0].category == 2 && "사업장 일반폐기물"}
+				{globalState.selected[0].category == 3 && "혼합 건설폐기물"}
+				{globalState.selected[0].category == 4 && "불연성 건설폐기물"}
+				{globalState.selected[0].category == 5 && "가연성 건설폐기물"}
+				{globalState.selected[0].category == 100 && "폐기물 분류 없음"}
 			</IssueClass>
 			<LineBreak2 />
 			<IssueContents>{globalState.selected[0].body}</IssueContents>
@@ -65,7 +65,7 @@ export default function IssueInfo() {
 			<Comment>
 				<img src="comment.png" />
 			</Comment>
-		</>
+		</IssueInfoContainer>
 	);
 }
 
@@ -77,6 +77,12 @@ function Image(props) {
 	return <img src={img}></img>;
 }
 
+const IssueInfoContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	height: calc(var(--vh, 1vh) * 100);
+	background-color: white;
+`;
 const IssueInfoImage = styled.div`
 	width: 100%;
 	height: 40%;
@@ -95,7 +101,7 @@ const Brush = styled.div`
 
 	font-family: "Pretendard";
 	font-style: normal;
-	font-size: 22px;
+	font-size: 20px;
 	font-weight: 700;
 	line-height: 100%;
 	color: #464646;
@@ -127,7 +133,7 @@ const IssueAddress = styled.div`
 
 	font-family: "Pretendard";
 	font-style: Bold;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: 700;
 	line-height: 100%;
 	color: #999999;
@@ -178,16 +184,15 @@ const LineBreak = styled.div`
 	position: absolute;
 	width: 100%;
 	height: 0px;
-	top: 77%;
+	top: 74%;
 	border: 2px solid #f5f5f5;
 `;
 const UserProfile = styled.div`
     width: 100%
     height: 100%;
 	position: absolute;
-	top: 78%;
+	top: 76%;
 	left: 4%;
-	
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -206,7 +211,7 @@ const MoreContents = styled.div`
 	position: absolute;
 	margin: auto;
 	left: 6%;
-	top: 83%;
+	top: 82%;
 	width: 94%;
 	height: 3rem;
 

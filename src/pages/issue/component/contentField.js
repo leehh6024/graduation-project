@@ -4,6 +4,7 @@ import "./contentField.css";
 import GlobalContext, { kakao, geocoder } from "../../../common/context/store";
 
 const Content = styled.div`
+	width: auto%;
 	background-color: white;
 `;
 
@@ -42,7 +43,7 @@ export default function ContentInputField({ onTitledChange, onBodyChange }) {
 					type="text"
 					maxLength="50"
 					onChange={onTitledChange}
-					placeholder="제목을 입력해주세요."
+					placeholder="게시글 제목을 입력해주세요."
 				></input>
 			</div>
 			<hr className="line"></hr>

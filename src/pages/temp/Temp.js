@@ -28,22 +28,22 @@ export default function Temp({ data }) {
 				<BottomSheetTitle>
 					{state.selected[0].title
 						? state.selected[0].title
-						: "이슈에 대한 제목이 없어요."}
+						: "제목이 없는 이슈에요"}
 				</BottomSheetTitle>
 
 				<BottomSheetClass>
 					<IssueClass>
 						{state.selected[0].category == 1 && "생활 폐기물"}
-						{state.selected[0].category == 2 && "불연성 건설폐기물"}
-						{state.selected[0].category == 3 && "가연성 건설폐기물"}
-						{state.selected[0].category == 4 && "혼합 건설폐기물"}
-						{state.selected[0].category == 5 && "사업장 일반폐기물"}
-						{state.selected[0].category == 0 && "폐기물 분류 없음"}
+						{state.selected[0].category == 2 && "사업장 일반폐기물"}
+						{state.selected[0].category == 3 && "혼합 건설폐기물"}
+						{state.selected[0].category == 4 && "불연성 건설폐기물"}
+						{state.selected[0].category == 5 && "가연성 건설폐기물"}
+						{state.selected[0].category == 100 && "폐기물 분류 없음"}
 					</IssueClass>
 				</BottomSheetClass>
 
 				<BottomAddressContainer>{address}</BottomAddressContainer>
-				<OptionContainer>1분 전</OptionContainer>
+				<OptionContainer>2분 전</OptionContainer>
 				<Distance>
 					<img src="distance.png" />
 				</Distance>
@@ -52,7 +52,6 @@ export default function Temp({ data }) {
 		</>
 	);
 }
-
 const BottomSheetContainer = styled.div`
 	width: 100%;
 	height: 24vh;
@@ -81,7 +80,7 @@ const BottomSheetClass = styled.div`
 	width: 96%;
 	height: 20%;
 	left: 4%;
-	top: 22%;
+	top: 20%;
 
 	// border: 1px solid black;
 
@@ -92,7 +91,8 @@ const BottomSheetClass = styled.div`
 const IssueClass = styled.div`
 	position: relative;
 	width: auto;
-	height: 60%;
+	top: 24%;
+	height: 72%;
 	padding-left: 2%;
 	padding-right: 2%;
 
@@ -107,14 +107,14 @@ const IssueClass = styled.div`
 	font-family: "Pretendard";
 	font-style: regular;
 	font-weight: 400;
-	font-size: 12px;
+	font-size: 11px;
 	color: white;
 `;
 const BottomAddressContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	left: 4%;
-	top: 46%;
+	top: 48%;
 
 	display: flex;
 	align-items: center;
@@ -129,7 +129,7 @@ const OptionContainer = styled.div`
 	position: absolute;
 	width: 100%;
 	left: 4%;
-	top: 58%;
+	top: 60%;
 
 	display: flex;
 	align-items: center;
@@ -150,7 +150,7 @@ const IssueMore = styled.div`
 	width: 96%;
 	height: 22%;
 	left: 2%;
-	top: 66%;
+	top: 72%;
 
 	display: flex;
 	align-items: center;

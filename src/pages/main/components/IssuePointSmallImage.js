@@ -9,11 +9,9 @@ export default function IssuePointSmallImage() {
 	return (
 		<>
 			{state.sheet && (
-				<Link to="/issueinfo">
-					<IssueImage>
-						<img src={state.selected[0].img} width="100%" height="100%" />
-					</IssueImage>
-				</Link>
+				<IssueImage>
+					<img src={state.selected[0].img} width="100%" height="100%" />
+				</IssueImage>
 			)}
 		</>
 	);
@@ -37,7 +35,6 @@ const IssueImage = styled.div`
 	position: absolute;
 	left: 52%;
 	top: 52%;
-	margin: auto;
 
 	width: 44%;
 	height: 18%;

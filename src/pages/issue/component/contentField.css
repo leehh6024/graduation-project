@@ -1,7 +1,7 @@
 .issue-title {
     position: absolute;
-    left: 4.5%;
-    top: 44%;
+    left: 4%;
+    top: 42%;
     width: 100%;
 
     display: flex;
@@ -12,22 +12,22 @@
     font-family: Pretendard;
     font-weight: 700;
     font-style: normal;
-    line-height: 18px;
+    line-height: 14px;
     color: #6ac47a;
 }
 .input-title {
     position: absolute;
     left: 4%;
-    top: 47%;
-    width: 80%;
+    top: 44%;
+    width: 90%;
     border: none;
 
     display: flex;
-    align-items: left;
-    justify-content: left;
 
+    text-align: left;
     font-size: 20px;
     font-family: Pretendard;
+    font-style: bold;
     font-weight: 700;
     font-style: normal;
     color: #464646;
@@ -37,13 +37,13 @@
     width: 92%;
     height: 0px;
     left: 4%;
-    top: 50%;
+    top: 48%;
     border: 1px solid #f5f5f5;
 }
 .issue-position {
     position: absolute;
     left: 4%;
-    top: 53%;
+    top: 51%;
     width: 100%;
 
     display: flex;
@@ -60,14 +60,14 @@
 .position {
     position: absolute;
     left: 4%;
-    top: 56%;
+    top: 54%;
     width: 100%;
 
     display: flex;
     font-size: 12px;
     font-family: Pretendard;
     font-weight: 400;
-    font-style: normal;
+    font-style: regular;
     line-height: 18px;
     color: #464646;
 }
@@ -92,7 +92,7 @@
 .issue-point-category {
     position: absolute;
     left: 4%;
-    top: 60%;
+    top: 58%;
     width: 100%;
 
     display: flex;
@@ -111,13 +111,13 @@
     width: 92%;
     height: 0px;
     left: 4%;
-    top: 70%;
+    top: 72%;
     border: 1px solid #f5f5f5;
 }
 .content {
     position: absolute;
     left: 4%;
-    top: 72%;
+    top: 75%;
     width: 100%;
 
     display: flex;
@@ -134,7 +134,7 @@
 textarea {
     position: absolute;
     left: 4%;
-    top: 75%;
+    top: 78.5%;
     width: 90%;
     height: 12%;
 

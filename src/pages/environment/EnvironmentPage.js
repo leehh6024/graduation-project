@@ -17,12 +17,10 @@ export default function EnvironmentPage() {
 	const { state, setState } = useContext(GlobalContext);
 	function openUserTab() {
 		setState((prev) => ({ ...prev, usertab: true }));
-		console.log(state.usertab);
 	}
 
 	return (
 		<>
-			{state.usertab && <UserTab />}
 			<EnvironmentPageContainer>
 				<EnvironmentHeader>
 					<StyledUserTabBtn onClick={openUserTab} />
@@ -38,25 +36,18 @@ export default function EnvironmentPage() {
 		</>
 	);
 }
-
 const EnvironmentPageContainer = styled.div`
 	position: absolute;
 	width: 100%;
-	height: 85%;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
+	height: calc(var(--vh, 1vh) * 100);
 	background-color: white;
-	vertical-align: middle;
 `;
 const EnvironmentHeader = styled.div`
 	position: absolute;
 	width: 100%;
 	top: 6%;
 	padding-bottom: 4%;
-	border-bottom: 2px solid #eeeeee;
+	border-bottom: 3px solid #eeeeee;
 
 	display: flex;
 	justify-content: center;

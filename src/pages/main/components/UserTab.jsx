@@ -33,151 +33,42 @@ export default function UserTab() {
 
 	return (
 		<div>
-			{state && (
+			{state.usertab && (
 				<>
-					{visible ? (
-						<UserTabContainer>
-							<UserProfileImage>
-								<UserProfile />
-							</UserProfileImage>
+					<UserTabContainer>
+						<UserProfileImage>
+							<UserProfile />
+						</UserProfileImage>
 
-							<UserToolbar>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "34px",
-										height: "43px",
-										position: "absolute",
-										left: "30px",
-									}}
-								>
-									<MyIssue />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "26px",
-										height: "43px",
-										position: "absolute",
-										left: "84px",
-									}}
-								>
-									<MyPost />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "45px",
-										height: "43px",
-										position: "absolute",
-										left: "130px",
-									}}
-								>
-									<MyBookmark />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "45px",
-										height: "43px",
-										position: "absolute",
-										left: "195px",
-									}}
-								>
-									<Settings />
-								</button>
-							</UserToolbar>
+						<UserToolbar>
+							<MyIssue />
+							<MyPost />
+							<MyBookmark />
+							<Settings />
+						</UserToolbar>
 
-							<hr
-								style={{
-									position: "absolute",
-									width: "270px",
-									top: "235px",
-									border: "1px solid #f5f5f5",
-								}}
-							/>
+						<hr
+							style={{
+								position: "absolute",
+								width: "100%",
+								top: "235px",
+								border: "1px solid #f5f5f5",
+							}}
+						/>
 
-							<Category />
-						</UserTabContainer>
-					) : (
-						<UserTabContainerClose>
-							<UserProfileImage>
-								<UserProfile />
-							</UserProfileImage>
-
-							<UserToolbar>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "34px",
-										height: "43px",
-										position: "absolute",
-										left: "30px",
-									}}
-								>
-									<MyIssue />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "26px",
-										height: "43px",
-										position: "absolute",
-										left: "84px",
-									}}
-								>
-									<MyPost />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "45px",
-										height: "43px",
-										position: "absolute",
-										left: "130px",
-									}}
-								>
-									<MyBookmark />
-								</button>
-								<button
-									style={{
-										background: "white",
-										border: "none",
-										width: "45px",
-										height: "43px",
-										position: "absolute",
-										left: "195px",
-									}}
-								>
-									<Settings />
-								</button>
-							</UserToolbar>
-
-							<hr
-								style={{
-									position: "absolute",
-									width: "270px",
-									top: "235px",
-									border: "1px solid #f5f5f5",
-								}}
-							/>
-
-							<Category />
-						</UserTabContainerClose>
-					)}
+						<Category />
+					</UserTabContainer>
 					<CloseUserTab onClick={closeUserTab} />
 				</>
 			)}
 		</div>
 	);
 }
+
+const NavContainer = styled.div`
+	position: absolute;
+	z-index: 0;
+`;
 
 const moveright = keyframes`
 	0% {
@@ -187,21 +78,19 @@ const moveright = keyframes`
 		left: 0%;
 	}
 `;
-const moveleft = keyframes`
-	0% {
-		left: 0%;
-	}
-	100% {
-		left: -100%;
-	}
-`;
+// const moveleft = keyframes`
+// 	0% {
+// 		left: 0%;
+// 	}
+// 	100% {
+// 		left: -100%;
+// 	}
+// `;
 const UserTabContainer = styled.div`
 	position: absolute;
-	z-index: 7;
-	width: 270px;
+	z-index: 100;
+	width: 75%;
 	height: 100%;
-	left: 0px;
-	top: 0px;
 	background: white;
 
 	animation: ${moveright} 0.4s;
@@ -214,13 +103,12 @@ const UserTabContainerClose = styled.div`
 	left: 0px;
 	top: 0px;
 	background: white;
-
-	animation: ${moveleft} 0.4s;
 `;
+// animation: ${moveleft} 0.4s;
 
 const CloseUserTab = styled.div`
 	position: absolute;
-	z-index: 5;
+	z-index: 90;
 	width: 100%;
 	height: 100%;
 	background: rgba(0, 0, 0, 0.25);
@@ -234,13 +122,13 @@ const CloseUserTab = styled.div`
 const UserProfileImage = styled.div`
 	position: absolute;
 	z-index: 7;
-	width: 18%;
+	width: 22%;
 	height: 10%;
-	transform: translate(220%, 80%);
+	transform: translate(170%, 80%);
 	background: white;
 
 	margin: auto;
-	display: block;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
@@ -255,9 +143,17 @@ const UserProfileImage = styled.div`
 const UserToolbar = styled.div`
 	position: absolute;
 	z-index: 7;
-	width: 260px;
+	width: 100%;
 	height: 43px;
-	left: 0px;
 	top: 162px;
-	background: white;
+	padding-top: 10px;
+	padding-left: 25px;
+	padding-right: 15px;
+
+	grid-template-columns: 0.4fr 0.35fr 0.4fr 0.4fr;
+
+	margin: auto;
+	display: grid;
+	align-items: center;
+	justify-content: center;
 `;

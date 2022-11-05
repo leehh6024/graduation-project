@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { API } from "../../service.js";
 import { Link } from "react-router-dom";
 import "./component/contentField.css";
+
 import Preview from "./component/imagePreview";
 import ImageUploadButton from "./component/imageUploadButton";
 import ContentInputField from "./component/contentField";
@@ -96,12 +97,14 @@ export default function IssuePage() {
 			{modal && (
 				<>
 					<ModalContainer />
-					<Modal onClick={onModalClose}>
+					<Modal>
 						이슈 등록이
 						<br />
 						완료되었습니다.
 						<Link to="/">
-							<ReturnCommunityBtn>홈으로 돌아가기</ReturnCommunityBtn>
+							<ReturnCommunityBtn onClick={onModalClose}>
+								홈으로 돌아가기
+							</ReturnCommunityBtn>
 						</Link>
 					</Modal>
 				</>
@@ -112,17 +115,15 @@ export default function IssuePage() {
 
 const Issue = styled.div`
 	position: absolute;
-	width: 100%;
 	background-color: white;
-	min-height: 100vh;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
+	width: 100%;
+	height: calc(var(--vh, 1vh) * 100);
 `;
 const ReturnCommunityBtn = styled.div`
 	position: absolute;
 	width: 90%;
-	height: 20%;
-	top: 70%;
+	height: 25%;
+	top: 65%;
 	right: 5%;
 
 	border: none;
@@ -145,7 +146,7 @@ const ReturnCommunityBtn = styled.div`
 const ModalContainer = styled.div`
 	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: calc(var(--vh, 1vh) * 100);
 
 	display: flex;
 	background-color: grey;
@@ -155,9 +156,8 @@ const ModalContainer = styled.div`
 const Modal = styled.div`
 	position: absolute;
 	width: 60%;
-	height: 20%;
 	left: 50%;
-	top: 50%;
+	transform: translate(-50%, 200%);
 	padding-top: 4%;
 	padding-bottom: 16%;
 
@@ -168,7 +168,6 @@ const Modal = styled.div`
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	transform: translate(-50%, -55%);
 
 	font-family: "Pretendard";
 	font-style: normal;

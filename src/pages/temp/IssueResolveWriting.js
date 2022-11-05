@@ -37,7 +37,7 @@ export default function IssueResolveWriting() {
 	};
 
 	return (
-		<div>
+		<IssueResolveWritingContainer>
 			<Link to="/issueresolve">
 				<BackBtn>
 					<img src="/community/btn-back.png" />
@@ -50,7 +50,7 @@ export default function IssueResolveWriting() {
 				<div className="issue-resolve-title-content">
 					{state.selected[0].title
 						? state.selected[0].title
-						: "이슈에 대한 제목이 없어요."}
+						: "제목이 없는 이슈에요"}
 				</div>
 			</IssueResolveTitle>
 
@@ -108,10 +108,16 @@ export default function IssueResolveWriting() {
 					</Modal>
 				</>
 			)}
-		</div>
+		</IssueResolveWritingContainer>
 	);
 }
 
+const IssueResolveWritingContainer = styled.div`
+	position: absolute;
+	width: 100%;
+	height: calc(var(--vh, 1vh) * 100);
+	background-color: white;
+`;
 const ReturnCommunityBtn = styled.div`
 	position: absolute;
 	width: 90%;
@@ -144,7 +150,6 @@ const ModalContainer = styled.div`
 	background-color: grey;
 	opacity: 0.4;
 `;
-
 const Modal = styled.div`
 	position: absolute;
 	width: 60%;
@@ -183,7 +188,7 @@ const IssueResolveHeader = styled.div`
 	position: absolute;
 	display: inline-block;
 	margin: auto;
-	transform: translate(-50%, 150%);
+	transform: translate(-50%, 100%);
 	left: 50%;
 	top: 3%;
 	font-family: "Pretendard";
@@ -198,9 +203,8 @@ const IssueResolveTitle = styled.div`
 	display: grid;
 	margin: auto;
 	width: 100%;
-	height: 2%;
 	left: 3%;
-	top: 14%;
+	top: 13%;
 `;
 
 const IssueResolveImageContainer = styled.div`
@@ -227,11 +231,10 @@ const IssueResolveBoard = styled.div`
 const IssueCategoryContainer = styled.div`
 	position: absolute;
 	left: 3%;
-	top: 41%;
-	width: 100%;
-	height: 8%;
+	top: 46%;
+	width: 96%;
+	height: 20%;
 
-	display: flex;
 	margin: auto;
 	justify-content: left;
 	align-items: left;
@@ -241,14 +244,14 @@ const IssueResolveContainer = styled.div`
 	display: block;
 	margin: auto;
 	left: 3%;
-	top: 54%;
+	top: 64%;
 	width: 94%;
 `;
 const RegisterTrade = styled.div`
 	position: absolute;
 	margin: auto;
 	left: 3%;
-	top: 92%;
+	top: 90%;
 	width: 94%;
 
 	display: flex;

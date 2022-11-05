@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import GlobalContext from "../../../../common/context/store";
-import ContentPreview from "./Contents.js";
+import PostPreview from "../../PostPreview.js";
 import styled from "styled-components";
 import { API } from "../../../../service";
 
@@ -35,7 +35,7 @@ export default function ContentsList({ tab }) {
 		<>
 			<ContentsListContainer>
 				{postList.map((post) => (
-					<ContentPreview key={post.id} data={post} />
+					<PostPreview key={post.id} data={post} />
 				))}
 			</ContentsListContainer>
 		</>
@@ -43,7 +43,7 @@ export default function ContentsList({ tab }) {
 }
 
 const ContentsListContainer = styled.div`
+	top: 100px;
 	width: 100%;
-	height: 100%;
 	overflow: scroll;
 `;
