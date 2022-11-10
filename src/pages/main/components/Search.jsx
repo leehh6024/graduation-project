@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import UserTab from "./UserTab.jsx";
 import GlobalContext from "../../../common/context/store.js";
 import { useContext } from "react";
 import { ReactComponent as UserTabBtn } from "../../../assets/Hamburger.svg";
