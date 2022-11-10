@@ -52,7 +52,7 @@ export default function UserTab() {
 								position: "absolute",
 								width: "100%",
 								top: "235px",
-								border: "1px solid #f5f5f5",
+								border: "1px solid #f6f6f6",
 							}}
 						/>
 
