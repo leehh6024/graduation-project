@@ -49,7 +49,6 @@ function ImageUploadButton({ onUpload }) {
 			<Box className="Box">
 				<img
 					src="/photo.png"
-					alt="ss"
 					style={{
 						width: "210px",
 						height: "210px",
@@ -60,12 +59,7 @@ function ImageUploadButton({ onUpload }) {
 					}}
 				/>
 				<label htmlFor="button-upload"></label>
-				<input
-					id="button-upload"
-					type="file"
-					accept="image/jpg, image/png, image/jpeg"
-					onChange={onUpload}
-				/>
+				<input id="button-upload" type="file" onChange={onUpload} />
 			</Box>
 			<div className="info-text">이슈를 등록해 주세요</div>
 			<div className="info-text2">촬영시 물체가 겹치지 않도록 촬영해주세요</div>

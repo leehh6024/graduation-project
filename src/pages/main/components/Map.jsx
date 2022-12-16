@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback, useContext, useRef } from "react";
+
 import GlobalContext, { kakao } from "../../../common/context/store";
 import { API } from "../../../service.js";
 import "./Map.css";
-
+import { ReactComponent as SetUserLocationCenterBtn } from "../../../assets/Set_User_Location_Center_Btn.svg";
+import styled from "styled-components";
 var container, options, map;
 
 export default function Location() {
@@ -14,7 +16,7 @@ export default function Location() {
 	useEffect(() => {
 		container = document.getElementById("map");
 		options = {
-			center: new kakao.maps.LatLng(37.454448442968726, 127.130440332797),
+			center: new kakao.maps.LatLng(37.453065999, 127.127247499),
 			level: 2,
 		};
 		map = new kakao.maps.Map(container, options);
@@ -25,8 +27,10 @@ export default function Location() {
 	const setUserLatLngbyGeolocation = useCallback(() => {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(function (position) {
-				userLocation.current.lat = position.coords.latitude;
-				userLocation.current.lng = position.coords.longitude;
+				userLocation.current.lat = 37.453065999;
+				userLocation.current.lng = 127.127247499;
+				// userLocation.current.lat = position.coords.latitude;
+				// userLocation.current.lng = position.coords.longitude;
 				console.log(
 					`2. 유저의 위치를 획득하였습니다 | lat : ${userLocation.current.lat}, lng : ${userLocation.current.lng}` +
 						` | 정확도 : ${position.coords.accuracy}`
@@ -45,7 +49,7 @@ export default function Location() {
 		const imageSize = new kakao.maps.Size(36, 36);
 
 		for (let i = 0; i < issueList.length; i++) {
-			const imageSrc = `/marker/locate${issueList[i].class}.png`;
+			const imageSrc = `/marker/locate${issueList[i].category}.png`;
 
 			const markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
 
@@ -96,11 +100,12 @@ export default function Location() {
 		const processedLocation = issuePointList.map((issuePoint) => {
 			return {
 				title: issuePoint.title,
-				class: issuePoint.class,
+				category: issuePoint.category,
 				latlng: new kakao.maps.LatLng(
-					Number(issuePoint.issueLocation.lat),
-					Number(issuePoint.issueLocation.lng)
+					Number(issuePoint.issueLoc.lat),
+					Number(issuePoint.issueLoc.lng)
 				),
+				location: issuePoint.issueLoc,
 				body: issuePoint.body,
 				img: issuePoint.imgUrl,
 			};
@@ -109,10 +114,32 @@ export default function Location() {
 	}, []);
 
 	return (
-		<>
+		<MapContainer>
+			<div id="map"></div>
 			<div>
-				<div id="map"></div>
+				{/* 나중에 onCLick 함수 원래대로 돌려놓기 */}
+				<StyleSetUserLocationCenterBtn
+					onClick={() =>
+						setUserCenter(userLocation.current.lat, userLocation.current.lng)
+					}
+				/>
 			</div>
-		</>
+		</MapContainer>
 	);
 }
+
+const StyleSetUserLocationCenterBtn = styled(SetUserLocationCenterBtn)`
+	z-index: 5;
+	position: absolute;
+	left: 3%;
+	top: 60%;
+	margin: auto;
+	width: 12%;
+	height: 11%;
+`;
+
+const MapContainer = styled.div`
+	position: relative;
+	left: 0px;
+	top: 0px;
+`;

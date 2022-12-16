@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-	position: absolute;
 	width: 100%;
-	height: 5vh;
-	top: 8%;
+	height: 45px;
+	margin-top: 50px;
 
 	display: flex;
 	justify-content: space-between;
 	font-weight: 700;
-	font-size: 18px;
+	font-size: 16px;
 `;
 const TabItem = styled.div`
 	padding: 4px;

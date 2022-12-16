@@ -13,20 +13,25 @@ import Community from "./pages/community/Community.js";
 import ContentsInfo from "./pages/community/Quest/ContentsInfo.js";
 import UploadScreen from "./pages/community/Quest/UploadScreen.js";
 import EnvironmentPage from "./pages/environment/EnvironmentPage.js";
+import Category from "./pages/main/components/Navigation/Category";
+import GuidePage from "./pages/guide/GuidePage.js";
+import SideNav from "./pages/main/components/Navigation/SideNav.jsx";
+import UserTab from "./pages/main/components/UserTab";
 
 const Container = styled.div`
-	position: relative;
+	position: absolute;
+	left: 0px;
+	top: 0px;
 	width: 100%;
-	min-height: 100vh;
+	height: calc(var(--vh, 1vh) * 100);
 	height: 100%;
 	margin: auto;
 	background-color: white;
-	box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-		rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 function Controller() {
 	const { globalRef } = useContext(GlobalContext);
+	const { state, setState } = useContext(GlobalContext);
 
 	useEffect(() => {
 		if (navigator.geolocation) {
@@ -36,8 +41,11 @@ function Controller() {
 			});
 		}
 	}, []);
+
 	return (
 		<Container>
+			{/* {state.usertab && <Category />} */}
+			<UserTab />
 			<Routes>
 				<Route path="/" element={<Main />} />
 				<Route path="/login" element={<Login />} />
@@ -49,6 +57,7 @@ function Controller() {
 				<Route path="/contentsinfo" element={<ContentsInfo />} />
 				<Route path="/upload" element={<UploadScreen />} />
 				<Route path="/environmentpage" element={<EnvironmentPage />} />
+				<Route path="/guidepage" element={<GuidePage />} />
 			</Routes>
 		</Container>
 	);

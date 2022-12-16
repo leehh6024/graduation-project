@@ -1,24 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function Info() {
+export default function Info(props) {
 	return (
 		<InfoContainer>
-			<InfoTitle>
-				금산무주권(||) 광역상수도 사업 전략환경영향평가서(초안) 공람 및
-				주민설명회 개최 공고
-			</InfoTitle>
-			<InfoDate>2022-10-21 | 조회수 8</InfoDate>
+			<InfoTitle>{props.text}</InfoTitle>
+			<InfoDate>{props.data}</InfoDate>
 		</InfoContainer>
 	);
 }
 
 const InfoContainer = styled.div`
-	position: absolute;
-	top: 22%;
+	position: relative;
 	width: 100%;
 	height: 90px;
 	border-bottom: 5px solid #eeeeee;
+	margin-bottom: 20px;
 `;
 
 const InfoTitle = styled.div`

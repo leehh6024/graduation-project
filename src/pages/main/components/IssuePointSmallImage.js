@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import GlobalContext from "../../../common/context/store";
 import { Link } from "react-router-dom";
 
@@ -9,29 +9,35 @@ export default function IssuePointSmallImage() {
 	return (
 		<>
 			{state.sheet && (
-				<Link to="/issueinfo">
-					<IssueImage>
-						<img src={state.selected[0].img} width="100%" height="100%" />
-					</IssueImage>
-				</Link>
+				<IssueImage>
+					<img src={state.selected[0].img} width="100%" height="100%" />
+				</IssueImage>
 			)}
 		</>
 	);
 }
+const move = keyframes`
+	0% {
+		top: 52%;
+		left: 100%;
+		opacity: 0;
+	}
+	100% {
+		left: 52%;
+		top: 52%;
+		opacity: 1;
+	}
+`;
 
 const IssueImage = styled.div`
-	z-index: 5;
+	animation: ${move} 0.6s;
+	z-index: 4;
 	position: absolute;
 	left: 52%;
 	top: 52%;
-	margin: auto;
-
-	transition: 0.1s;
-	&.active {
-		margin-left: 0%;
-	}
 
 	width: 44%;
 	height: 18%;
 	border: 2px solid white;
+	box-shadow: -10px -3px 10px 10px #0000001a;
 `;
