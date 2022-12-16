@@ -9,7 +9,6 @@ const TownCleanerAPI = axios.create({
 	headers: {
 		"Content-Type": "application/json",
 		"Access-Control-Allow-Origin": "*",
-		//	"ACCESS-TOKEN": getToken() ?? "",
 	},
 });
 
