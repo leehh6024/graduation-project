@@ -1,8 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import GlobalContext from "../../common/context/store.js";
-
-import UserTab from "../main/components/UserTab.jsx";
 import GuideList from "./GuideList.js";
 
 export default function GuidePage() {

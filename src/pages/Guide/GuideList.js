@@ -18,7 +18,6 @@ export default function GuideList() {
 				</GuideHeader>
 				<GuideInfoContainer>
 					<img src="/main/sideTab/guide_info.png" />
-					{/* <StyledGuideImg /> */}
 				</GuideInfoContainer>
 			</GuidePageContainer>
 		</>
