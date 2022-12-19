@@ -43,8 +43,23 @@ const PostPreviewContainer = styled.div`
 	width: 100%;
 	height: 120px;
 	border-bottom: 1px solid #eeeeee;
+<<<<<<< HEAD
 	padding 10px;
 	
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD:src/pages/community/Quest/components/Contents.js
+	margin-bottom: 6%;
+	cursor: pointer;
+=======
+	padding 10px;
+	
+>>>>>>> new_valun:src/pages/community/PostPreview.js
+=======
+	padding 10px;
+	
+>>>>>>> new_valun
+>>>>>>> main
 `;
 const ContentsImage = styled.div`
 	position: absolute;
@@ -111,7 +126,6 @@ const ContentsBrush = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		vertical-align: bottom;
 
 		font-family: Inter;
 		font-style: bold;
